@@ -1,0 +1,13 @@
+venv/
+.env
+db.sqlite3
+__pycache__/
+*.pyc
+media/
+*.xlsx
+*.xls
+*.log
+*.txt
+.gemini/
+.idea/
+.vscode/

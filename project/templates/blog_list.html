@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Forecastly.io - Market Intelligence Insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A3D62;
+            --accent: #42A5F5;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-600: #475569;
+            --gray-800: #1E293B;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAFBFC; color: var(--gray-800); line-height: 1.6; }
+        
+        .nav { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+        .brand { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .back-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: .2s; }
+        .back-link:hover { color: var(--primary); }
+
+        .hero { background: white; border-bottom: 1px solid var(--gray-200); padding: 4rem 2rem; text-align: center; }
+        .hero-inner { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .hero p { color: var(--gray-600); font-size: 1.1rem; }
+
+        .wrap { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; }
+        .sort-tabs { display: flex; gap: 4px; background: var(--gray-100); padding: 4px; border-radius: 12px; }
+        .sort-tab { padding: 0.5rem 1.2rem; border-radius: 9px; font-size: 0.85rem; font-weight: 600; cursor: pointer; color: var(--gray-600); text-decoration: none; transition: .2s; }
+        .sort-tab.active { background: white; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2rem; }
+        .blog-card { background: white; border: 1px solid var(--gray-200); border-radius: 20px; overflow: hidden; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 24px rgba(0,0,0,0.04); }
+        
+        .card-body { padding: 2rem; flex-grow: 1; }
+        .card-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
+        .card-title { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Space Grotesk', sans-serif; }
+        .card-excerpt { font-size: 0.95rem; color: var(--gray-600); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 1.5rem; }
+        
+        .card-footer { padding: 1.2rem 2rem; border-top: 1px solid var(--gray-100); background: #FAFBFC; }
+        .read-more { font-size: 0.9rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+        .read-more:after { content: '→'; transition: .2s; }
+        .read-more:hover:after { transform: translateX(4px); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="brand">Forecastly.io</a>
+            <a href="/" class="back-link">Back to Home →</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Market Intelligence Blog</h1>
+            <p>Expert analysis, research methodology insights, and data-driven perspectives on global market trends.</p>
+        </div>
+    </header>
+
+    <div class="wrap">
+        <div class="controls">
+            <h2 style="font-weight: 700; color: var(--primary); font-size: 1.8rem; font-family: 'Space Grotesk', sans-serif;">Insights</h2>
+            <div class="sort-tabs">
+                <a href="?sort=latest" class="sort-tab {% if sort == 'latest' or not sort %}active{% endif %}">Latest</a>
+                <a href="?sort=oldest" class="sort-tab {% if sort == 'oldest' %}active{% endif %}">Oldest</a>
+            </div>
+        </div>
+
+        <div class="blog-grid">
+            {% for blog in blogs %}
+                <article class="blog-card">
+                    <div class="card-body">
+                        <div class="card-meta">{{ blog.created_at|date:"M d, Y" }}</div>
+                        <h2 class="card-title">{{ blog.blog_title }}</h2>
+                        <p class="card-excerpt">{{ blog.blog_content|striptags|truncatechars:180 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/blog/{{ blog.slug }}/" class="read-more">Read Full Analysis</a>
+                    </div>
+                </article>
+            {% empty %}
+                <div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--gray-600);">
+                    No insights published yet. Check back soon.
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

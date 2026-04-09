@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forecastly.io | Market Size Estimates & Forecasts in Excel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#0A3D62;--primary-dark:#0A3D62;--accent:#42A5F5;--accent-hover:#1E88E5;--green:#16A34A;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-300:#CBD5E1;--gray-600:#475569;--gray-700:#334155;--gray-800:#1E293B;--white:#FFFFFF;--shadow-md:0 10px 15px -3px rgba(0,0,0,0.05);--shadow-lg:0 20px 25px -5px rgba(0,0,0,0.05);--radius-md:16px;--radius-xl:24px}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.5;overflow-x:hidden}
+.page{display:none}.page.active{display:block}
+.nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0 2rem}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:72px}
+.nav-brand{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.nav-icon{width:38px;height:38px;background:linear-gradient(135deg,#0A3D62,#0A3D62);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem}
+.nav-name{font-size:1.25rem;font-weight:700;color:var(--primary);letter-spacing:-.3px}
+.nav-name span{font-weight:400;color:var(--gray-600);font-size:.8rem;margin-left:4px}
+.nav-menu{display:flex;align-items:center;gap:.5rem}
+.nav-menu a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--gray-600);padding:.5rem 1rem;border-radius:40px;transition:.2s;cursor:pointer}
+.nav-menu a:hover{background:var(--gray-100);color:var(--primary)}
+.nav-menu .nav-cta{background:var(--primary);color:#fff;padding:.5rem 1.4rem;font-weight:600}
+.nav-menu .nav-cta:hover{background:var(--primary-dark)}
+@media(max-width:768px){.nav-menu a:not(.nav-cta){display:none}.nav{padding:0 1rem}}
+ 
+/* HERO */
+.hero{padding:5rem 2rem 4rem;background:linear-gradient(160deg,#F8FBFF 0%,#EEF4FB 40%,#E8F0FA 70%,#F5F8FC 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(66,165,245,0.1),transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-40%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,0,0,0),transparent 70%);border-radius:50%}
+.hero-inner{max-width:1300px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:center}
+.hero-content{max-width:640px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(13,71,161,0.08);border:1px solid #CBD5E1;padding:.5rem 1.3rem;border-radius:60px;font-size:.78rem;font-weight:600;color:#0A3D62;margin-bottom:1.5rem;letter-spacing:.5px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:3.1rem;font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#0A3D62;margin-bottom:1rem}
+.hero h1 .accent{color:#0A3D62}
+.hero-sub{font-size:1.05rem;color:#334155;margin-bottom:1.8rem;line-height:1.6}
+.hero-search-bar{position:relative;margin-bottom:1rem}
+.hero-search-bar input{width:100%;padding:1.15rem 1.6rem;padding-right:240px;border:2px solid #E2E8F0;border-radius:60px;font-size:1.05rem;font-family:'Inter',sans-serif;color:#0A3D62;background:#FFFFFF;transition:all .25s}
+.hero-search-bar input::placeholder{color:#94A3B8}
+.hero-search-bar input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(66,165,245,0.15)}
+.hero-search-bar button{position:absolute;right:5px;top:5px;bottom:5px;background:#0A3D62;color:white;border:none;padding:0 2rem;border-radius:60px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;box-shadow:0 4px 12px rgba(13,71,161,0.35)}
+.hero-search-bar button:hover{background:#0A3D62;box-shadow:0 6px 20px rgba(13,71,161,0.45)}
+.hero-hint{font-size:.78rem;color:#64748B;margin-bottom:2rem;padding-left:.5rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-bottom:0}
+.hero-stat{display:flex;flex-direction:column;align-items:center;padding:.8rem .5rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;text-align:center;transition:all .2s}
+.hero-stat:hover{background:#F8FAFC;border-color:#CBD5E1}
+.hero-stat-icon{font-size:1.2rem;margin-bottom:.3rem}
+.hero-stat-label{font-size:.72rem;font-weight:700;color:var(--primary);line-height:1.2}
+.hero-stat-sub{font-size:.6rem;color:var(--gray-600);margin-top:.15rem;font-weight:500}
+.excel-preview{background:var(--white);border-radius:20px;box-shadow:0 16px 40px rgba(13,71,161,0.12);overflow:hidden;transition:transform .3s}
+.excel-preview:hover{transform:translateY(-6px)}
+.preview-header{background:#1B7A3D;padding:.9rem 1.2rem;color:white;font-weight:600;font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
+.preview-tabs{display:flex;gap:0;margin:0;padding:0;background:#f1f5f9;border-bottom:1px solid var(--gray-200)}
+.preview-tab{padding:.5rem 1rem;font-size:.7rem;font-weight:600;color:var(--gray-600);border-bottom:2px solid transparent;cursor:default}
+.preview-tab.active{color:var(--primary);border-bottom-color:var(--primary);background:white}
+.table-wrapper{overflow-x:auto;padding:.4rem}
+.sample-table{width:100%;border-collapse:collapse;font-size:.68rem;font-family:'Inter',monospace}
+.sample-table th{background:#E9EDF2;padding:.55rem .4rem;text-align:center;font-weight:600;color:var(--gray-700);border-bottom:1px solid var(--gray-200)}
+.sample-table td{padding:.45rem .35rem;text-align:center;border-bottom:1px solid var(--gray-200);color:var(--gray-600)}
+.sample-table .region-row td:first-child{font-weight:600;color:var(--primary);text-align:left}
+.placeholder{color:#2C6E3C;font-weight:500}
+.preview-footer{background:#F2F4F8;padding:.7rem;text-align:center;font-size:.68rem;color:var(--gray-600);border-top:1px solid var(--gray-200)}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:2rem}.hero h1{font-size:2.3rem}.hero-stats{grid-template-columns:repeat(2,1fr)}.hero-search-bar input{padding-right:1.5rem;padding-bottom:3.5rem}.hero-search-bar button{right:5px;left:5px;top:auto;bottom:5px;border-radius:60px}}
+ 
+/* SECTIONS */
+.sec-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#0A3D62;margin-bottom:.5rem;text-align:center}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:600;color:var(--primary);text-align:center;margin-bottom:3rem}
+.how{padding:5rem 2rem;background:white}.how-inner{max-width:1200px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.step{text-align:center;padding:2rem 1.5rem;background:white;border-radius:var(--radius-xl);border:1px solid var(--gray-200);transition:.25s}
+.step:hover{border-color:#CBD5E1;box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.step-num{width:56px;height:56px;border-radius:28px;background:linear-gradient(135deg,#0A3D62,#0A3D62);color:white;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;margin-bottom:1.2rem}
+.step h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:.5rem}
+.step p{font-size:.9rem;color:var(--gray-600)}
+@media(max-width:768px){.steps{grid-template-columns:1fr}}
+.features{padding:5rem 2rem;background:var(--gray-50)}.feat-inner{max-width:1200px;margin:0 auto}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.feat-card{background:white;padding:1.8rem;border-radius:var(--radius-xl);border:1px solid var(--gray-200);transition:.2s}
+.feat-card:hover{border-color:#CBD5E1;box-shadow:var(--shadow-md)}
+.feat-card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:.5rem;margin-top:.8rem}
+.feat-card p{font-size:.85rem;color:var(--gray-600)}
+.feat-tags{display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap}
+.feat-tag{font-size:.65rem;font-weight:600;padding:.2rem .6rem;border-radius:40px;background:#F1F5F9;color:#0A3D62}
+@media(max-width:768px){.feat-grid{grid-template-columns:1fr}}
+.usecases{padding:5rem 2rem;background:white}.uc-inner{max-width:1200px;margin:0 auto}
+.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.uc-card{background:var(--gray-50);border-radius:var(--radius-md);padding:1.8rem;text-align:center;border:1px solid var(--gray-200);transition:.2s}
+.uc-card:hover{background:white;border-color:#CBD5E1;transform:translateY(-3px)}
+.uc-card h4{font-size:1rem;font-weight:700;color:var(--primary);margin:.8rem 0 .4rem}
+.uc-card p{font-size:.8rem;color:var(--gray-600)}
+@media(max-width:768px){.uc-grid{grid-template-columns:1fr 1fr}}
+.pricing-sec{padding:5rem 2rem;background:linear-gradient(160deg,#F5F8FC 0%,#EDF2F9 40%,#E8EFF8 70%,#F3F7FB 100%)}.pricing-inner{max-width:1100px;margin:0 auto}
+.price-how{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+.price-how-left{background:white;border-radius:var(--radius-xl);padding:2.2rem;border:1px solid var(--gray-200)}
+.price-how-right{display:flex;flex-direction:column;gap:1rem}
+.price-unit{display:flex;align-items:center;gap:1rem;background:white;border-radius:16px;padding:1.2rem 1.5rem;border:1px solid #E2E8F0;transition:.2s}
+.price-unit:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(21,101,192,0.06)}
+.price-unit-icon{font-size:1.6rem;flex-shrink:0}
+.price-unit-price{font-size:1.5rem;font-weight:800;color:var(--primary);min-width:60px}
+.price-unit-info{flex:1}
+.price-unit-title{font-size:.9rem;font-weight:700;color:var(--primary)}
+.price-unit-desc{font-size:.75rem;color:var(--gray-600);margin-top:.15rem;line-height:1.4}
+.price-cap{background:#F8FAFC;border-radius:var(--radius-xl);padding:1.5rem;border:1px solid #E2E8F0;position:relative}
+.price-cap-badge{position:absolute;top:-10px;left:20px;background:#0A3D62;color:white;font-size:.65rem;font-weight:700;padding:.25rem .8rem;border-radius:20px;letter-spacing:.5px}
+.price-cap-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--gray-100)}
+.price-cap-row:last-child{border-bottom:none}
+.price-examples{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:0}
+.price-ex{background:#FFFFFF;border-radius:16px;padding:1.4rem;border:1px solid #E2E8F0;text-align:center;transition:.2s}
+.price-ex:hover{border-color:#CBD5E1;transform:translateY(-2px)}
+.price-ex-scenario{font-size:.78rem;font-weight:600;color:var(--gray-700);margin-bottom:.5rem;min-height:2.4rem;display:flex;align-items:center;justify-content:center}
+.price-ex-price{font-size:1.8rem;font-weight:800;color:var(--primary)}
+.price-ex-math{font-size:.68rem;color:var(--gray-600);margin-top:.3rem}
+@media(max-width:768px){.price-how{grid-template-columns:1fr}.price-examples{grid-template-columns:1fr}}
+.pr-pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#0A3D62;color:white;font-size:.65rem;font-weight:700;padding:.25rem .8rem;border-radius:40px;white-space:nowrap}
+.pr-card h3{font-size:1.2rem;font-weight:700;color:var(--primary)}
+.pr-price{font-size:2.4rem;font-weight:800;color:var(--primary);margin:.5rem 0}
+.pr-price span{font-size:.9rem;font-weight:400;color:var(--gray-600)}
+.pr-desc{font-size:.85rem;color:var(--gray-600);margin-bottom:1rem}
+.pr-list{list-style:none;text-align:left;font-size:.8rem;color:var(--gray-700);margin-bottom:1.2rem}
+.pr-list li{padding:.3rem 0 .3rem 1.2rem;position:relative}
+.pr-list li::before{content:'✓';position:absolute;left:0;color:#0A3D62;font-weight:700}
+.pr-list li.no::before{content:'—';color:var(--gray-300)}.pr-list li.no{color:#94A3B8}
+.pr-cta{display:block;width:100%;padding:.75rem;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:60px;font-weight:600;font-size:.85rem;color:var(--primary);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.pr-cta:hover{background:#0A3D62;color:white;border-color:#0A3D62}
+.pr-card.pop .pr-cta{background:#0A3D62;color:white;border-color:#0A3D62}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr}}
+.dark-cta{background:#0A3D62;padding:5rem 2rem;text-align:center;color:white;margin-top:3rem}
+.dark-cta h2{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;color:#FFFFFF;margin-bottom:1rem}
+.dark-cta p{font-size:1.05rem;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 2rem;line-height:1.6}
+.dark-cta-btn{background:#FFFFFF;color:#0A3D62;border:none;padding:1rem 2.5rem;border-radius:60px;font-weight:700;font-size:1rem;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:1rem;transition:all .2s}
+.dark-cta-btn:hover{background:#F1F5F9;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+.dark-cta-note{font-size:.7rem;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:1px}
+.faq{padding:5rem 2rem;background:white}.faq-inner{max-width:700px;margin:0 auto}
+.faq-item{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:var(--radius-md);margin-bottom:1rem;overflow:hidden}
+.faq-q{padding:1rem 1.2rem;font-weight:600;font-size:.9rem;color:var(--primary);cursor:pointer;display:flex;justify-content:space-between}
+.faq-a{padding:0 1.2rem;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;font-size:.85rem;color:var(--gray-600)}
+.faq-item.open .faq-a{max-height:300px;padding:0 1.2rem 1rem}
+/* HOW IT WORKS PAGE */
+.hiw-hero{padding:4rem 2rem 3rem;background:linear-gradient(160deg,#F8FBFF,#EEF4FB,#F5F8FC);text-align:center}
+.hiw-hero h1{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:#0A3D62;margin-bottom:.8rem}
+.hiw-hero p{font-size:1.05rem;color:#475569;max-width:680px;margin:0 auto;line-height:1.6}
+.hiw-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+.hiw-section.alt-bg{background:#F8FAFC}
+.hiw-label{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#0A3D62;margin-bottom:.8rem;background:#E2E8F0;padding:.3rem .8rem;border-radius:30px}
+.hiw-section h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem}
+.hiw-section p{font-size:.92rem;color:#475569;line-height:1.65;margin-bottom:1rem}
+.hiw-steps{display:flex;flex-direction:column;gap:0;position:relative;margin:2rem 0}
+.hiw-steps::before{content:'';position:absolute;left:35px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#E2E8F0,#0A3D62,#E2E8F0);border-radius:3px}
+.hiw-step-card{display:flex;gap:1.5rem;align-items:flex-start;position:relative;padding:1.5rem 0}
+.hiw-step-num{width:72px;height:72px;border-radius:50%;background:#0A3D62;color:white;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;flex-shrink:0;position:relative;z-index:1;box-shadow:0 4px 12px rgba(10,61,98,0.15)}
+.hiw-step-body{flex:1;background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem 1.8rem;transition:.2s}
+.hiw-step-body:hover{border-color:#0A3D62;box-shadow:0 4px 16px rgba(10,61,98,0.06)}
+.hiw-step-body h3{font-size:1.1rem;font-weight:700;color:#0A3D62;margin-bottom:.4rem;font-family:'Space Grotesk',sans-serif}
+.hiw-step-body p{font-size:.88rem;color:#475569;line-height:1.6;margin-bottom:.6rem}
+.hiw-step-body .detail-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.hiw-step-body .detail-chip{font-size:.7rem;font-weight:600;padding:.3rem .7rem;border-radius:20px;background:#F1F5F9;color:#0A3D62;border:1px solid #E2E8F0}
+.hiw-step-body .tip{margin-top:.8rem;padding:.7rem .9rem;background:#F8FAFC;border-left:3px solid #0A3D62;border-radius:0 10px 10px 0;font-size:.8rem;color:#334155;line-height:1.5}
+.hiw-divider{text-align:center;padding:3rem 0;position:relative}
+.hiw-divider::before{content:'';position:absolute;left:10%;right:10%;top:50%;height:1px;background:#E2E8F0}
+.hiw-divider span{position:relative;background:white;padding:0 1.5rem;font-size:.75rem;font-weight:700;color:#0A3D62;letter-spacing:2px;text-transform:uppercase}
+.wyg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.wyg-card{background:white;border:1px solid #E2E8F0;border-radius:18px;padding:1.8rem;transition:.2s;position:relative;overflow:hidden}
+.wyg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#0A3D62,#42A5F5)}
+.wyg-card:hover{border-color:#0A3D62;box-shadow:0 6px 20px rgba(10,61,98,0.06);transform:translateY(-2px)}
+.wyg-card .wyg-icon{font-size:2rem;margin-bottom:.8rem}
+.wyg-card h3{font-size:1rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem}
+.wyg-card p{font-size:.82rem;color:#475569;line-height:1.6;margin-bottom:.5rem}
+.wyg-card .wyg-list{list-style:none;padding:0;margin:.5rem 0 0}
+.wyg-card .wyg-list li{font-size:.78rem;color:#334155;padding:.3rem 0;padding-left:1.2rem;position:relative;line-height:1.5}
+.wyg-card .wyg-list li::before{content:'';position:absolute;left:0;top:.55rem;width:6px;height:6px;border-radius:50%;background:#0A3D62}
+.wyg-excel-demo{background:white;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;margin:2rem 0;box-shadow:0 8px 24px rgba(10,61,98,0.05)}
+.wyg-excel-header{background:#0A3D62;padding:.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center}
+.wyg-excel-header span{color:white;font-size:.8rem;font-weight:600}
+.wyg-excel-tabs{display:flex;background:#F1F5F9;border-bottom:1px solid #E2E8F0}
+.wyg-excel-tab{padding:.5rem 1rem;font-size:.7rem;font-weight:600;color:#64748B;border-bottom:2px solid transparent}
+.wyg-excel-tab.active{color:#0A3D62;border-bottom-color:#0A3D62;background:white}
+.wyg-excel-body{padding:1rem;font-family:'Inter',monospace;font-size:.7rem}
+.wyg-excel-body table{width:100%;border-collapse:collapse}
+.wyg-excel-body th{background:#E9EDF2;padding:.4rem;text-align:center;font-weight:600;color:#334155;border:1px solid #E2E8F0;font-size:.65rem}
+.wyg-excel-body td{padding:.35rem;text-align:center;border:1px solid #E2E8F0;color:#0A3D62;font-weight:500;font-size:.65rem}
+.wyg-cta{text-align:center;padding:3rem 2rem;background:#0A3D62;color:white;margin-top:2rem}
+.wyg-cta h2{color:white;font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:.6rem}
+.wyg-cta p{color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-size:.95rem}
+.wyg-cta button{background:white;color:#0A3D62;border:none;padding:.9rem 2.5rem;border-radius:60px;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s}
+.wyg-cta button:hover{background:#F1F5F9;transform:translateY(-2px)}
+@media(max-width:768px){.wyg-grid{grid-template-columns:1fr}.hiw-step-num{width:52px;height:52px;font-size:1.1rem}.hiw-steps::before{left:25px}}
+ 
+/* METHODOLOGY PAGE */
+.meth-hero{padding:4rem 2rem 3rem;background:linear-gradient(160deg,#F8FBFF,#EEF4FB,#F5F8FC);text-align:center}
+.meth-hero h1{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:700;color:#0A3D62;margin-bottom:.8rem}
+.meth-hero p{font-size:1.05rem;color:#475569;max-width:700px;margin:0 auto;line-height:1.6}
+.meth-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+.meth-section.alt{background:#F8FAFC}
+.meth-section h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem}
+.meth-section h3{font-size:1.15rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem;margin-top:1.5rem}
+.meth-section p{font-size:.92rem;color:#475569;line-height:1.65;margin-bottom:1rem}
+.meth-label{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#0A3D62;margin-bottom:.8rem;background:#E2E8F0;padding:.3rem .8rem;border-radius:30px}
+.meth-db-card{background:#0A3D62;border-radius:20px;padding:2.5rem;color:white;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin:2rem 0}
+.meth-db-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.meth-db-stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:1.2rem;text-align:center}
+.meth-db-stat .num{font-size:2rem;font-weight:800;color:#fff}
+.meth-db-stat .lbl{font-size:.72rem;color:rgba(255,255,255,0.6);margin-top:.2rem}
+.meth-flow{display:flex;gap:0;align-items:stretch;margin:2rem 0;position:relative}
+.meth-flow::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:#E2E8F0;z-index:0}
+.meth-step{flex:1;background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem 1.2rem;text-align:center;position:relative;z-index:1;margin:0 .4rem;transition:.2s}
+.meth-step:hover{border-color:#0A3D62;box-shadow:0 4px 12px rgba(10,61,98,0.08)}
+.meth-step-num{width:36px;height:36px;background:#0A3D62;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;margin-bottom:.8rem}
+.meth-step h4{font-size:.85rem;font-weight:700;color:#0A3D62;margin-bottom:.4rem}
+.meth-step p{font-size:.75rem;color:#64748B;line-height:1.5;margin:0}
+.meth-approach{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0}
+.meth-approach-card{background:white;border:1px solid #E2E8F0;border-radius:20px;padding:2rem;position:relative;overflow:hidden}
+.meth-approach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#0A3D62}
+.meth-approach-card h3{margin-top:0}
+.meth-approach-card .tag{display:inline-block;font-size:.65rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;margin-bottom:1rem;letter-spacing:.5px}
+.meth-source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+.meth-source{background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center;transition:.2s}
+.meth-source:hover{border-color:#0A3D62}
+.meth-source .icon{font-size:1.8rem;margin-bottom:.5rem}
+.meth-source h4{font-size:.85rem;font-weight:700;color:#0A3D62;margin-bottom:.3rem}
+.meth-source p{font-size:.72rem;color:#64748B;margin:0;line-height:1.4}
+.meth-timeline{display:flex;gap:0;margin:2rem 0;position:relative}
+.meth-tl-step{flex:1;text-align:center;padding:1rem .8rem;position:relative}
+.meth-tl-step::after{content:'';position:absolute;top:24px;right:0;width:50%;height:2px;background:#E2E8F0}
+.meth-tl-step::before{content:'';position:absolute;top:24px;left:0;width:50%;height:2px;background:#E2E8F0}
+.meth-tl-step:first-child::before{display:none}
+.meth-tl-step:last-child::after{display:none}
+.meth-tl-dot{width:48px;height:48px;background:#0A3D62;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.6rem;position:relative;z-index:1}
+.meth-tl-step h4{font-size:.8rem;font-weight:700;color:#0A3D62}
+.meth-tl-step p{font-size:.68rem;color:#64748B;line-height:1.4}
+.meth-tl-time{font-size:.62rem;font-weight:700;color:#0A3D62;background:#E2E8F0;padding:.15rem .5rem;border-radius:20px;display:inline-block;margin-top:.3rem}
+.meth-qa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0}
+.meth-qa{background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center}
+.meth-qa .icon{font-size:1.5rem;margin-bottom:.4rem}
+.meth-qa h4{font-size:.8rem;font-weight:700;color:#0A3D62;margin-bottom:.3rem}
+.meth-qa p{font-size:.7rem;color:#64748B;margin:0;line-height:1.4}
+.meth-cta{text-align:center;padding:3rem 2rem;background:#0A3D62;color:white;margin-top:2rem}
+.meth-cta h2{color:white;font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:.6rem}
+.meth-cta p{color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-size:.95rem}
+.meth-cta button{background:white;color:#0A3D62;border:none;padding:.9rem 2.5rem;border-radius:60px;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s}
+.meth-cta button:hover{background:#F1F5F9;transform:translateY(-2px)}
+@media(max-width:768px){.meth-db-card{grid-template-columns:1fr}.meth-approach{grid-template-columns:1fr}.meth-source-grid{grid-template-columns:1fr}.meth-flow{flex-direction:column}.meth-flow::before{display:none}.meth-timeline{flex-direction:column}.meth-tl-step::before,.meth-tl-step::after{display:none}.meth-qa-grid{grid-template-columns:repeat(2,1fr)}}
+ 
+.footer{padding:2rem;text-align:center;border-top:1px solid var(--gray-200);font-size:.75rem;color:var(--gray-600)}
+.footer a{color:#42A5F5;text-decoration:none}
+ 
+/* PAGE 2: BUILDER */
+.region-group{margin-bottom:1rem;border-bottom:1px solid #F1F5F9;padding-bottom:.7rem}.region-group:last-of-type{border-bottom:none}
+.region-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.region-name{font-weight:700;font-size:.88rem;color:#334155}
+.select-all-btn{background:#F1F5F9;border:none;font-size:.65rem;font-weight:600;color:#0A3D62;cursor:pointer;padding:.2rem .6rem;border-radius:20px}
+.country-grid{display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+.country-check{display:flex;align-items:center;gap:.25rem;font-size:.78rem;background:#F8FAFC;padding:.15rem .55rem;border-radius:20px;cursor:pointer}
+.country-check:hover{background:#F8FAFC}
+.country-check.rest-tag{background:#F8FAFC;border:1px dashed #CBD5E1}
+.country-check input{accent-color:#0A3D62;width:14px;height:14px;cursor:pointer}
+.country-check label{cursor:pointer;color:#475569;font-size:.78rem}
+.chip{background:#F1F5F9;padding:.2rem .6rem;border-radius:30px;font-size:.7rem;display:inline-flex;align-items:center;gap:.35rem;font-weight:500;color:#0A3D62}
+.chip .rg{font-size:.55rem;color:#94A3B8}.chip .rm{cursor:pointer;font-size:.65rem;color:#94A3B8;font-weight:700}.chip .rm:hover{color:#DC2626}
+.segment-block{background:#F8FAFC;border-radius:12px;padding:.7rem .9rem;margin-bottom:.6rem;border-left:3px solid #0A3D62}
+.segment-block:hover{background:#F8FAFC}
+.seg-name{font-size:.78rem;font-weight:700;color:#0A3D62;text-transform:uppercase;letter-spacing:.3px;margin-bottom:.3rem}
+.segment-bullets{list-style:none;padding:0;margin:0}
+.segment-bullets li{font-size:.76rem;color:#475569;line-height:1.5;padding:.1rem 0 .1rem .9rem;position:relative}
+.segment-bullets li::before{content:'';position:absolute;left:0;top:.5rem;width:5px;height:5px;border-radius:50%;background:#0A3D62}
+.seg-empty{text-align:center;padding:1.5rem;color:#94A3B8;font-size:.82rem}
+.price-option{background:#FAFBFC;border:1.5px solid var(--gray-200);border-radius:14px;padding:.75rem .9rem;transition:.2s;cursor:pointer;position:relative}
+.price-option:hover{border-color:#0A3D62}
+.price-option.active{border:2px solid #0A3D62;background:#F8FAFC}
+.popular-badge{position:absolute;top:-8px;right:14px;background:var(--accent);color:#fff;font-size:.55rem;font-weight:700;padding:.12rem .5rem;border-radius:20px;text-transform:uppercase}
+.price-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
+.plan-name{font-weight:700;font-size:.92rem;color:var(--gray-800)}
+.price{font-weight:800;font-size:1.1rem;color:var(--primary)}
+.price-desc{font-size:.72rem;color:var(--gray-600)}
+.plan-features{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.25rem}
+.plan-feat-tag{font-size:.6rem;font-weight:500;padding:.12rem .4rem;border-radius:20px;background:#F8FAFC;color:var(--accent)}
+.plan-feat-tag.disabled{background:#F1F5F9;color:#CBD5E1;text-decoration:line-through}
+.pkg-btns{display:flex;gap:.4rem;margin-top:.6rem}
+.pkg-btn-demo{flex:1;padding:.45rem;border:none;border-radius:30px;font-size:.72rem;font-weight:700;color:white;background:#1E6F3F;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
+.pkg-btn-demo:hover{background:#176434}
+.pkg-btn-buy{flex:1;padding:.45rem;border:none;border-radius:30px;font-size:.72rem;font-weight:700;color:white;background:#0A3D62;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
+.pkg-btn-buy:hover{background:#0A3D62}
+.download-notice{margin-top:.5rem;padding:.4rem .6rem;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;font-size:.7rem;color:#166534;text-align:center;display:none}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+ 
+/* PAGE 3: DASHBOARD */
+.dash-layout{display:flex;min-height:100vh}
+.dash-sidebar{width:240px;background:#0A3D62;color:white;padding:1.5rem 0;flex-shrink:0;display:flex;flex-direction:column}
+.dash-sidebar-brand{padding:0 1.2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.dash-sidebar-brand .ds-icon{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:white}
+.dash-sidebar-brand .ds-name{font-size:1rem;font-weight:700}
+.dash-nav{list-style:none;flex:1}
+.dash-nav li{padding:.7rem 1.5rem;cursor:pointer;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.7);transition:.15s;display:flex;align-items:center;gap:.6rem;border-left:3px solid transparent}
+.dash-nav li:hover{background:rgba(255,255,255,.08);color:white}
+.dash-nav li.active{background:rgba(255,255,255,.12);color:white;border-left-color:var(--accent);font-weight:600}
+.dash-nav li .nav-emoji{font-size:1rem}
+.dash-main{flex:1;background:var(--gray-50);padding:2rem;overflow-y:auto}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.dash-header h1{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:600;color:var(--primary)}
+.dash-header-tag{background:white;border:1px solid var(--gray-200);padding:.4rem 1rem;border-radius:40px;font-size:.8rem;color:var(--gray-600)}
+.dash-section{display:none}.dash-section.active{display:block}
+.dash-card{background:white;border-radius:var(--radius-md);border:1px solid var(--gray-200);padding:1.5rem;margin-bottom:1.2rem}
+.dash-card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:1rem;display:flex;align-items:center;gap:.4rem}
+.order-row{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;border:1px solid var(--gray-200);border-radius:12px;margin-bottom:.6rem;flex-wrap:wrap;gap:.5rem}
+.order-id{font-weight:700;color:var(--primary);font-size:.9rem}
+.order-title{font-size:.82rem;color:var(--gray-700);flex:1;margin:0 1rem}
+.order-status{font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:20px}
+.order-status.pending{background:#E2E8F0;color:#0A3D62}
+.order-status.paid{background:#D1FAE5;color:#065F46}
+.order-price{font-weight:700;color:var(--accent);font-size:.95rem}
+/* Payment Modal */
+.pay-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,.65);backdrop-filter:blur(6px);z-index:400;display:flex;align-items:center;justify-content:center}
+.pay-box{background:white;border-radius:var(--radius-xl);padding:2rem;max-width:520px;width:92%;box-shadow:0 24px 48px rgba(0,0,0,.15)}
+.pay-box h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;color:var(--primary);margin-bottom:.3rem}
+.pay-box .pay-subtitle{font-size:.85rem;color:var(--gray-600);margin-bottom:1.5rem}
+.pay-summary{background:var(--gray-50);border-radius:12px;padding:1rem;margin-bottom:1.5rem;border:1px solid var(--gray-200)}
+.pay-summary-row{display:flex;justify-content:space-between;font-size:.85rem;padding:.25rem 0}
+.pay-summary-row.total{border-top:1px solid var(--gray-200);margin-top:.5rem;padding-top:.5rem;font-weight:700;font-size:1rem;color:var(--primary)}
+.pay-methods{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.5rem}
+.pay-method{border:2px solid var(--gray-200);border-radius:14px;padding:1rem;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:1rem}
+.pay-method:hover{border-color:var(--accent)}
+.pay-method.selected{border-color:var(--accent);background:#F8FAFC}
+.pay-method-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pay-method.selected .pay-method-radio{border-color:var(--accent)}
+.pay-method.selected .pay-method-radio::after{content:'';width:10px;height:10px;border-radius:50%;background:#0A3D62}
+.pay-method-info{flex:1}
+.pay-method-name{font-weight:700;font-size:.95rem;color:var(--gray-800)}
+.pay-method-desc{font-size:.75rem;color:var(--gray-600)}
+.pay-method-logo{font-size:1.8rem}
+.pay-btn{width:100%;padding:.9rem;border:none;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
+.pay-btn-primary{background:#0A3D62;color:white}
+.pay-btn-primary:hover{background:#0A3D62}
+.pay-btn-cancel{background:var(--gray-100);color:var(--gray-600);margin-top:.6rem;border:1px solid var(--gray-200)}
+.pay-btn-cancel:hover{background:var(--gray-200)}
+.pay-success{text-align:center;padding:2rem 1rem}
+.pay-success .check{width:64px;height:64px;border-radius:50%;background:#D1FAE5;display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1rem}
+@media(max-width:768px){.dash-sidebar{width:60px;overflow:hidden}.dash-nav li span:not(.nav-emoji){display:none}.dash-sidebar-brand .ds-name{display:none}.dash-sidebar-brand{padding:0 .8rem 1rem}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<div class="nav-brand" onclick="showPage('home')"><div class="nav-icon">F</div><div class="nav-name">Forecastly.io<span>| Market Intelligence</span></div></div>
+<div class="nav-menu"><a onclick="showPage('howitworks')">How It Works</a><a onclick="scrollToSec('price-sec')">Pricing</a><a onclick="showPage('methodology')">Behind the Numbers</a><a onclick="scrollToSec('faq-sec')">FAQ</a><a href="#">Blog</a><a class="nav-cta" onclick="startReport()">Get Started</a></div>
+</div></nav>
+<div id="page-home" class="page active">
+<div class="hero"><div class="hero-inner">
+<div class="hero-content">
+<div class="hero-badge">📊 Market Size Estimates & Forecasts in Excel</div>
+<h1>Analyst-verified <span class="accent">Excel datasheets</span> for any market — starting at $20</h1>
+<p class="hero-sub">13-country breakdowns, 3-level segmentation, and 10-year forecasts — validated by our research analysts and delivered to your inbox within 60 minutes. Preview the structure instantly with a free demo.</p>
+<div class="hero-search-bar">
+<input type="text" id="homeSearchInput" placeholder="Enter any market — e.g., Electric Vehicle Battery, AI in Healthcare ...">
+<button onclick="startReport()">Build Your Report →</button>
+</div>
+<div class="hero-hint">Try: Renewable Energy Storage, Cybersecurity, Digital Therapeutics, Semiconductor</div>
+<div class="hero-stats">
+<div class="hero-stat"><span class="hero-stat-icon">🔬</span><span class="hero-stat-label">Research-Backed</span><span class="hero-stat-sub">Primary + Secondary</span></div>
+<div class="hero-stat"><span class="hero-stat-icon">📐</span><span class="hero-stat-label">Source-Validated</span><span class="hero-stat-sub">Cross-Verified Data</span></div>
+<div class="hero-stat"><span class="hero-stat-icon">🛡️</span><span class="hero-stat-label">Analyst-Reviewed</span><span class="hero-stat-sub">Human QA Layer</span></div>
+<div class="hero-stat"><span class="hero-stat-icon">⏱️</span><span class="hero-stat-label">60-Min Delivery</span><span class="hero-stat-sub">Excel via Email</span></div>
+</div>
+</div>
+<div>
+<div class="excel-preview">
+<div class="preview-header"><span>📗 Sample Excel Output</span><span style="font-size:.7rem;opacity:.8">Forecastly.io</span></div>
+<div class="preview-tabs"><div class="preview-tab active">Global</div><div class="preview-tab">North America</div><div class="preview-tab">Europe</div><div class="preview-tab">Asia-Pacific</div><div class="preview-tab">...</div></div>
+<div class="table-wrapper"><table class="sample-table"><thead><tr><th colspan="8" style="background:#0A3D62;color:white;font-size:.72rem;padding:.6rem">Global Renewable Energy Storage Market, 2025–2033 (USD Million)</th></tr><tr><th>Region</th><th>2025</th><th>2027</th><th>2029</th><th>2031</th><th>2033</th><th>CAGR</th></tr></thead><tbody><tr class="region-row"><td>North America</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr><tr class="region-row"><td>Europe</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr><tr class="region-row"><td>Asia-Pacific</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr><tr class="region-row"><td>Latin America</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr><tr class="region-row"><td>MEA</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr><tr style="background:#F0F5FA;font-weight:700;color:#0A3D62"><td style="text-align:left">Total</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">xx.x</td><td class="placeholder">x.x%</td></tr></tbody></table></div>
+<div class="preview-footer">📥 Free demo available — download this exact structure instantly, no payment needed</div>
+</div>
+</div>
+</div></div>
+<section class="how" id="how-sec"><div class="how-inner"><div class="sec-label">Process</div><div class="sec-title">From insight to impact in three moves</div><div class="steps"><div class="step"><div class="step-num">1</div><h3>Describe your market</h3><p>Enter any market or niche — our engine structures the scope and generates smart segmentation for you.</p></div><div class="step"><div class="step-num">2</div><h3>Preview & customize</h3><p>Download a free demo Excel instantly to see the exact report structure. Then select your regions, countries, and data depth.</p></div><div class="step"><div class="step-num">3</div><h3>Analyst review & delivery</h3><p>Our in-house analysts verify the segmentation and validate market numbers. Your Excel report lands in your inbox within 60 minutes.</p></div></div></div></section>
+<section class="features" id="feat-sec"><div class="feat-inner"><div class="sec-label">Capabilities</div><div class="sec-title">Every dataset, engineered for decisions</div><div class="feat-grid"><div class="feat-card"><div style="font-size:2rem">📈</div><h3>Global Market Sizing</h3><p>TAM, CAGR, YoY with full 2025–2033 forecasts.</p><div class="feat-tags"><span class="feat-tag">TAM</span><span class="feat-tag">CAGR</span></div></div><div class="feat-card"><div style="font-size:2rem">🌍</div><h3>Regional & Country Data</h3><p>NA, Europe, APAC, LATAM, MEA + 50+ countries.</p><div class="feat-tags"><span class="feat-tag">5 Regions</span><span class="feat-tag">50+ Countries</span></div></div><div class="feat-card"><div style="font-size:2rem">🔬</div><h3>3-Level Segmentation</h3><p>Smart segmentation tailored to your market — auto-generated based on your report title with 3 layers of depth.</p><div class="feat-tags"><span class="feat-tag">Granular</span><span class="feat-tag">Intelligent</span></div></div><div class="feat-card"><div style="font-size:2rem">📊</div><h3>Excel Delivery</h3><p>Analyst-verified .xls workbook delivered to your inbox within 60 minutes of purchase.</p><div class="feat-tags"><span class="feat-tag">.XLS</span><span class="feat-tag">Analyst-Verified</span></div></div><div class="feat-card"><div style="font-size:2rem">📅</div><h3>Flexible Forecasts</h3><p>5Y, 7Y, or full horizon to 2033.</p><div class="feat-tags"><span class="feat-tag">5Y / 7Y / 10Y</span></div></div><div class="feat-card"><div style="font-size:2rem">💱</div><h3>Multi-Currency</h3><p>USD, EUR, GBP, JPY.</p><div class="feat-tags"><span class="feat-tag">Revenue</span><span class="feat-tag">Volume</span></div></div></div></div></section>
+<section class="usecases"><div class="uc-inner"><div class="sec-label">Who benefits</div><div class="sec-title">Trusted by decision-makers worldwide</div><div class="uc-grid"><div class="uc-card"><div style="font-size:2rem">🎯</div><h4>Strategy Teams</h4><p>Market entry, M&A, prioritization.</p></div><div class="uc-card"><div style="font-size:2rem">💼</div><h4>Consulting Firms</h4><p>Client deliverables, due diligence.</p></div><div class="uc-card"><div style="font-size:2rem">📊</div><h4>Product Leaders</h4><p>TAM/SAM for roadmaps.</p></div><div class="uc-card"><div style="font-size:2rem">🏦</div><h4>Investors & VCs</h4><p>Market sizing for theses.</p></div></div></div></section>
+<section class="pricing-sec" id="price-sec"><div class="pricing-inner"><div class="sec-label">Pricing</div><div class="sec-title">Pay only for what you need</div><p style="text-align:center;color:var(--gray-600);max-width:650px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.6">No fixed packages. Pick your scope — Global, any country, any region — and your price builds automatically. The more you add, the more you save.</p>
+ 
+<div class="price-how">
+<div class="price-how-left">
+<h3 style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:1.2rem">🏗️ Build Your Report</h3>
+<div style="display:flex;flex-direction:column;gap:1rem">
+<div style="display:flex;align-items:flex-start;gap:.8rem"><div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">1</div><div><div style="font-weight:700;font-size:.85rem;color:var(--primary)">Select your geography</div><div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Tick Global, individual countries, or full regions. Each item costs $20.</div></div></div>
+<div style="display:flex;align-items:flex-start;gap:.8rem"><div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">2</div><div><div style="font-weight:700;font-size:.85rem;color:var(--primary)">Add segmentation (optional)</div><div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Turn on 3-level segments for +$99 flat — applied across all your selected geographies.</div></div></div>
+<div style="display:flex;align-items:flex-start;gap:.8rem"><div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">3</div><div><div style="font-weight:700;font-size:.85rem;color:var(--primary)">Auto-cap saves you money</div><div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Select 10+ countries? Price auto-caps at $199. Add segments? Caps at $299. You never overpay.</div></div></div>
+</div>
+<div style="margin-top:1.5rem;background:#F8FAFC;border-radius:12px;padding:1rem;border:1px solid #CBD5E1">
+<div style="font-size:.75rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem">✨ Smart caps — the more you select, the more you save</div>
+<div style="font-size:.7rem;color:#0A3D62;line-height:1.7">Select 10+ countries and your total caps at <b>$199</b> — even if 17 countries would cost $340 individually. Add segmentation and the total caps at <b>$299</b> — instead of $199 + $99 = $298, or even higher for custom countries.</div>
+</div>
+</div>
+ 
+<div class="price-how-right">
+<div class="price-unit"><div class="price-unit-icon">🌐</div><div class="price-unit-price">$20</div><div class="price-unit-info"><div class="price-unit-title">Global Market Size</div><div class="price-unit-desc">Total worldwide market estimates, CAGR & forecasts</div></div></div>
+<div class="price-unit"><div class="price-unit-icon">🏳️</div><div class="price-unit-price">$20</div><div class="price-unit-info"><div class="price-unit-title">Per Country</div><div class="price-unit-desc">Market size + forecast for any country — US, China, Germany, etc.</div></div></div>
+<div class="price-unit"><div class="price-unit-icon">📊</div><div class="price-unit-price">+$99</div><div class="price-unit-info"><div class="price-unit-title">3-Level Segmentation</div><div class="price-unit-desc">Flat fee — segments applied at global, regional & country level</div></div></div>
+<div class="price-cap"><div class="price-cap-badge">AUTO-CAPS</div>
+<div class="price-cap-row"><div><div style="font-size:.82rem;font-weight:700;color:var(--primary)">10+ countries selected</div><div style="font-size:.68rem;color:var(--gray-600)">Price stops at $199, no matter how many</div></div><div style="font-size:1.1rem;font-weight:800;color:var(--primary)">$199</div></div>
+<div class="price-cap-row"><div><div style="font-size:.82rem;font-weight:700;color:var(--primary)">Countries + Segmentation</div><div style="font-size:.68rem;color:var(--gray-600)">Everything included, price stops at $299</div></div><div style="font-size:1.1rem;font-weight:800;color:var(--primary)">$299</div></div>
+</div>
+</div>
+</div>
+ 
+<div style="text-align:center;margin-bottom:1.5rem"><h3 style="font-size:1.15rem;font-weight:700;color:var(--primary)">See it in action</h3><p style="font-size:.85rem;color:var(--gray-600)">Here's what real configurations would cost:</p></div>
+<div class="price-examples">
+<div class="price-ex"><div class="price-ex-scenario">Only US market data</div><div class="price-ex-price">$20</div><div class="price-ex-math">1 country × $20</div></div>
+<div class="price-ex"><div class="price-ex-scenario">Global + US + segments</div><div class="price-ex-price">$139</div><div class="price-ex-math">$20 + $20 + $99</div></div>
+<div class="price-ex"><div class="price-ex-scenario">North America (2 countries)</div><div class="price-ex-price">$40</div><div class="price-ex-math">2 countries × $20</div></div>
+<div class="price-ex"><div class="price-ex-scenario">All 17 countries</div><div class="price-ex-price">$199</div><div class="price-ex-math">$340 → auto-capped</div></div>
+<div class="price-ex"><div class="price-ex-scenario">5 countries + segments</div><div class="price-ex-price">$199</div><div class="price-ex-math">$100 + $99</div></div>
+<div class="price-ex"><div class="price-ex-scenario">All countries + segments</div><div class="price-ex-price">$299</div><div class="price-ex-math">$199 + $99 → capped</div></div>
+</div>
+<div style="text-align:center;margin-top:2.5rem"><div style="background:var(--primary);color:white;display:inline-block;padding:.9rem 2.5rem;border-radius:60px;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s" onclick="startReport()" onmouseover="this.style.background='#0A3D62'" onmouseout="this.style.background='#0A3D62'">Build Your Report Now →</div><div style="font-size:.75rem;color:var(--gray-600);margin-top:.8rem">Free demo Excel available for every configuration</div></div>
+</div></section>
+<div class="dark-cta"><div style="max-width:800px;margin:0 auto"><h2>Your analyst-verified market report, delivered in 60 minutes.</h2><p>No RFPs. No 6-week timelines. No $5,000 invoices. Download a free demo Excel right now to see the exact report structure — no payment required. When you are ready, purchase and our analysts will validate every number before delivering the full report to your inbox. Questions about the data? Just email us.</p><button class="dark-cta-btn" onclick="startReport()">Download Free Demo Excel →</button><div class="dark-cta-note">FREE DEMO INSTANTLY · FROM $20/COUNTRY · AUTO-CAPS AT $199/$299 · ANALYST-VERIFIED</div></div></div>
+<section class="faq" id="faq-sec"><div class="faq-inner"><div class="sec-label">FAQ</div><div class="sec-title">Got questions? We have answers.</div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I see the report structure before paying? <span>+</span></div><div class="faq-a">Absolutely — and you do not need to pay anything. You can download a free demo Excel instantly for any market and any package configuration. The demo contains the exact same structure, formatting, sheets, and segmentation as the paid version — just with placeholder "xx.xx" values instead of real data. Review everything first, and purchase only when you are satisfied with the structure.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What will I receive after purchase? <span>+</span></div><div class="faq-a">Within 60 minutes of payment, you will receive a professionally structured .xls Excel file delivered to your registered email. Before delivery, our in-house analysts review the segmentation and validate the market numbers to ensure accuracy. The file includes multiple sheets — Home, Global, Regional, and Country-level tabs with full market sizing data and segment breakdowns. Note: You can also download a free demo Excel instantly before purchasing to preview the exact structure and layout.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Why does delivery take 60 minutes? <span>+</span></div><div class="faq-a">Unlike auto-generated reports, every Forecastly.io report goes through a human review layer. Our in-house research analysts reconfirm the segmentation structure, cross-check data sources, and validate the market numbers before the file reaches you. This ensures you get reliable, boardroom-ready data — not just raw outputs.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Which countries are included in the base price? <span>+</span></div><div class="faq-a">Every report includes 13 countries across 5 regions: US, Canada (North America), Germany, UK, France (Europe), China, Japan, India, South Korea (Asia-Pacific), Saudi Arabia, South Africa (MEA), Brazil, Mexico (Latin America) — plus "Rest of" aggregates for each region. Need more countries? Add them at $10/country (Professional) or $20/country (Enterprise).</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What payment methods do you accept? <span>+</span></div><div class="faq-a">We accept payments through Stripe (all major credit and debit cards, Apple Pay, Google Pay) and PayPal. All transactions are secure and encrypted. You will receive a payment confirmation and your unique report ID immediately after checkout. The report delivery begins right after payment is confirmed.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What if I have questions about the data after purchase? <span>+</span></div><div class="faq-a">We stand behind every report. If you have questions about any numbers, methodology, or data points in your delivered report, simply email us at support with your report ID. Our research team will review your query and respond with clarifications, additional context, or corrections if needed — at no extra cost.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How is the market segmentation generated? <span>+</span></div><div class="faq-a">Our engine analyzes your report title and generates 3 levels of segmentation tailored to that specific market. For example, an EV market report gets segmented by Vehicle Type, Component, and End-User — while a pharma report gets Drug Type, Therapeutic Area, and Distribution Channel. Before delivery, our analysts verify that the segmentation is appropriate and accurate for your market. Enterprise plans include segment data at global, regional, and country level.</div></div><div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the difference between Basic, Professional, and Enterprise? <span>+</span></div><div class="faq-a">There are no fixed packages. You build your own report — select Global ($20), add any countries ($20 each), and optionally turn on 3-level segmentation (+$99 flat). If you select 10+ countries, the price auto-caps at $199 — even if individual pricing would be higher. With segmentation, it caps at $299. You only pay for what you need, and the system automatically gives you the best price.</div></div></div></section>
+<footer class="footer">© 2026 Forecastly.io · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a></footer>
+</div>
+<!-- PAGE 2: BUILDER -->
+<div id="page-howitworks" class="page">
+<div class="hiw-hero">
+<div class="hiw-label">Your Journey</div>
+<h1>How It Works</h1>
+<p>From your first search to a fully validated Excel datasheet in your inbox — here's every step of the process, in detail.</p>
+</div>
+ 
+<div class="hiw-section">
+<div class="hiw-label">Step by step</div>
+<h2>Your Report, in 5 Simple Steps</h2>
+<p>Each step is designed to give you full control over what you get, at a price you choose — with zero lock-ins or hidden costs.</p>
+ 
+<div class="hiw-steps">
+ 
+<div class="hiw-step-card">
+<div class="hiw-step-num">1</div>
+<div class="hiw-step-body">
+<h3>Search any market</h3>
+<p>Type any market, industry, or niche into the search bar on our homepage. Our engine instantly recognizes the sector and prepares a structured report scope — no need to browse a catalog or fill out an inquiry form.</p>
+<p>You can search for anything: from broad sectors like "Renewable Energy" to ultra-specific niches like "Solid-State Battery for Electric Vehicles" or "AI-Powered Drug Discovery Platforms."</p>
+<div class="detail-chips">
+<span class="detail-chip">Any market or niche</span>
+<span class="detail-chip">No catalog browsing</span>
+<span class="detail-chip">Instant scope generation</span>
+</div>
+<div class="tip">Try searches like: "Electric Vehicle Battery Market", "Cybersecurity SaaS", "Digital Therapeutics", "Semiconductor Wafer"</div>
+</div>
+</div>
+ 
+<div class="hiw-step-card">
+<div class="hiw-step-num">2</div>
+<div class="hiw-step-body">
+<h3>Configure your report</h3>
+<p>Once inside the report builder, you get full control over every parameter. This is where you decide exactly what data you need — nothing more, nothing less.</p>
+<p><strong>Geography:</strong> Select the Global overview ($20), tick individual countries ($20 each), or select entire regions. We cover 17 countries across 5 regions — North America, Europe, Asia-Pacific, Middle East & Africa, and Latin America. Need a country not in the list? Add it as a custom entry.</p>
+<p><strong>Segmentation:</strong> Toggle on 3-level market segmentation (+$99 flat fee). Our engine auto-generates segment categories based on your market — for example, an EV report gets "By Vehicle Type", "By Component", and "By End-User". Segmentation data is applied at global, regional, and country level.</p>
+<p><strong>Forecast:</strong> Choose your base year (2024 or 2025) and forecast period — 5 years, 7 years, or the full horizon to 2033.</p>
+<p><strong>Metric & Currency:</strong> Select Revenue (USD/EUR/GBP/JPY Million), Volume (Units/Tons), or both. When you select both, each table appears twice — revenue first, then volume below it.</p>
+<div class="detail-chips">
+<span class="detail-chip">17 default countries</span>
+<span class="detail-chip">Custom country support</span>
+<span class="detail-chip">3-level segmentation</span>
+<span class="detail-chip">Multi-currency</span>
+<span class="detail-chip">Revenue + Volume</span>
+<span class="detail-chip">Up to 10Y forecast</span>
+</div>
+</div>
+</div>
+ 
+<div class="hiw-step-card">
+<div class="hiw-step-num">3</div>
+<div class="hiw-step-body">
+<h3>Preview with a free demo Excel</h3>
+<p>Before spending a single rupee, download a free demo Excel to see exactly what your report will look like. The demo contains the complete structure — every sheet, every table, every column — but with placeholder "xx.xx" values instead of actual data.</p>
+<p>This lets you verify that the report covers what you need: the right countries, the right segments, the right time horizon. If anything needs adjustment, change your configuration and download another demo — as many times as you want.</p>
+<div class="detail-chips">
+<span class="detail-chip">Instant download</span>
+<span class="detail-chip">No payment needed</span>
+<span class="detail-chip">Exact same structure as paid</span>
+<span class="detail-chip">Unlimited previews</span>
+</div>
+<div class="tip">The demo Excel is not a sample from a different market — it's generated from YOUR exact configuration, with your selected countries and segments.</div>
+</div>
+</div>
+ 
+<div class="hiw-step-card">
+<div class="hiw-step-num">4</div>
+<div class="hiw-step-body">
+<h3>Purchase securely</h3>
+<p>Happy with the structure? Hit "Buy Now" to complete your purchase. The pricing calculator shows your total in real-time as you configure, with no hidden fees.</p>
+<p><strong>How pricing works:</strong> Each country or Global = $20. Segmentation = +$99 flat. If you select 10+ countries, the price automatically caps at $199 — even if individual pricing would be higher. Add segmentation and it caps at $299. You always get the best possible price.</p>
+<p>We accept Stripe (all major credit/debit cards, Apple Pay, Google Pay) and PayPal. Your payment is confirmed instantly and you receive a unique Report ID for tracking.</p>
+<div class="detail-chips">
+<span class="detail-chip">Stripe & PayPal</span>
+<span class="detail-chip">Auto-cap at $199 / $299</span>
+<span class="detail-chip">No hidden fees</span>
+<span class="detail-chip">Instant confirmation</span>
+</div>
+</div>
+</div>
+ 
+<div class="hiw-step-card">
+<div class="hiw-step-num">5</div>
+<div class="hiw-step-body">
+<h3>Analyst review & delivery in 60 minutes</h3>
+<p>This is what sets us apart. After payment, your report doesn't get auto-generated and dumped into your inbox. Instead, our in-house research analysts take over:</p>
+<p><strong>Minutes 1–5:</strong> Our data engine pulls relevant estimates from the DataHorizzon Research repository — a library of 70,000+ syndicated reports across 200+ industry verticals.</p>
+<p><strong>Minutes 5–40:</strong> An analyst reviews the segmentation structure, validates the market numbers using top-down and bottom-up triangulation, checks country-level proportionality, and flags any anomalies for correction.</p>
+<p><strong>Minutes 40–55:</strong> The final Excel workbook is assembled with styled tables, branded formatting, source attribution, and CAGR calculations across all sheets.</p>
+<p><strong>Minute 60:</strong> The completed, analyst-verified Excel report lands in your inbox with your Report ID. You can also access it anytime from your client dashboard.</p>
+<div class="detail-chips">
+<span class="detail-chip">Human analyst review</span>
+<span class="detail-chip">70,000+ report database</span>
+<span class="detail-chip">Top-down + bottom-up</span>
+<span class="detail-chip">Email delivery</span>
+<span class="detail-chip">Dashboard access</span>
+</div>
+<div class="tip">Have questions about any number after delivery? Email us with your Report ID — our research team will respond with clarifications at no extra cost.</div>
+</div>
+</div>
+ 
+</div>
+</div>
+ 
+<!-- DIVIDER -->
+<div class="hiw-divider"><span>What you get</span></div>
+ 
+<!-- WHAT YOU GET -->
+<div class="hiw-section">
+<div class="hiw-label">Your deliverable</div>
+<h2>What's Inside Your Excel Report</h2>
+<p>Every report is a multi-sheet .xls workbook with structured data tables, styled formatting, and source attribution. Here's exactly what each section contains.</p>
+ 
+<div class="wyg-grid">
+ 
+<div class="wyg-card">
+<div class="wyg-icon">🏠</div>
+<h3>Home Sheet — Report Summary</h3>
+<p>The first sheet gives you a complete overview of your report configuration at a glance.</p>
+<ul class="wyg-list">
+<li>Report title and market description</li>
+<li>Selected countries and regions</li>
+<li>Forecast period and base year</li>
+<li>Metric (Revenue/Volume/Both) and currency</li>
+<li>Segmentation status and pricing summary</li>
+<li>Branded Forecastly.io header with report metadata</li>
+</ul>
+</div>
+ 
+<div class="wyg-card">
+<div class="wyg-icon">🌐</div>
+<h3>Global Sheet — Worldwide Market</h3>
+<p>The global overview of your market with total market size, regional breakdown, and segment analysis.</p>
+<ul class="wyg-list">
+<li>Global revenue line (base year through forecast)</li>
+<li>Region-by-region breakdown table (if countries selected)</li>
+<li>CAGR column for each row</li>
+<li>Segment tables (if segmentation is ON) — one per level</li>
+<li>Source attribution row below each table</li>
+</ul>
+</div>
+ 
+<div class="wyg-card">
+<div class="wyg-icon">🗺️</div>
+<h3>Regional Sheets — Country Breakdowns</h3>
+<p>One dedicated sheet for each region you selected, containing country-level granularity.</p>
+<ul class="wyg-list">
+<li>Regional total revenue/volume line</li>
+<li>Country-by-country table within that region</li>
+<li>Per-country segmentation tables (Enterprise)</li>
+<li>Custom countries appear alongside default countries</li>
+<li>Consistent formatting across all regional sheets</li>
+</ul>
+</div>
+ 
+<div class="wyg-card">
+<div class="wyg-icon">🔬</div>
+<h3>Segmentation — 3 Levels of Depth</h3>
+<p>When segmentation is enabled, you get three layers of market breakdown — tailored to your specific market.</p>
+<ul class="wyg-list">
+<li>Auto-generated based on your report title keywords</li>
+<li>Example: EV market → By Vehicle Type, By Component, By End-User</li>
+<li>Applied at global, regional, AND country level</li>
+<li>Each segment table includes items, yearly data, and CAGR</li>
+<li>Analyst-verified for relevance before delivery</li>
+</ul>
+</div>
+ 
+<div class="wyg-card">
+<div class="wyg-icon">📈</div>
+<h3>Revenue Data — Market Size in Currency</h3>
+<p>When Revenue is selected as your metric, every table shows market value in your chosen currency.</p>
+<ul class="wyg-list">
+<li>Available in USD, EUR, GBP, or JPY</li>
+<li>Values displayed in Millions (Billions for JPY)</li>
+<li>Year-by-year estimates from base year to forecast end</li>
+<li>CAGR calculated from base to final year</li>
+<li>Total row with aggregated figures</li>
+</ul>
+</div>
+ 
+<div class="wyg-card">
+<div class="wyg-icon">📦</div>
+<h3>Volume Data — Units & Tonnage</h3>
+<p>When Volume is selected, tables show physical quantities instead of currency — ideal for manufacturing and commodity markets.</p>
+<ul class="wyg-list">
+<li>Measured in Units or Tons (market-dependent)</li>
+<li>Same structure as revenue: yearly + CAGR</li>
+<li>When "Both" is selected: revenue table first, then volume table directly below — for every section</li>
+<li>Both metrics in one workbook, no separate files</li>
+</ul>
+</div>
+ 
+</div>
+ 
+<!-- EXCEL PREVIEW -->
+<h3 style="font-size:1.1rem;font-weight:700;color:#0A3D62;margin-top:2.5rem;margin-bottom:.5rem">Preview: What Your Excel Looks Like</h3>
+<p>Here's a snapshot of the actual structure you'll receive — with placeholder values replaced by real analyst-verified data after purchase.</p>
+ 
+<div class="wyg-excel-demo">
+<div class="wyg-excel-header"><span>Forecastly.io — Market Report</span><span style="font-size:.65rem;opacity:.7">.xls</span></div>
+<div class="wyg-excel-tabs">
+<div class="wyg-excel-tab active">Home</div>
+<div class="wyg-excel-tab">Global</div>
+<div class="wyg-excel-tab">North America</div>
+<div class="wyg-excel-tab">Europe</div>
+<div class="wyg-excel-tab">Asia-Pacific</div>
+<div class="wyg-excel-tab">LATAM</div>
+<div class="wyg-excel-tab">MEA</div>
+</div>
+<div class="wyg-excel-body">
+<table>
+<thead>
+<tr><th colspan="7" style="background:#0A3D62;color:white;font-size:.7rem;padding:.5rem">Global Renewable Energy Storage Market, 2025–2033 (USD Million)</th></tr>
+<tr><th>Region</th><th>2025</th><th>2027</th><th>2029</th><th>2031</th><th>2033</th><th>CAGR</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left;font-weight:600">North America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+<tr><td style="text-align:left;font-weight:600">Europe</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+<tr><td style="text-align:left;font-weight:600">Asia-Pacific</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+<tr><td style="text-align:left;font-weight:600">Latin America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+<tr><td style="text-align:left;font-weight:600">MEA</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+<tr style="background:#F0F5FA;font-weight:700"><td style="text-align:left">Total</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+</tbody>
+</table>
+<div style="margin-top:.6rem;font-size:.6rem;color:#94A3B8;font-style:italic">Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research</div>
+</div>
+</div>
+ 
+<!-- FORMATTING & STYLING -->
+<h3 style="font-size:1.1rem;font-weight:700;color:#0A3D62;margin-top:2.5rem;margin-bottom:.5rem">Excel Formatting & Styling</h3>
+<p>Every report is publication-ready — styled for boardrooms, investor decks, and client presentations.</p>
+ 
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0">
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.4rem">🎨</div><div style="font-size:.8rem;font-weight:700;color:#0A3D62">Branded Colors</div><div style="font-size:.7rem;color:#64748B;margin-top:.2rem">Navy headers, light blue accent rows, clean white data cells</div></div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.4rem">📐</div><div style="font-size:.8rem;font-weight:700;color:#0A3D62">Clean Grid</div><div style="font-size:.7rem;color:#64748B;margin-top:.2rem">Gridlines removed, thin borders, professional table structure</div></div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.4rem">🔤</div><div style="font-size:.8rem;font-weight:700;color:#0A3D62">Calibri Font</div><div style="font-size:.7rem;color:#64748B;margin-top:.2rem">Standard across all sheets for readability and print compatibility</div></div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.4rem">📎</div><div style="font-size:.8rem;font-weight:700;color:#0A3D62">Source Attribution</div><div style="font-size:.7rem;color:#64748B;margin-top:.2rem">Every table has a source row for audit trails and credibility</div></div>
+</div>
+ 
+</div>
+ 
+<!-- CTA -->
+<div class="wyg-cta">
+<h2>Ready to see it for yourself?</h2>
+<p>Download a free demo Excel for any market — instantly. No payment, no signup required.</p>
+<button onclick="startReport()">Build Your Report Now →</button>
+<div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">FREE DEMO INSTANTLY · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
+</div>
+ 
+<div class="footer">Forecastly.io · Market Size Estimates & Forecasts in Excel · &copy; 2026</div>
+</div>
+ 
+<div id="page-methodology" class="page">
+<div class="meth-hero">
+<div class="meth-label">Research Methodology</div>
+<h1>Behind the Numbers</h1>
+<p>Every datapoint in your Excel goes through a rigorous, multi-layered research process. Here's exactly how we turn raw intelligence into analyst-verified market estimates you can trust in boardrooms.</p>
+</div>
+ 
+<!-- DATA FOUNDATION -->
+<div class="meth-section">
+<div class="meth-label">Data Foundation</div>
+<h2>Powered by 70,000+ Research Reports</h2>
+<p>Every Forecastly.io estimate begins with DataHorizzon Research — our proprietary intelligence backbone with one of the largest repositories of syndicated market research in the industry.</p>
+ 
+<div class="meth-db-card">
+<div>
+<h3 style="color:white;font-size:1.3rem;margin-bottom:.8rem;font-family:'Space Grotesk',sans-serif">DataHorizzon Research Repository</h3>
+<p style="color:rgba(255,255,255,0.75);font-size:.9rem;line-height:1.6;margin-bottom:1rem">Our data engine draws from a continuously updated library of market intelligence spanning every major industry vertical — from semiconductors to pharmaceuticals, energy to fintech. This isn't scraped data or AI hallucinations. It's structured, source-validated research compiled by domain analysts over the past decade.</p>
+<p style="color:rgba(255,255,255,0.55);font-size:.78rem;line-height:1.5">Updated quarterly with new reports, revised forecasts, and expanded country coverage across all active sectors.</p>
+</div>
+<div class="meth-db-stats">
+<div class="meth-db-stat"><div class="num">70,000+</div><div class="lbl">Published Reports</div></div>
+<div class="meth-db-stat"><div class="num">200+</div><div class="lbl">Industry Verticals</div></div>
+<div class="meth-db-stat"><div class="num">50+</div><div class="lbl">Countries Covered</div></div>
+<div class="meth-db-stat"><div class="num">10Y</div><div class="lbl">Forecast Horizon</div></div>
+</div>
+</div>
+</div>
+ 
+<!-- DUAL APPROACH -->
+<div class="meth-section alt" style="max-width:100%;padding:4rem 2rem">
+<div style="max-width:1100px;margin:0 auto">
+<div class="meth-label">Estimation Approach</div>
+<h2>Top-Down Meets Bottom-Up</h2>
+<p>We don't rely on a single estimation method. Every market size figure is triangulated using two independent approaches — and only published when both converge within an acceptable variance range.</p>
+ 
+<div class="meth-approach">
+<div class="meth-approach-card">
+<div class="tag" style="background:#E2E8F0;color:#0A3D62">APPROACH 1</div>
+<h3>🔻 Top-Down Approach</h3>
+<p>Starts from the macro level and narrows down. We begin with the total industry output or global market value from established databases, then apply filters to isolate the specific market segment.</p>
+<p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:</p>
+<p style="font-size:.82rem">1. Begin with total industry revenue from government statistics, trade associations, and international bodies (World Bank, IMF, UN Comtrade)</p>
+<p style="font-size:.82rem">2. Apply segmentation ratios derived from industry reports to isolate the target market</p>
+<p style="font-size:.82rem">3. Use regional GDP contribution, industry concentration, and trade data to break down by geography</p>
+<p style="font-size:.82rem">4. Cross-reference with company financial disclosures, annual reports, and investor presentations for revenue benchmarks</p>
+<p style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62"><strong>Best for:</strong> Mature markets with established industry-level data. Provides the overall market ceiling and validates bottom-up estimates.</p>
+</div>
+ 
+<div class="meth-approach-card">
+<div class="tag" style="background:#E2E8F0;color:#0A3D62">APPROACH 2</div>
+<h3>🔺 Bottom-Up Approach</h3>
+<p>Starts from individual data points and builds upward. We aggregate company-level revenues, unit shipments, pricing data, and capacity utilization to construct the market from its components.</p>
+<p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:</p>
+<p style="font-size:.82rem">1. Identify all major and mid-tier players in the market using competitive intelligence databases</p>
+<p style="font-size:.82rem">2. Extract segment-specific revenue from annual reports, SEC filings, investor calls, and press releases</p>
+<p style="font-size:.82rem">3. Estimate private company revenues using employee count proxies, funding data, and market share intelligence</p>
+<p style="font-size:.82rem">4. Aggregate across all players, add tail-end estimates for smaller firms, and validate against import/export data</p>
+<p style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62"><strong>Best for:</strong> Emerging and fragmented markets. Provides granular accuracy and validates the top-down ceiling.</p>
+</div>
+</div>
+ 
+<div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;text-align:center;margin-top:1.5rem">
+<p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.4rem">🎯 Triangulation & Convergence</p>
+<p style="font-size:.82rem;color:#64748B;max-width:700px;margin:0 auto">Both approaches are run independently. If estimates converge within a 5-8% variance, the average is taken as the final figure. If variance exceeds this threshold, our analysts investigate the gap — checking for missing players, data anomalies, or structural market shifts — until the numbers align.</p>
+</div>
+</div>
+</div>
+ 
+<!-- DATA SOURCES -->
+<div class="meth-section">
+<div class="meth-label">Data Sources</div>
+<h2>Where Our Data Comes From</h2>
+<p>We combine six distinct categories of intelligence to ensure every estimate is grounded in verifiable, cross-referenced data — not assumptions.</p>
+ 
+<div class="meth-source-grid">
+<div class="meth-source"><div class="icon">📊</div><h4>Company Financials</h4><p>Annual reports, SEC filings, investor presentations, earnings transcripts from 10,000+ public companies globally</p></div>
+<div class="meth-source"><div class="icon">🏛️</div><h4>Government & Trade Data</h4><p>National statistics bureaus, customs data, UN Comtrade, World Bank, IMF, trade association publications</p></div>
+<div class="meth-source"><div class="icon">🔬</div><h4>Primary Research</h4><p>Interviews with C-suite executives, industry experts, supply chain managers, and domain specialists across sectors</p></div>
+<div class="meth-source"><div class="icon">📰</div><h4>Industry Publications</h4><p>Trade journals, white papers, conference proceedings, patent filings, and peer-reviewed research papers</p></div>
+<div class="meth-source"><div class="icon">💼</div><h4>Competitive Intelligence</h4><p>Product launches, M&A activity, partnerships, capacity expansions, pricing trends tracked across competitors</p></div>
+<div class="meth-source"><div class="icon">🗄️</div><h4>DataHorizzon Repository</h4><p>70,000+ syndicated reports with historical data, validated segmentation, and forecasts across 200+ verticals</p></div>
+</div>
+</div>
+ 
+<!-- 60-MIN DELIVERY PROCESS -->
+<div class="meth-section alt" style="max-width:100%;padding:4rem 2rem">
+<div style="max-width:1100px;margin:0 auto">
+<div class="meth-label">Delivery Process</div>
+<h2>How You Get Analyst-Verified Data in 60 Minutes</h2>
+<p>Our 60-minute delivery isn't a compromise on quality — it's the result of a pre-built data infrastructure that lets our analysts focus on validation rather than starting research from scratch.</p>
+ 
+<div class="meth-timeline">
+<div class="meth-tl-step"><div class="meth-tl-dot">📝</div><h4>You Configure</h4><p>Select your market, countries, segments, and forecast period</p><div class="meth-tl-time">0 min</div></div>
+<div class="meth-tl-step"><div class="meth-tl-dot">💳</div><h4>Payment</h4><p>Secure checkout via Stripe or PayPal</p><div class="meth-tl-time">2 min</div></div>
+<div class="meth-tl-step"><div class="meth-tl-dot">🔄</div><h4>Data Pull</h4><p>Engine queries DataHorizzon repository and pulls relevant estimates</p><div class="meth-tl-time">5 min</div></div>
+<div class="meth-tl-step"><div class="meth-tl-dot">🔬</div><h4>Analyst Review</h4><p>In-house analyst validates segmentation, checks numbers, flags anomalies</p><div class="meth-tl-time">15-40 min</div></div>
+<div class="meth-tl-step"><div class="meth-tl-dot">📊</div><h4>Excel Build</h4><p>Structured workbook generated with all sheets, styling, and source attribution</p><div class="meth-tl-time">45 min</div></div>
+<div class="meth-tl-step"><div class="meth-tl-dot">📧</div><h4>Delivered</h4><p>Excel emailed to your inbox with report ID</p><div class="meth-tl-time">60 min</div></div>
+</div>
+ 
+<div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;margin-top:2rem">
+<p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.8rem">Why 60 minutes — not instant?</p>
+<p style="font-size:.85rem;color:#475569;line-height:1.6">We intentionally avoid fully automated delivery because market data requires human judgment. An AI can pull numbers, but only an analyst can spot when a segmentation doesn't fit the market, when a country's numbers look off relative to its economic size, or when recent regulatory changes have shifted demand patterns. The 60-minute window gives our research team enough time to review, adjust, and sign off on every datapoint — so you get numbers you can present to leadership, not numbers you have to second-guess.</p>
+</div>
+</div>
+</div>
+ 
+<!-- QUALITY ASSURANCE -->
+<div class="meth-section">
+<div class="meth-label">Quality Assurance</div>
+<h2>Four Layers of Validation</h2>
+<p>Every report passes through four independent quality checks before it reaches your inbox.</p>
+ 
+<div class="meth-qa-grid">
+<div class="meth-qa"><div class="icon">🔢</div><h4>Numerical Consistency</h4><p>Region totals must sum to global. Country totals must sum to region. CAGR must align with year-on-year growth.</p></div>
+<div class="meth-qa"><div class="icon">📐</div><h4>Proportionality Check</h4><p>Country market shares validated against GDP ratios, industrial output, and known consumption patterns.</p></div>
+<div class="meth-qa"><div class="icon">🔄</div><h4>Cross-Reference</h4><p>Estimates compared against at least 2 independent sources. Outliers are investigated and adjusted.</p></div>
+<div class="meth-qa"><div class="icon">👁️</div><h4>Analyst Sign-Off</h4><p>Senior analyst reviews the final Excel for logical consistency, formatting accuracy, and data integrity before delivery.</p></div>
+</div>
+</div>
+ 
+<!-- FORECASTING MODEL -->
+<div class="meth-section alt" style="max-width:100%;padding:4rem 2rem">
+<div style="max-width:1100px;margin:0 auto">
+<div class="meth-label">Forecasting</div>
+<h2>How We Build 10-Year Forecasts</h2>
+<p>Our forecasts aren't simple trend extrapolations. They're built on a multi-factor model that accounts for industry dynamics, macroeconomic conditions, and market-specific drivers.</p>
+ 
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0">
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.3rem">
+<h3 style="font-size:.9rem;color:#0A3D62;margin-top:0">📈 Growth Drivers Analyzed</h3>
+<p style="font-size:.8rem;color:#475569">Technology adoption curves, regulatory tailwinds/headwinds, consumer demand shifts, investment inflows, supply chain capacity, competitive intensity, and macroeconomic indicators (GDP growth, inflation, FX rates).</p>
+</div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.3rem">
+<h3 style="font-size:.9rem;color:#0A3D62;margin-top:0">🎯 CAGR Calculation</h3>
+<p style="font-size:.8rem;color:#475569">Compound Annual Growth Rate is calculated from the base year to the forecast end year. Year-on-year growth rates may vary — early years often show higher growth in emerging markets, while mature markets show steady, linear progression.</p>
+</div>
+</div>
+ 
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.3rem;margin-top:1rem">
+<h3 style="font-size:.9rem;color:#0A3D62;margin-top:0">📊 Country-Level Forecasting</h3>
+<p style="font-size:.8rem;color:#475569;line-height:1.6">Country-level estimates are not simply global figures divided by GDP ratio. Each country's forecast considers its unique regulatory environment, infrastructure maturity, competitive landscape, import/export dynamics, and domestic demand patterns. For example, India's EV market forecast accounts for the FAME subsidy scheme and charging infrastructure gaps, while Germany's reflects EU emissions mandates and automotive industry restructuring.</p>
+</div>
+</div>
+</div>
+ 
+<!-- POST-PURCHASE -->
+<div class="meth-section">
+<div class="meth-label">After Delivery</div>
+<h2>We Stand Behind Every Number</h2>
+<p>Your relationship with Forecastly.io doesn't end at delivery. We provide full post-purchase support for every report.</p>
+ 
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.5rem 0">
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">📧</div><h4 style="font-size:.85rem;color:#0A3D62;margin-bottom:.3rem">Email Support</h4><p style="font-size:.75rem;color:#64748B">Questions about any data point? Email us with your report ID and our analysts will respond with clarifications.</p></div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">🔄</div><h4 style="font-size:.85rem;color:#0A3D62;margin-bottom:.3rem">Data Corrections</h4><p style="font-size:.75rem;color:#64748B">If you spot an inconsistency or error, we investigate and send a corrected Excel — at no extra charge.</p></div>
+<div style="background:white;border:1px solid #E2E8F0;border-radius:14px;padding:1.5rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">🔍</div><h4 style="font-size:.85rem;color:#0A3D62;margin-bottom:.3rem">Methodology Brief</h4><p style="font-size:.75rem;color:#64748B">Need to explain the data source to your leadership? We can provide a methodology summary for your internal use.</p></div>
+</div>
+</div>
+ 
+<!-- CTA -->
+<div class="meth-cta">
+<h2>Convinced by the process? Try it risk-free.</h2>
+<p>Download a free demo Excel instantly to see the exact report structure — no payment needed.</p>
+<button onclick="startReport()">Build Your Report Now →</button>
+<div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">70,000+ REPORTS · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
+</div>
+ 
+<div class="footer">Forecastly.io · Market Size Estimates & Forecasts in Excel · &copy; 2026</div>
+</div>
+ 
+<div id="page-builder" class="page">
+<div id="gateOverlay" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,.6);backdrop-filter:blur(6px);z-index:300;display:flex;align-items:center;justify-content:center">
+<div style="background:white;border-radius:24px;padding:2.5rem;max-width:440px;width:90%;text-align:center;box-shadow:0 24px 48px rgba(0,0,0,.15)">
+<h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;color:var(--primary);margin-bottom:.5rem">Verify your email</h2>
+<p id="gateDesc" style="font-size:.88rem;color:var(--gray-600);margin-bottom:1.5rem">Enter your business email to access the report builder.</p>
+<div id="gateStep1"><input type="email" id="gateEmail" placeholder="you@company.com" style="width:100%;padding:.85rem 1rem;border:2px solid var(--gray-200);border-radius:12px;font-size:.95rem;margin-bottom:.8rem;text-align:center;font-family:'Inter',sans-serif"><button onclick="sendCode()" style="width:100%;padding:.85rem;background:var(--accent);color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Send Verification Code</button><div style="font-size:.75rem;color:#94A3B8;margin-top:.8rem">We'll send a 6-digit code.</div></div>
+<div id="gateStep2" style="display:none"><div id="gateCodeHint" style="background:#FFF8E1;border:1px solid #FFE082;border-radius:10px;padding:.6rem;font-size:.8rem;color:#E65100;margin-bottom:1rem;font-weight:600"></div><input type="text" id="gateCode" placeholder="Enter 6-digit code" maxlength="6" style="width:100%;padding:.85rem 1rem;border:2px solid var(--gray-200);border-radius:12px;font-size:.95rem;margin-bottom:.8rem;text-align:center;font-family:'Inter',sans-serif"><button onclick="verifyCode()" style="width:100%;padding:.85rem;background:var(--accent);color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Verify & Continue</button><div id="gateError" style="color:#DC2626;font-size:.8rem;margin-top:.4rem;display:none">Invalid code.</div><div id="gateSuccess" style="color:var(--accent);font-size:.8rem;margin-top:.4rem;display:none">✓ Verified!</div><div style="margin-top:.6rem"><a href="#" onclick="resetGate();return false" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem">← Different email</a></div></div>
+</div></div>
+<div id="builderContent" style="display:none"><div style="max-width:1400px;margin:0 auto;padding:1.5rem 2rem 2rem">
+<div style="background:linear-gradient(135deg,#0A3D62,#0A3D62);border-radius:20px;padding:1.5rem 2rem;margin-bottom:1.5rem;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem"><h2 id="builderReportTitle" style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:400">Report Builder</h2><div style="background:rgba(255,255,255,.2);padding:.3rem .8rem;border-radius:30px;font-size:.75rem;font-weight:600">📊 Demo Preview</div></div>
+<div style="background:white;border-radius:20px;box-shadow:0 4px 16px rgba(0,0,0,.05);padding:1.4rem 1.8rem;margin-bottom:1.2rem;border:1px solid var(--gray-200)"><div style="font-weight:600;font-size:.92rem;margin-bottom:.4rem">🔍 Market Report Title</div><div style="display:flex;gap:.8rem;flex-wrap:wrap"><input type="text" id="reportTitleInput" placeholder="e.g., Global Electric Vehicle Battery Market ..." style="flex:3;min-width:240px;padding:.8rem 1.2rem;border:1.5px solid var(--gray-200);border-radius:60px;font-size:.92rem;background:#FAFBFC;font-family:'Inter',sans-serif"></div><div style="font-size:.75rem;color:#94A3B8;margin-top:.5rem">💡 Try: "Electric Vehicle Market", "Renewable Energy Storage"</div></div>
+<div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.2rem">
+<div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem"><div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📅 Base Year</div><select id="baseYear" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif"><option value="2024" selected>2024</option><option value="2025">2025</option></select></div>
+<div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem"><div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📆 Forecast</div><select id="forecastPeriod" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif"></select></div>
+<div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem"><div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📏 Metric</div><select id="marketMetric" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif"><option value="revenue" selected>Revenue (USD Million)</option><option value="volume">Volume (Units/Tons)</option><option value="both">Revenue + Volume</option></select></div>
+<div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem"><div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">💲 Currency</div><select id="currency" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif"><option value="USD" selected>USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option><option value="JPY">JPY (¥)</option></select></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr .85fr;gap:1.2rem;margin-bottom:1.2rem">
+<div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem"><div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">🌍 Regions & Countries</div>
+<div id="globalCheckWrap" style="display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;background:#FEF2F2;border:2px solid #FCA5A5;border-radius:12px;margin-bottom:1rem;cursor:pointer" onclick="document.getElementById('chk_global').click()">
+<input type="checkbox" id="chk_global" style="accent-color:#DC2626;width:16px;height:16px;cursor:pointer" onclick="event.stopPropagation()">
+<div style="flex:1"><div style="font-size:.88rem;font-weight:700;color:#991B1B">🌐 Global Market Size</div><div style="font-size:.65rem;color:#7F1D1D">Total worldwide market — estimates, CAGR & forecasts</div></div>
+<div style="background:#DC2626;color:white;font-size:.62rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;letter-spacing:.5px">$20</div>
+</div>
+<div id="regionsContainer"></div><div style="margin-top:.8rem;background:#F8FAFC;padding:.7rem .8rem;border-radius:12px"><div style="font-weight:500;font-size:.75rem;color:var(--gray-600);margin-bottom:.3rem">➕ Add custom country</div><div style="display:flex;gap:.4rem;margin-top:.4rem;align-items:center;flex-wrap:wrap"><input type="text" id="customCountryInput" placeholder="Country ..." style="flex:2;min-width:100px;padding:.45rem .7rem;border:1.5px solid var(--gray-200);border-radius:40px;font-size:.78rem;font-family:'Inter',sans-serif"><select id="customRegionSelect" style="flex:1;min-width:110px;padding:.45rem .5rem;border:1.5px solid var(--gray-200);border-radius:40px;font-size:.72rem;font-family:'Inter',sans-serif"><option value="North America">N. America</option><option value="Europe" selected>Europe</option><option value="Asia-Pacific">Asia-Pacific</option><option value="Latin America">Latin America</option><option value="Middle East and Africa">MEA</option></select><button id="addCountryBtn" style="background:var(--accent);border:none;padding:.45rem .8rem;border-radius:40px;color:#fff;font-weight:600;cursor:pointer;font-size:.72rem">+ Add</button></div><div id="extraCountryNote" style="margin-top:.5rem;padding:.4rem .6rem;background:#F8FAFC;border:1px solid #CBD5E1;border-radius:8px;font-size:.7rem;color:#0A3D62;text-align:center;display:none"></div><div id="customChipsContainer" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.3rem"></div></div><div id="countryWarningNote" style="background:#F8FAFC;padding:.6rem .7rem;border-radius:10px;font-size:.72rem;color:#0A3D62;margin-top:.7rem;text-align:center"><span id="countryNoteText">💡 $20 per country. Select 10+ and price auto-caps at $199.</span></div><div id="upsellBanner" style="background:#E2E8F0;border:1.5px solid #CBD5E1;border-radius:10px;padding:.5rem .7rem;font-size:.7rem;color:#0A3D62;font-weight:600;margin-top:.5rem;text-align:center;display:none"></div></div>
+<div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem"><div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">📊 Market Segmentation</div><div id="segmentationLevels"><div class="seg-empty">⌨️ Type a title to auto-generate.</div></div><div style="margin-top:.5rem;background:#F8FAFC;padding:.5rem .6rem;border-radius:10px;font-size:.7rem;color:var(--gray-600);text-align:center">📌 Included in Enterprise.</div><div style="margin-top:.7rem"><textarea id="customSegmentInput" rows="2" style="width:100%;padding:.5rem .7rem;border:1.5px solid var(--gray-200);border-radius:12px;font-size:.78rem;font-family:'Inter',sans-serif;resize:vertical;background:#FAFBFC" placeholder="Custom segments (optional)"></textarea></div></div>
+<div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem"><div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">🏷️ Pricing Calculator</div>
+<div id="priceLiveBox" style="background:#F8FAFC;border:2px solid #CBD5E1;border-radius:14px;padding:1rem;margin-bottom:.8rem;text-align:center">
+<div style="font-size:.7rem;font-weight:600;color:#0A3D62;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem">Your Report Price</div>
+<div id="priceLiveAmount" style="font-size:2rem;font-weight:800;color:#0A3D62">$0</div>
+<div id="priceLiveDetail" style="font-size:.68rem;color:#0A3D62;margin-top:.2rem">Select countries to begin</div>
+<div id="priceLiveSavings" style="font-size:.65rem;color:#1E88E5;font-weight:600;margin-top:.3rem;display:none"></div>
+</div>
+<div id="segToggleWrap" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem .8rem;background:#F8FAFC;border:1px solid var(--gray-200);border-radius:12px;margin-bottom:.8rem;cursor:pointer" onclick="toggleSegmentation()">
+<div><div style="font-size:.82rem;font-weight:700;color:#0A3D62">📊 Add 3-Level Segmentation</div><div style="font-size:.65rem;color:var(--gray-600)">+$99 flat fee — segments at all levels</div></div>
+<div id="segToggle" style="width:44px;height:24px;border-radius:24px;background:#CBD5E1;position:relative;transition:.3s;flex-shrink:0"><div style="width:20px;height:20px;border-radius:50%;background:white;position:absolute;top:2px;left:2px;transition:.3s;box-shadow:0 1px 3px rgba(0,0,0,0.2)" id="segToggleKnob"></div></div>
+</div>
+<div id="pricingTips" style="background:#F8FAFC;border:1px solid var(--gray-200);border-radius:12px;padding:.7rem .8rem;margin-bottom:.8rem">
+<div style="font-size:.75rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem">💡 How Pricing Works</div>
+<div style="font-size:.68rem;color:var(--gray-600);line-height:1.6">
+• Each country = <b>$20</b><br>
+• 3-Level Segmentation = <b>+$99</b> flat<br>
+• <span style="color:#0A3D62;font-weight:600">10+ countries → auto-caps at $199</span><br>
+• <span style="color:#0A3D62;font-weight:600">With segments → caps at $299</span><br>
+• Extra countries beyond cap = +$20 each<br>
+• Free demo Excel available for any config
+</div>
+</div>
+<div id="pricingCards" style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem"></div>
+<div id="downloadNotice" class="download-notice">✅ Demo Excel downloaded!</div>
+<div style="margin-top:.6rem;background:#F8FAFC;padding:.5rem .6rem;border-radius:10px;font-size:.7rem;color:var(--gray-600);text-align:center">⚡ Analyst-verified .xls delivered in 60 min</div></div>
+</div>
+</div><footer class="footer">© 2026 Forecastly.io · <a href="#">Privacy</a> · <a href="#">Terms</a></footer></div>
+</div>
+<!-- PAGE 3: CLIENT DASHBOARD -->
+<div id="page-dashboard" class="page">
+<div class="dash-layout">
+<aside class="dash-sidebar">
+<div class="dash-sidebar-brand"><div class="ds-icon">F</div><div class="ds-name">Forecastly.io</div></div>
+<ul class="dash-nav">
+<li class="active" onclick="switchDashTab('reports',this)"><span class="nav-emoji">📄</span><span>Reports</span></li>
+<li onclick="switchDashTab('orders',this)"><span class="nav-emoji">📦</span><span>Orders</span></li>
+<li onclick="switchDashTab('billing',this)"><span class="nav-emoji">💳</span><span>Billing</span></li>
+<li onclick="switchDashTab('profile',this)"><span class="nav-emoji">👤</span><span>Profile</span></li>
+<li onclick="switchDashTab('settings',this)"><span class="nav-emoji">⚙️</span><span>Settings</span></li>
+<li onclick="switchDashTab('support',this)"><span class="nav-emoji">💬</span><span>Support</span></li>
+<li style="margin-top:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem" onclick="showPage('home')"><span class="nav-emoji">🏠</span><span>Back to Home</span></li>
+</ul>
+</aside>
+<main class="dash-main">
+<div class="dash-header">
+<h1 id="dashTitle">📄 My Reports</h1>
+<div class="dash-header-tag" id="dashEmail"></div>
+</div>
+ 
+<!-- REPORTS TAB -->
+<div id="tab-reports" class="dash-section active">
+<div class="dash-card"><h3>📊 Your Report Orders</h3><div id="dashReportsList"><p style="color:#94A3B8;text-align:center;padding:2rem;font-size:.88rem">No reports yet. Go to the <a href="#" onclick="showPage('builder');return false" style="color:var(--accent);font-weight:600">Report Builder</a> to create your first report.</p></div></div>
+</div>
+ 
+<!-- ORDERS TAB -->
+<div id="tab-orders" class="dash-section">
+<div class="dash-card"><h3>📦 Order History</h3><div id="dashOrdersList"><p style="color:#94A3B8;text-align:center;padding:2rem;font-size:.88rem">No orders yet.</p></div></div>
+</div>
+ 
+<!-- BILLING TAB -->
+<div id="tab-billing" class="dash-section">
+<div class="dash-card"><h3>💳 Payment Methods</h3><p style="color:var(--gray-600);font-size:.88rem;margin-bottom:1rem">Manage your payment methods for future purchases.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<div style="flex:1;min-width:200px;border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:2rem;margin-bottom:.5rem">💳</div><div style="font-weight:600;color:var(--primary)">Stripe</div><div style="font-size:.78rem;color:var(--gray-600)">Credit / Debit Card</div><div style="margin-top:.8rem;font-size:.75rem;color:#94A3B8">Connect during checkout</div></div>
+<div style="flex:1;min-width:200px;border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:2rem;margin-bottom:.5rem">🅿️</div><div style="font-weight:600;color:#003087">PayPal</div><div style="font-size:.78rem;color:var(--gray-600)">PayPal Account</div><div style="margin-top:.8rem;font-size:.75rem;color:#94A3B8">Connect during checkout</div></div>
+</div></div>
+</div>
+ 
+<!-- PROFILE TAB -->
+<div id="tab-profile" class="dash-section">
+<div class="dash-card"><h3>👤 Profile</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:500px">
+<div><div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:.3rem">Email</div><div style="padding:.6rem .8rem;background:var(--gray-50);border-radius:8px;font-size:.88rem" id="profileEmail">—</div></div>
+<div><div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:.3rem">Member Since</div><div style="padding:.6rem .8rem;background:var(--gray-50);border-radius:8px;font-size:.88rem">March 2026</div></div>
+<div><div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:.3rem">Total Orders</div><div style="padding:.6rem .8rem;background:var(--gray-50);border-radius:8px;font-size:.88rem" id="profileOrders">0</div></div>
+<div><div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:.3rem">Account Type</div><div style="padding:.6rem .8rem;background:var(--gray-50);border-radius:8px;font-size:.88rem">Standard</div></div>
+</div></div>
+</div>
+ 
+<!-- SETTINGS TAB -->
+<div id="tab-settings" class="dash-section">
+<div class="dash-card"><h3>⚙️ Settings</h3>
+<div style="max-width:400px">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--gray-200)"><span style="font-size:.88rem">Email Notifications</span><label style="position:relative;width:44px;height:24px;cursor:pointer"><input type="checkbox" checked style="opacity:0;width:0;height:0"><span style="position:absolute;inset:0;background:var(--accent);border-radius:24px;transition:.3s"></span></label></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--gray-200)"><span style="font-size:.88rem">Default Currency</span><select style="padding:.3rem .5rem;border:1px solid var(--gray-200);border-radius:8px;font-size:.82rem;font-family:'Inter',sans-serif"><option>USD ($)</option><option>EUR (€)</option><option>GBP (£)</option></select></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:.8rem 0"><span style="font-size:.88rem">Dark Mode</span><label style="position:relative;width:44px;height:24px;cursor:pointer"><input type="checkbox" style="opacity:0;width:0;height:0"><span style="position:absolute;inset:0;background:var(--gray-300);border-radius:24px;transition:.3s"></span></label></div>
+</div></div>
+</div>
+ 
+<!-- SUPPORT TAB -->
+<div id="tab-support" class="dash-section">
+<div class="dash-card"><h3>💬 Support</h3>
+<p style="color:var(--gray-600);font-size:.88rem;margin-bottom:1.5rem">Need help? Reach out to our team.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<div style="flex:1;min-width:200px;border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">📧</div><div style="font-weight:600;font-size:.9rem">Email Support</div><div style="font-size:.78rem;color:var(--accent);margin-top:.3rem">support at forecastly.io</div></div>
+<div style="flex:1;min-width:200px;border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">📞</div><div style="font-weight:600;font-size:.9rem">Phone</div><div style="font-size:.78rem;color:var(--accent);margin-top:.3rem">+1 (800) 555-0199</div></div>
+<div style="flex:1;min-width:200px;border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem;text-align:center"><div style="font-size:1.5rem;margin-bottom:.5rem">💬</div><div style="font-weight:600;font-size:.9rem">Live Chat</div><div style="font-size:.78rem;color:#94A3B8;margin-top:.3rem">Mon–Fri, 9AM–6PM EST</div></div>
+</div></div>
+</div>
+ 
+</main>
+</div>
+</div>
+ 
+<!-- PAYMENT MODAL (global) -->
+<div id="payOverlay" class="pay-overlay" style="display:none">
+<div class="pay-box">
+<div id="payContent">
+<h2>Complete Your Purchase</h2>
+<div class="pay-subtitle">Secure checkout powered by Stripe & PayPal</div>
+<div class="pay-summary">
+<div class="pay-summary-row"><span>Report</span><span id="payReportName" style="font-weight:600;color:var(--primary)">—</span></div>
+<div class="pay-summary-row"><span>Package</span><span id="payPkgName">—</span></div>
+<div class="pay-summary-row"><span>Report ID</span><span id="payReportId" style="font-weight:700;color:var(--accent)">—</span></div>
+<div class="pay-summary-row total"><span>Total</span><span id="payTotal">—</span></div>
+</div>
+<div style="font-size:.78rem;font-weight:600;color:var(--gray-700);margin-bottom:.6rem">Choose payment method:</div>
+<div class="pay-methods">
+<div class="pay-method selected" onclick="selectPayMethod(this,'stripe')">
+<div class="pay-method-radio"></div>
+<div class="pay-method-info"><div class="pay-method-name">💳 Stripe</div><div class="pay-method-desc">Credit card, debit card, Apple Pay, Google Pay</div></div>
+</div>
+<div class="pay-method" onclick="selectPayMethod(this,'paypal')">
+<div class="pay-method-radio"></div>
+<div class="pay-method-info"><div class="pay-method-name">🅿️ PayPal</div><div class="pay-method-desc">Pay with your PayPal account balance or linked card</div></div>
+</div>
+</div>
+<button class="pay-btn pay-btn-primary" onclick="processPayment()">Pay Now →</button>
+<button class="pay-btn pay-btn-cancel" onclick="closePayModal()">Cancel</button>
+</div>
+<div id="paySuccess" class="pay-success" style="display:none">
+<div class="check">✓</div>
+<h2 style="font-family:'Space Grotesk',sans-serif;color:var(--primary);margin-bottom:.5rem">Payment Successful!</h2>
+<p style="font-size:.88rem;color:var(--gray-600);margin-bottom:1rem">Your order has been confirmed.</p>
+<div style="background:var(--gray-50);border-radius:12px;padding:1rem;margin-bottom:1.5rem;text-align:left;border:1px solid var(--gray-200)">
+<div class="pay-summary-row"><span>Report ID</span><span id="successReportId" style="font-weight:700;color:var(--accent)">—</span></div>
+<div class="pay-summary-row"><span>Report</span><span id="successReportName" style="font-weight:600">—</span></div>
+<div class="pay-summary-row"><span>Package</span><span id="successPkg">—</span></div>
+<div class="pay-summary-row"><span>Status</span><span style="color:var(--green);font-weight:700">✓ Paid</span></div>
+</div>
+<button class="pay-btn pay-btn-primary" onclick="goToDashboard()">Go to Dashboard →</button>
+</div>
+</div>
+</div>
+<script>
+var verifiedEmail='',generatedCode='',selectedPayMethod='stripe',orders=[];
+var segmentationOn=false;
+function showPage(p){document.querySelectorAll('.page').forEach(function(pg){pg.classList.remove('active')});document.getElementById('page-'+p).classList.add('active');if(p==='dashboard'){document.querySelector('.nav').style.display='none';refreshDashboard()}else{document.querySelector('.nav').style.display=''}window.scrollTo(0,0)}
+function scrollToSec(id){showPage('home');setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})},100)}
+function startReport(){var q=document.getElementById('homeSearchInput').value.trim();showPage('builder');if(!verifiedEmail){document.getElementById('gateOverlay').style.display='flex';document.getElementById('builderContent').style.display='none'}else{document.getElementById('gateOverlay').style.display='none';document.getElementById('builderContent').style.display='block'}if(q){document.getElementById('reportTitleInput').value=q;if(builderInited)refreshSeg()}}
+function sendCode(){var email=document.getElementById('gateEmail').value.trim();if(!email||!email.includes('@')||!email.includes('.')){alert('Please enter a valid email.');return}generatedCode=String(100000+Math.floor(Math.random()*900000));document.getElementById('gateStep1').style.display='none';document.getElementById('gateStep2').style.display='block';document.getElementById('gateDesc').textContent='Code sent to '+email;document.getElementById('gateCodeHint').textContent='Demo Code: '+generatedCode;document.getElementById('gateError').style.display='none';document.getElementById('gateSuccess').style.display='none'}
+function verifyCode(){if(document.getElementById('gateCode').value.trim()===generatedCode){document.getElementById('gateError').style.display='none';document.getElementById('gateSuccess').style.display='block';verifiedEmail=document.getElementById('gateEmail').value.trim();setTimeout(function(){document.getElementById('gateOverlay').style.display='none';document.getElementById('builderContent').style.display='block';initBuilder()},800)}else{document.getElementById('gateError').style.display='block';document.getElementById('gateSuccess').style.display='none'}}
+function resetGate(){document.getElementById('gateStep1').style.display='block';document.getElementById('gateStep2').style.display='none';document.getElementById('gateDesc').textContent='Enter your business email to access the report builder.';document.getElementById('gateEmail').value='';document.getElementById('gateCode').value='';generatedCode=''}
+var XX="xx.xx",XXP="x.x%",SRC="Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research";
+var regionData=[{name:"North America",countries:["US","Canada"]},{name:"Europe",countries:["Germany","UK","France","Rest of Europe"]},{name:"Asia-Pacific",countries:["China","Japan","India","South Korea","Rest of Asia-Pacific"]},{name:"Middle East and Africa",countries:["Saudi Arabia","South Africa","Rest of Middle East and Africa"]},{name:"Latin America",countries:["Brazil","Mexico","Rest of Latin America"]}];
+var PRICE_PER_COUNTRY=20;
+var CAP_PRO=199;
+var CAP_ENT=299;
+var SEG_PRICE=99;
+var selectedCountries=new Set(),customCountries={},countryCheckboxes={},currentSegmentation=[],globalSelected=false;
+function getDefaultSelectedCount(){var c=0;regionData.forEach(function(r){r.countries.forEach(function(co){if(selectedCountries.has(co))c++})});return c}
+function getCustomCount(){return Object.keys(customCountries).length}
+function calcPrice(){var defCount=getDefaultSelectedCount();var custCount=getCustomCount();var globalCount=globalSelected?1:0;var totalUnits=defCount+globalCount;var rawDefault=totalUnits*PRICE_PER_COUNTRY;var cappedDefault=Math.min(rawDefault,CAP_PRO);var extraPrice=custCount*PRICE_PER_COUNTRY;var segPrice=segmentationOn?SEG_PRICE:0;var subtotal=cappedDefault+segPrice;var cappedSub=Math.min(subtotal,CAP_ENT);var total=cappedSub+extraPrice;var rawTotal=rawDefault+extraPrice+segPrice;var savings=rawTotal-total;return{total:total,defCount:defCount,custCount:custCount,globalCount:globalCount,totalUnits:totalUnits,rawDefault:rawDefault,cappedDefault:cappedDefault,extraPrice:extraPrice,segPrice:segPrice,savings:savings,proCapped:rawDefault>CAP_PRO,entCapped:(cappedDefault+segPrice)>CAP_ENT}}
+function updatePriceDisplay(){var p=calcPrice();var amountEl=document.getElementById('priceLiveAmount');var detailEl=document.getElementById('priceLiveDetail');var savingsEl=document.getElementById('priceLiveSavings');var totalCount=p.defCount+p.custCount+p.globalCount;if(totalCount===0&&!segmentationOn){amountEl.textContent='$0';detailEl.textContent='Select Global or countries to begin';savingsEl.style.display='none'}else{amountEl.textContent='$'+p.total;var parts=[];if(p.globalCount>0)parts.push('Global');if(p.defCount>0)parts.push(p.defCount+' countries');if(p.globalCount>0||p.defCount>0){var unitLabel=(p.globalCount+p.defCount)+' items \u00d7 $'+PRICE_PER_COUNTRY;if(p.proCapped){parts=['(Global'+(p.defCount>0?' + '+p.defCount+' countries':'')+') $'+p.rawDefault+' \u2192 capped $'+p.cappedDefault]}else{parts=[unitLabel+' = $'+p.rawDefault]}}if(p.custCount>0)parts.push('+'+p.custCount+' extra = $'+p.extraPrice);if(segmentationOn)parts.push('+Segments $'+SEG_PRICE);detailEl.textContent=parts.join(' | ');if(p.savings>0){savingsEl.style.display='block';var capName=p.entCapped?'Enterprise':'Professional';savingsEl.textContent='\ud83c\udf89 You save $'+p.savings+' with '+capName+' cap!'}else{savingsEl.style.display='none'}}updateUpsell(p);renderPricingCards(p)}
+function updateUpsell(p){var banner=document.getElementById('upsellBanner');if(!banner)return;var totalDef=p.defCount+p.globalCount;if(totalDef>=7&&totalDef<10){var need=10-totalDef;var currentCost=totalDef*PRICE_PER_COUNTRY;var wouldSave=(totalDef+need)*PRICE_PER_COUNTRY-CAP_PRO;banner.style.display='block';banner.innerHTML='\ud83d\udca1 Add '+need+' more '+(need===1?'country':'countries')+' to unlock $'+CAP_PRO+' cap and save $'+wouldSave+'!'}else if(totalDef>=10&&!segmentationOn){banner.style.display='block';banner.innerHTML='\u2705 Professional cap active! Add segmentation for just $'+SEG_PRICE+' more (caps at $'+CAP_ENT+')'}else{banner.style.display='none'}}
+function toggleSegmentation(){segmentationOn=!segmentationOn;var toggle=document.getElementById('segToggle');var knob=document.getElementById('segToggleKnob');if(segmentationOn){toggle.style.background='#42A5F5';knob.style.left='22px'}else{toggle.style.background='#CBD5E1';knob.style.left='2px'}updatePriceDisplay()}
+function genSeg(t){t=t.toLowerCase();if(t.includes("ev")||t.includes("electric vehicle"))return[{name:"By Vehicle Type",items:["BEV","PHEV","FCEV"]},{name:"By Component",items:["Battery Pack","Electric Motor","Power Electronics","Charging Infrastructure"]},{name:"By End-User",items:["Private Consumers","Fleet Operators","Commercial Transport"]}];if(t.includes("battery")||t.includes("energy storage"))return[{name:"By Technology",items:["Lithium-ion","Lead-Acid","Flow Batteries","Solid-State"]},{name:"By Application",items:["Automotive","Grid Storage","Consumer Electronics","Industrial"]},{name:"By Capacity",items:["< 10 kWh","10\u2013100 kWh","> 100 kWh"]}];if(t.includes("ai")||t.includes("artificial intelligence"))return[{name:"By Offering",items:["Hardware","Software","Services"]},{name:"By Technology",items:["ML","NLP","Computer Vision","Generative AI"]},{name:"By End-User",items:["Healthcare","BFSI","Retail","Manufacturing"]}];if(t.includes("cloud")||t.includes("saas"))return[{name:"By Service Model",items:["IaaS","PaaS","SaaS"]},{name:"By Deployment",items:["Public","Private","Hybrid"]},{name:"By Enterprise Size",items:["SMEs","Large Enterprises"]}];if(t.includes("solar")||t.includes("renewable")||t.includes("wind"))return[{name:"By Source",items:["Solar PV","Wind","Hydro","Biomass"]},{name:"By Application",items:["Residential","Commercial","Industrial","Utility"]},{name:"By Component",items:["Panels/Turbines","Inverters","Mounting","Storage"]}];if(t.includes("cyber")||t.includes("security"))return[{name:"By Component",items:["Solutions","Managed Services","Professional Services"]},{name:"By Deployment",items:["Cloud-Based","On-Premise"]},{name:"By Security Type",items:["Network","Endpoint","Cloud","IoT"]}];if(t.includes("pharma")||t.includes("drug"))return[{name:"By Drug Type",items:["Small Molecule","Biologics","Biosimilars"]},{name:"By Therapeutic Area",items:["Oncology","Immunology","CNS","Cardiovascular"]},{name:"By Distribution",items:["Hospital","Retail","Online"]}];if(t.includes("semiconductor")||t.includes("wafer"))return[{name:"By Component",items:["Memory","Logic","Analog ICs","Optoelectronics"]},{name:"By Application",items:["Consumer Electronics","Automotive","Industrial","Telecom"]},{name:"By Wafer Size",items:["200mm","300mm","450mm"]}];if(t.includes("robot")||t.includes("automation"))return[{name:"By Type",items:["Industrial Robots","Service Robots","Cobots"]},{name:"By Application",items:["Automotive","Electronics","Healthcare","Logistics"]},{name:"By Component",items:["Controllers","Sensors","Actuators","End Effectors"]}];if(t.includes("healthcare")||t.includes("therapeutics")||t.includes("medical"))return[{name:"By Product Type",items:["Software","Devices","Services"]},{name:"By Application",items:["Diabetes","Cardiovascular","Mental Health","Respiratory"]},{name:"By End-User",items:["Patients","Providers","Payers"]}];if(t.length>0)return[{name:"By Component",items:["Hardware","Software","Services"]},{name:"By Application",items:["Commercial","Residential","Industrial"]},{name:"By End-User",items:["SMEs","Large Enterprises","Government"]}];return[]}
+function refreshSeg(){var t=document.getElementById('reportTitleInput').value.trim(),c=document.getElementById('segmentationLevels');if(!t){currentSegmentation=[];c.innerHTML='<div class="seg-empty">Type a title to auto-generate.<\/div>';return}currentSegmentation=genSeg(t);var h='';currentSegmentation.forEach(function(s){h+='<div class="segment-block"><div class="seg-name">'+s.name+'<\/div><ul class="segment-bullets">';s.items.forEach(function(i){h+='<li>'+i+'<\/li>'});h+='<\/ul><\/div>'});c.innerHTML=h;document.getElementById('builderReportTitle').textContent=t}
+function findRegion(c){for(var i=0;i<regionData.length;i++){if(regionData[i].countries.includes(c))return regionData[i].name}if(customCountries[c])return customCountries[c];return null}
+function renderRegions(){var c=document.getElementById('regionsContainer');c.innerHTML='';regionData.forEach(function(r){var d=document.createElement('div');d.className='region-group';d.innerHTML='<div class="region-header"><span class="region-name">\ud83d\udccd '+r.name+'<\/span><button class="select-all-btn">Select All<\/button><\/div><div class="country-grid"><\/div><div class="country-grid" id="custom_'+r.name.replace(/\s/g,'_')+'"><\/div>';var g=d.querySelector('.country-grid');r.countries.forEach(function(co){var w=document.createElement('div');w.className='country-check'+(co.startsWith('Rest of')?' rest-tag':'');var id='chk_'+co.replace(/\s/g,'_');w.innerHTML='<input type="checkbox" id="'+id+'" value="'+co+'"><label for="'+id+'">'+co+'<\/label>';var cb=w.querySelector('input');cb.addEventListener('change',function(){if(cb.checked){selectedCountries.add(co)}else{selectedCountries.delete(co)}updatePriceDisplay()});countryCheckboxes[co]=cb;g.appendChild(w)});d.querySelector('.select-all-btn').addEventListener('click',function(){var any=r.countries.some(function(c){return!selectedCountries.has(c)});r.countries.forEach(function(c){if(any){selectedCountries.add(c)}else{selectedCountries.delete(c)}if(countryCheckboxes[c])countryCheckboxes[c].checked=any});updatePriceDisplay()});c.appendChild(d)})}
+function renderCustomInRegion(name,region){var regId='custom_'+region.replace(/\s/g,'_');var container=document.getElementById(regId);if(!container)return;var w=document.createElement('div');w.className='country-check';w.style.background='#E2E8F0';w.style.border='1px dashed #42A5F5';w.id='ccust_'+name.replace(/\s/g,'_');w.innerHTML='<span style="font-size:.78rem;color:#0A3D62;font-weight:500">'+name+' <span class="rm" style="cursor:pointer;color:#DC2626;font-weight:700;margin-left:.3rem" data-c="'+name+'">\u2715<\/span> <span style="font-size:.55rem;background:#42A5F5;color:white;padding:.1rem .3rem;border-radius:10px">+$20<\/span><\/span>';w.querySelector('.rm').addEventListener('click',function(){delete customCountries[name];w.remove();updatePriceDisplay()});container.appendChild(w)}
+function renderPricingCards(p){var c=document.getElementById('pricingCards');c.innerHTML='';var total=p.total;var hasCountries=(p.defCount+p.custCount)>0;var hasAnything=hasCountries||globalSelected||segmentationOn;var btnDemo='<button class="pkg-btn-demo" style="width:100%;margin-top:.5rem" onclick="buildExcel()">\ud83d\udce5 Download Demo Excel<\/button>';var btnBuy='<button class="pkg-btn-buy" style="width:100%;margin-top:.4rem" onclick="openBuyNow()">\ud83d\uded2 Buy Now \u2014 $'+total+'<\/button>';if(!hasAnything){c.innerHTML='<div style="text-align:center;padding:1.5rem;color:#94A3B8;font-size:.82rem">\u2190 Select Global or countries to see pricing<\/div>';return}var configParts=[];if(globalSelected)configParts.push('Global');configParts.push((p.defCount+p.custCount)+' '+(p.defCount+p.custCount===1?'country':'countries'));if(segmentationOn)configParts.push('Segmentation');c.innerHTML='<div style="background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:12px;padding:.8rem;text-align:center"><div style="font-size:.78rem;font-weight:700;color:#0A3D62;margin-bottom:.3rem">Your Configuration<\/div><div style="font-size:.7rem;color:#0A3D62">'+configParts.join(' + ')+'<\/div><div style="font-size:1.5rem;font-weight:800;color:#0A3D62;margin:.3rem 0">$'+total+'<\/div>'+(p.savings>0?'<div style="font-size:.65rem;color:#1E88E5;font-weight:600">\ud83c\udf89 Saving $'+p.savings+' with auto-cap<\/div>':'')+'<\/div>'+btnDemo+btnBuy}
+function getExcelRegions(){var result=[];regionData.forEach(function(r){var sel=r.countries.filter(function(c){return selectedCountries.has(c)});var cust=Object.entries(customCountries).filter(function(e){return e[1]===r.name}).map(function(e){return e[0]});var all=sel.concat(cust);if(all.length>0)result.push({name:r.name,countries:all})});return result}
+function updateForecastOptions(){var base=+document.getElementById('baseYear').value;var fc=document.getElementById('forecastPeriod');var fStart=base+1;fc.innerHTML='';[{end:fStart+4,label:fStart+'\u2013'+(fStart+4)+' (5Y)'},{end:fStart+6,label:fStart+'\u2013'+(fStart+6)+' (7Y)'},{end:2033,label:fStart+'\u20132033 ('+(2033-fStart+1)+'Y)'}].forEach(function(p,i){var o=document.createElement('option');o.value=p.end;o.textContent=p.label;if(i===2)o.selected=true;fc.appendChild(o)})}
+function getYears(){var b=+document.getElementById('baseYear').value,e=+document.getElementById('forecastPeriod').value,y=[];for(var i=b;i<=e;i++)y.push(i);return y}
+function getCurrLabel(){var v=document.getElementById('currency').value;return{USD:"USD Million",EUR:"EUR Million",GBP:"GBP Million",JPY:"JPY Billion"}[v]||"USD Million"}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/\x3c/g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function makeCell(v,sid){return '<Cell ss:StyleID="'+sid+'"><Data ss:Type="String">'+esc(v)+'<\/Data><\/Cell>'}
+function makeCellI(v,sid){return '<Cell ss:Index="2" ss:StyleID="'+sid+'"><Data ss:Type="String">'+esc(v)+'<\/Data><\/Cell>'}
+function makeMerge(v,sid,ma){return '<Cell ss:Index="2" ss:StyleID="'+sid+'" ss:MergeAcross="'+ma+'"><Data ss:Type="String">'+esc(v)+'<\/Data><\/Cell>'}
+function makeTable(tTitle,hLabel,items,years,nc,unit){var x='<Row ss:Height="30">'+makeMerge(tTitle+' ('+unit+')','title',nc-1)+'<\/Row>';x+='<Row ss:Height="24">'+makeCellI(hLabel,'hdr');years.forEach(function(y){x+=makeCell(String(y),'hdrC')});x+=makeCell('CAGR ('+years[0]+'-'+years[years.length-1]+')','hdrC')+'<\/Row>';items.forEach(function(item){x+='<Row>'+makeCellI(item,'label');years.forEach(function(){x+=makeCell(XX,'data')});x+=makeCell(XXP,'data')+'<\/Row>'});x+='<Row ss:Height="24">'+makeCellI('Total','totalL');years.forEach(function(){x+=makeCell(XX,'totalC')});x+=makeCell(XXP,'totalC')+'<\/Row>';x+='<Row>'+makeMerge(SRC,'src',nc-1)+'<\/Row><Row><\/Row><Row><\/Row>';return x}
+function makeRevLine(prefix,years,nc,curr){var x='<Row ss:Height="30">'+makeMerge(prefix+' ('+curr+')','title',nc-1)+'<\/Row>';x+='<Row ss:Height="24">'+makeCellI('','hdr');years.forEach(function(y){x+=makeCell(String(y),'hdrC')});x+=makeCell('CAGR ('+years[0]+'-'+years[years.length-1]+')','hdrC')+'<\/Row>';x+='<Row>'+makeCellI('Revenue ('+curr+')','label');years.forEach(function(){x+=makeCell(XX,'data')});x+=makeCell(XXP,'data')+'<\/Row>';x+='<Row>'+makeMerge(SRC,'src',nc-1)+'<\/Row><Row><\/Row><Row><\/Row>';return x}
+function makeVolLine(prefix,years,nc){var x='<Row ss:Height="30">'+makeMerge(prefix+' (Units/Tons)','title',nc-1)+'<\/Row>';x+='<Row ss:Height="24">'+makeCellI('','hdr');years.forEach(function(y){x+=makeCell(String(y),'hdrC')});x+=makeCell('CAGR ('+years[0]+'-'+years[years.length-1]+')','hdrC')+'<\/Row>';x+='<Row>'+makeCellI('Volume (Units/Tons)','label');years.forEach(function(){x+=makeCell(XX,'data')});x+=makeCell(XXP,'data')+'<\/Row>';x+='<Row>'+makeMerge(SRC,'src',nc-1)+'<\/Row><Row><\/Row><Row><\/Row>';return x}
+function buildExcel(){var title=document.getElementById('reportTitleInput').value.trim();if(!title){alert("Enter a report title first.");return}var years=getYears();var curr=getCurrLabel();var metricVal=document.getElementById('marketMetric').value;var metricText=document.getElementById('marketMetric').selectedOptions[0].text;var nc=years.length+2;var doRev=(metricVal==='revenue'||metricVal==='both');var doVol=(metricVal==='volume'||metricVal==='both');var unitRev=curr;var unitVol='Units/Tons';var hasCountries=(getDefaultSelectedCount()+getCustomCount())>0;var hasSeg=segmentationOn;var hasGlobal=globalSelected;if(!hasCountries&&!hasGlobal){alert("Select Global or at least one country.");return}var colDefs='<Column ss:Width="30"\/><Column ss:Width="260"\/>';for(var i=0;i<years.length;i++)colDefs+='<Column ss:Width="95"\/>';colDefs+='<Column ss:Width="130"\/>';var B='<Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"\/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"\/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"\/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"\/><\/Borders>';var BT='<Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"\/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"\/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"\/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"\/><\/Borders>';var styles='<Styles><Style ss:ID="Default"><Font ss:FontName="Calibri" ss:Size="10"\/><\/Style><Style ss:ID="homeTitle"><Font ss:FontName="Calibri" ss:Size="20" ss:Bold="1" ss:Color="#0A3D62"\/><\/Style><Style ss:ID="homeInfo"><Font ss:FontName="Calibri" ss:Size="13" ss:Color="#0A3D62" ss:Bold="1"\/><\/Style><Style ss:ID="homeText"><Font ss:FontName="Calibri" ss:Size="11" ss:Color="#333333"\/><\/Style><Style ss:ID="homeWarn"><Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#D84315"\/><Interior ss:Color="#FFF3E0" ss:Pattern="Solid"\/>'+B+'<\/Style><Style ss:ID="title"><Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#FFFFFF"\/><Interior ss:Color="#0A3D62" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"\/>'+B+'<\/Style><Style ss:ID="hdr"><Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"\/><Interior ss:Color="#AADDE9" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Left" ss:Vertical="Center"\/>'+B+'<\/Style><Style ss:ID="hdrC"><Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"\/><Interior ss:Color="#AADDE9" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Center" ss:Vertical="Center"\/>'+B+'<\/Style><Style ss:ID="label"><Font ss:FontName="Calibri" ss:Size="10" ss:Color="#0A3D62"\/><Interior ss:Color="#FFFFFF" ss:Pattern="Solid"\/><Alignment ss:Vertical="Center"\/>'+B+'<\/Style><Style ss:ID="data"><Font ss:FontName="Calibri" ss:Size="10" ss:Color="#37474F"\/><Interior ss:Color="#FFFFFF" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Center" ss:Vertical="Center"\/>'+B+'<\/Style><Style ss:ID="totalL"><Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"\/><Interior ss:Color="#FFFFFF" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Left" ss:Vertical="Center"\/>'+BT+'<\/Style><Style ss:ID="totalC"><Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"\/><Interior ss:Color="#FFFFFF" ss:Pattern="Solid"\/><Alignment ss:Horizontal="Center" ss:Vertical="Center"\/>'+BT+'<\/Style><Style ss:ID="src"><Font ss:FontName="Calibri" ss:Size="8" ss:Italic="1" ss:Color="#90A4AE"\/><Alignment ss:Vertical="Center" ss:WrapText="1"\/><\/Style><\/Styles>';var WO='<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel"><DoNotDisplayGridlines\/><\/WorksheetOptions>';var sheets='';var SP='<Row><\/Row><Row><\/Row><Row><\/Row><Row><\/Row>';var p=calcPrice();sheets+='<Worksheet ss:Name="Home"><Table><Column ss:Width="30"\/><Column ss:Width="500"\/>'+SP;sheets+='<Row ss:Height="34"><Cell ss:Index="2" ss:StyleID="homeTitle"><Data ss:Type="String">'+esc(title)+'<\/Data><\/Cell><\/Row><Row><\/Row>';sheets+='<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="homeInfo"><Data ss:Type="String">Forecastly.io Demo<\/Data><\/Cell><\/Row><Row><\/Row>';var infoLines=['Price: $'+p.total,'Global: '+(globalSelected?'Yes':'No'),'Countries: '+(p.defCount+p.custCount),'Segmentation: '+(segmentationOn?'Yes':'No'),'Forecast: '+getYears()[0]+'-'+getYears()[getYears().length-1],'Metric: '+metricText,'Currency: '+curr];infoLines.forEach(function(t){sheets+='<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">'+esc(t)+'<\/Data><\/Cell><\/Row>'});sheets+='<Row><\/Row><Row><Cell ss:Index="2" ss:StyleID="homeWarn"><Data ss:Type="String">Demo placeholders. Real data after purchase.<\/Data><\/Cell><\/Row>';sheets+='<\/Table>'+WO+'<\/Worksheet>';if(hasGlobal||hasCountries){sheets+='<Worksheet ss:Name="Global"><Table>'+colDefs+SP;var gPrefix='Global '+title+', '+years[0]+'-'+years[years.length-1];if(hasGlobal){if(doRev)sheets+=makeRevLine(gPrefix,years,nc,curr);if(doVol)sheets+=makeVolLine(gPrefix,years,nc)}if(hasCountries){var regs=getExcelRegions();var rn=regs.map(function(r){return r.name});if(doRev)sheets+=makeTable('Global '+title+', by Region','Region',rn,years,nc,unitRev);if(doVol)sheets+=makeTable('Global '+title+', by Region','Region',rn,years,nc,unitVol)}if(hasSeg&&currentSegmentation.length){currentSegmentation.forEach(function(seg){if(doRev)sheets+=makeTable('Global '+title+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitRev);if(doVol)sheets+=makeTable('Global '+title+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitVol)})}sheets+='<\/Table>'+WO+'<\/Worksheet>'};if(hasCountries){var ru=getExcelRegions();ru.forEach(function(region){sheets+='<Worksheet ss:Name="'+esc(region.name.substring(0,31))+'"><Table>'+colDefs+SP;var rPrefix=region.name+' '+title+', '+years[0]+'-'+years[years.length-1];if(doRev)sheets+=makeRevLine(rPrefix,years,nc,curr);if(doVol)sheets+=makeVolLine(rPrefix,years,nc);if(doRev)sheets+=makeTable(region.name+' '+title+', by Country','Country',region.countries,years,nc,unitRev);if(doVol)sheets+=makeTable(region.name+' '+title+', by Country','Country',region.countries,years,nc,unitVol);if(hasSeg&&currentSegmentation.length){currentSegmentation.forEach(function(seg){if(doRev)sheets+=makeTable(region.name+' '+title+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitRev);if(doVol)sheets+=makeTable(region.name+' '+title+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitVol)});region.countries.forEach(function(country){currentSegmentation.forEach(function(seg){if(doRev)sheets+=makeTable(country+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitRev);if(doVol)sheets+=makeTable(country+', '+seg.name,seg.name.replace('By ',''),seg.items,years,nc,unitVol)})})}sheets+='<\/Table>'+WO+'<\/Worksheet>'})}var xml='<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'+styles+sheets+'<\/Workbook>';var fname=title.replace(/[^a-zA-Z0-9 ]/g,'').replace(/\s+/g,'_')+'_Demo.xls';var b64=btoa(unescape(encodeURIComponent(xml)));var a=document.createElement('a');a.href='data:application/vnd.ms-excel;base64,'+b64;a.download=fname;a.style.cssText='position:fixed;left:-9999px';document.body.appendChild(a);a.click();var dn=document.getElementById('downloadNotice');if(dn){dn.style.display='block';setTimeout(function(){dn.style.display='none'},5000)}setTimeout(function(){document.body.removeChild(a)},500)}
+function genReportId(){return 'MPI-'+String(100000+Math.floor(Math.random()*900000))}
+var pendingOrder=null;
+function openBuyNow(){var title=document.getElementById('reportTitleInput').value.trim();if(!title){alert("Enter a report title first.");return}var p=calcPrice();if(p.total===0){alert("Select Global or at least one country.");return}var rid=genReportId();var descParts=[];if(globalSelected)descParts.push('Global');descParts.push((p.defCount+p.custCount)+' countries');if(segmentationOn)descParts.push('Segments');pendingOrder={id:rid,title:title,price:'$'+p.total,priceNum:p.total,status:'pending',date:new Date().toLocaleDateString(),countries:p.defCount+p.custCount,hasGlobal:globalSelected,hasSeg:segmentationOn,desc:descParts.join(' + ')};document.getElementById('payReportName').textContent=title;document.getElementById('payPkgName').textContent=descParts.join(' + ');document.getElementById('payReportId').textContent=rid;document.getElementById('payTotal').textContent='$'+p.total;document.getElementById('payContent').style.display='block';document.getElementById('paySuccess').style.display='none';document.getElementById('payOverlay').style.display='flex';selectedPayMethod='stripe';document.querySelectorAll('.pay-method').forEach(function(m,i){m.classList.toggle('selected',i===0)})}
+function selectPayMethod(el,method){selectedPayMethod=method;document.querySelectorAll('.pay-method').forEach(function(m){m.classList.remove('selected')});el.classList.add('selected')}
+function processPayment(){if(!pendingOrder)return;pendingOrder.status='paid';pendingOrder.method=selectedPayMethod;orders.push(pendingOrder);document.getElementById('payContent').style.display='none';document.getElementById('successReportId').textContent=pendingOrder.id;document.getElementById('successReportName').textContent=pendingOrder.title;document.getElementById('successPkg').textContent=pendingOrder.desc||pendingOrder.countries+' countries';document.getElementById('paySuccess').style.display='block'}
+function closePayModal(){document.getElementById('payOverlay').style.display='none';pendingOrder=null}
+function goToDashboard(){document.getElementById('payOverlay').style.display='none';showPage('dashboard')}
+function switchDashTab(tab,el){document.querySelectorAll('.dash-section').forEach(function(s){s.classList.remove('active')});document.getElementById('tab-'+tab).classList.add('active');document.querySelectorAll('.dash-nav li').forEach(function(l){l.classList.remove('active')});if(el)el.classList.add('active');var titles={reports:'\ud83d\udcc4 My Reports',orders:'\ud83d\udce6 Order History',billing:'\ud83d\udcb3 Billing',profile:'\ud83d\udc64 Profile',settings:'\u2699\ufe0f Settings',support:'\ud83d\udcac Support'};document.getElementById('dashTitle').textContent=titles[tab]||tab}
+function refreshDashboard(){document.getElementById('dashEmail').textContent=verifiedEmail||'guest@demo.com';document.getElementById('profileEmail').textContent=verifiedEmail||'guest@demo.com';document.getElementById('profileOrders').textContent=orders.length;var rl=document.getElementById('dashReportsList'),ol=document.getElementById('dashOrdersList');if(!orders.length){rl.innerHTML='<p style="color:#94A3B8;text-align:center;padding:2rem">No reports yet.<\/p>';ol.innerHTML='<p style="color:#94A3B8;text-align:center;padding:2rem">No orders yet.<\/p>';return}var rh='',oh='';orders.forEach(function(o){rh+='<div class="order-row"><span class="order-id">'+o.id+'<\/span><span class="order-title">'+o.title+'<\/span><span class="order-status '+o.status+'">'+(o.status==='paid'?'\u2713 Paid':'\u23f3 Pending')+'<\/span><span class="order-price">'+o.price+'<\/span><\/div>';oh+='<div class="order-row"><span class="order-id">'+o.id+'<\/span><span class="order-title">'+o.title+' \u2014 '+(o.desc||o.countries+' countries')+'<\/span><span class="order-status '+o.status+'">'+(o.status==='paid'?'\u2713 Paid':'\u23f3 Pending')+'<\/span><span style="font-size:.78rem;color:var(--gray-600)">'+o.date+'<\/span><span class="order-price">'+o.price+'<\/span><\/div>'});rl.innerHTML=rh;ol.innerHTML=oh}
+var builderInited=false;
+function initBuilder(){if(builderInited)return;builderInited=true;renderRegions();updatePriceDisplay();updateForecastOptions();var q=document.getElementById('reportTitleInput').value.trim();if(q)refreshSeg();document.getElementById('reportTitleInput').addEventListener('input',refreshSeg);document.getElementById('baseYear').addEventListener('change',updateForecastOptions);document.getElementById('marketMetric').addEventListener('change',updatePriceDisplay);document.getElementById('chk_global').addEventListener('change',function(){globalSelected=this.checked;updatePriceDisplay()});document.getElementById('addCountryBtn').addEventListener('click',function(){var inp=document.getElementById('customCountryInput'),regSel=document.getElementById('customRegionSelect');var v=inp.value.trim();if(!v)return;v=v.charAt(0).toUpperCase()+v.slice(1);if(customCountries.hasOwnProperty(v)){alert("Already added.");return}var isDefault=false;regionData.forEach(function(r){if(r.countries.indexOf(v)!==-1)isDefault=true});if(isDefault){alert("This country is already in the default list. Use the checkbox to select it.");return}customCountries[v]=regSel.value;renderCustomInRegion(v,regSel.value);updatePriceDisplay();inp.value=''});document.getElementById('customCountryInput').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('addCountryBtn').click()}})}
+ 
+</script>
+</body>
+</html>

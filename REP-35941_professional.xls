@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+<Styles>
+ <Style ss:ID="Default"><Font ss:FontName="Calibri" ss:Size="10"/></Style>
+ <Style ss:ID="title">
+  <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#FFFFFF"/>
+  <Interior ss:Color="#0A3D62" ss:Pattern="Solid"/>
+  <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="hdr">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"/>
+  <Interior ss:Color="#AADDE9" ss:Pattern="Solid"/>
+  <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="hdrC">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"/>
+  <Interior ss:Color="#AADDE9" ss:Pattern="Solid"/>
+  <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="label">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Color="#0A3D62"/>
+  <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="data">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Color="#37474F"/>
+  <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="totalL">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"/>
+  <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="totalC">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"/>
+  <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#0A3D62"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0A3D62"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="src">
+  <Font ss:FontName="Calibri" ss:Size="8" ss:Italic="1" ss:Color="#90A4AE"/>
+  <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+ </Style>
+ <Style ss:ID="homeTitle">
+  <Font ss:FontName="Calibri" ss:Size="20" ss:Bold="1" ss:Color="#0A3D62"/>
+ </Style>
+ <Style ss:ID="homeBrand">
+  <Font ss:FontName="Calibri" ss:Size="12" ss:Bold="1" ss:Color="#42A5F5"/>
+ </Style>
+ <Style ss:ID="homeInfo">
+  <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#0A3D62"/>
+ </Style>
+ <Style ss:ID="homeText">
+  <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#333333"/>
+ </Style>
+ <Style ss:ID="warn">
+  <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#D84315"/>
+  <Interior ss:Color="#FFF3E0" ss:Pattern="Solid"/>
+  <Borders>
+   <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+   <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#78909C"/>
+  </Borders>
+ </Style>
+ <Style ss:ID="demo">
+  <Font ss:FontName="Calibri" ss:Size="9" ss:Italic="1" ss:Color="#AAAAAA"/>
+ </Style>
+ <Style ss:ID="segHead">
+  <Font ss:FontName="Calibri" ss:Size="10" ss:Bold="1" ss:Color="#0A3D62"/>
+ </Style>
+ <Style ss:ID="segSub">
+  <Font ss:FontName="Calibri" ss:Size="9" ss:Color="#475569"/>
+ </Style>
+</Styles>
+<Worksheet ss:Name="Home">
+<Table>
+<Column ss:Index="2" ss:Width="500"/>
+<Row></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeBrand"><Data ss:Type="String">Forecastly.io</Data></Cell></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeTitle"><Data ss:Type="String">Para-Aramid Ballistic Fabrics Market</Data></Cell></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeInfo"><Data ss:Type="String">Forecastly.io Demo Report</Data></Cell></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Report ID: REP-35941</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Plan: Professional</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Global: No</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Countries: 2</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Segmentation: No</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Forecast: 2024-2033</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Metric: revenue</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeText"><Data ss:Type="String">Currency: USD Million</Data></Cell></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="warn"><Data ss:Type="String">DEMO REPORT - Placeholder data (xx.xx). Real data available after purchase.</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="demo"><Data ss:Type="String">This demo shows the exact structure, sheets, and segmentation of the paid report.</Data></Cell></Row>
+<Row></Row>
+<Row></Row>
+<Row><Cell ss:Index="2" ss:StyleID="homeInfo"><Data ss:Type="String">Market Segmentation Overview</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segHead"><Data ss:Type="String">  By Type</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Hardware</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Software</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Services</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Others</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segHead"><Data ss:Type="String">  By Application</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Residential</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Commercial</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Industrial</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - Others</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segHead"><Data ss:Type="String">  By Geography</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - By Region</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="segSub"><Data ss:Type="String">    - By Country</Data></Cell></Row>
+</Table>
+</Worksheet>
+<Worksheet ss:Name="North America">
+<Table>
+<Column ss:Index="1" ss:Width="30"/>
+<Column ss:Index="2" ss:Width="250"/>
+<Column ss:Index="3" ss:Width="90"/>
+<Column ss:Index="4" ss:Width="90"/>
+<Column ss:Index="5" ss:Width="90"/>
+<Column ss:Index="6" ss:Width="90"/>
+<Column ss:Index="7" ss:Width="90"/>
+<Column ss:Index="8" ss:Width="90"/>
+<Column ss:Index="9" ss:Width="90"/>
+<Column ss:Index="10" ss:Width="90"/>
+<Column ss:Index="11" ss:Width="90"/>
+<Column ss:Index="12" ss:Width="90"/>
+<Column ss:Index="13" ss:Width="90"/>
+
+<Row></Row>
+<Row></Row>
+<Row></Row>
+<Row ss:Height="30"><Cell ss:Index="2" ss:StyleID="title" ss:MergeAcross="11"><Data ss:Type="String">North America Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)</Data></Cell></Row>
+<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="hdr"><Data ss:Type="String"></Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2024</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2025</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2026</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2027</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2028</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2029</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2030</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2031</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2032</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2033</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">CAGR (2024-2033)</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="label"><Data ss:Type="String">Revenue (USD Million)</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="src" ss:MergeAcross="11"><Data ss:Type="String">Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research</Data></Cell></Row>
+<Row></Row>
+<Row></Row>
+<Row ss:Height="30"><Cell ss:Index="2" ss:StyleID="title" ss:MergeAcross="11"><Data ss:Type="String">North America Para-Aramid Ballistic Fabrics Market, by Country (USD Million)</Data></Cell></Row>
+<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="hdr"><Data ss:Type="String">Country</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2024</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2025</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2026</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2027</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2028</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2029</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2030</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2031</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2032</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2033</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">CAGR (2024-2033)</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="label"><Data ss:Type="String">US</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="label"><Data ss:Type="String">Canada</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="totalL"><Data ss:Type="String">Total</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="totalC"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="src" ss:MergeAcross="11"><Data ss:Type="String">Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research</Data></Cell></Row>
+<Row></Row>
+<Row></Row>
+</Table>
+</Worksheet>
+<Worksheet ss:Name="US">
+<Table>
+<Column ss:Index="1" ss:Width="30"/>
+<Column ss:Index="2" ss:Width="250"/>
+<Column ss:Index="3" ss:Width="90"/>
+<Column ss:Index="4" ss:Width="90"/>
+<Column ss:Index="5" ss:Width="90"/>
+<Column ss:Index="6" ss:Width="90"/>
+<Column ss:Index="7" ss:Width="90"/>
+<Column ss:Index="8" ss:Width="90"/>
+<Column ss:Index="9" ss:Width="90"/>
+<Column ss:Index="10" ss:Width="90"/>
+<Column ss:Index="11" ss:Width="90"/>
+<Column ss:Index="12" ss:Width="90"/>
+<Column ss:Index="13" ss:Width="90"/>
+
+<Row></Row>
+<Row></Row>
+<Row></Row>
+<Row ss:Height="30"><Cell ss:Index="2" ss:StyleID="title" ss:MergeAcross="11"><Data ss:Type="String">US Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)</Data></Cell></Row>
+<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="hdr"><Data ss:Type="String"></Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2024</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2025</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2026</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2027</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2028</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2029</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2030</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2031</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2032</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2033</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">CAGR (2024-2033)</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="label"><Data ss:Type="String">Revenue (USD Million)</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="src" ss:MergeAcross="11"><Data ss:Type="String">Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research</Data></Cell></Row>
+<Row></Row>
+<Row></Row>
+</Table>
+</Worksheet>
+<Worksheet ss:Name="Canada">
+<Table>
+<Column ss:Index="1" ss:Width="30"/>
+<Column ss:Index="2" ss:Width="250"/>
+<Column ss:Index="3" ss:Width="90"/>
+<Column ss:Index="4" ss:Width="90"/>
+<Column ss:Index="5" ss:Width="90"/>
+<Column ss:Index="6" ss:Width="90"/>
+<Column ss:Index="7" ss:Width="90"/>
+<Column ss:Index="8" ss:Width="90"/>
+<Column ss:Index="9" ss:Width="90"/>
+<Column ss:Index="10" ss:Width="90"/>
+<Column ss:Index="11" ss:Width="90"/>
+<Column ss:Index="12" ss:Width="90"/>
+<Column ss:Index="13" ss:Width="90"/>
+
+<Row></Row>
+<Row></Row>
+<Row></Row>
+<Row ss:Height="30"><Cell ss:Index="2" ss:StyleID="title" ss:MergeAcross="11"><Data ss:Type="String">Canada Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)</Data></Cell></Row>
+<Row ss:Height="24"><Cell ss:Index="2" ss:StyleID="hdr"><Data ss:Type="String"></Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2024</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2025</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2026</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2027</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2028</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2029</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2030</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2031</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2032</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">2033</Data></Cell><Cell ss:StyleID="hdrC"><Data ss:Type="String">CAGR (2024-2033)</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="label"><Data ss:Type="String">Revenue (USD Million)</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">xx.xx</Data></Cell><Cell ss:StyleID="data"><Data ss:Type="String">x.x%</Data></Cell></Row>
+<Row><Cell ss:Index="2" ss:StyleID="src" ss:MergeAcross="11"><Data ss:Type="String">Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research</Data></Cell></Row>
+<Row></Row>
+<Row></Row>
+</Table>
+</Worksheet>
+</Workbook>

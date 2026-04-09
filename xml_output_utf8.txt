@@ -1,0 +1,61 @@
+=== READING EXCEL XML ===
+
+--- SHEET: Home ---
+Total Rows: 35
+Row 1: []
+Row 2: []
+Row 3: ['Forecastly.io']
+Row 4: []
+Row 5: ['Para-Aramid Ballistic Fabrics Market']
+Row 6: []
+Row 7: ['Forecastly.io Demo Report']
+Row 8: []
+Row 9: ['Report ID: REP-35941']
+Row 10: ['Plan: Professional']
+Row 11: ['Global: No']
+Row 12: ['Countries: 2']
+Row 13: ['Segmentation: No']
+Row 14: ['Forecast: 2024-2033']
+Row 15: ['Metric: revenue']
+
+--- SHEET: North America ---
+Total Rows: 17
+Row 1: []
+Row 2: []
+Row 3: []
+Row 4: ['North America Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)']
+Row 5: ['', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', 'CAGR (2024-2033)']
+Row 6: ['Revenue (USD Million)', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 7: ['Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research']
+Row 8: []
+Row 9: []
+Row 10: ['North America Para-Aramid Ballistic Fabrics Market, by Country (USD Million)']
+Row 11: ['Country', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', 'CAGR (2024-2033)']
+Row 12: ['US', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 13: ['Canada', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 14: ['Total', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 15: ['Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research']
+
+--- SHEET: US ---
+Total Rows: 9
+Row 1: []
+Row 2: []
+Row 3: []
+Row 4: ['US Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)']
+Row 5: ['', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', 'CAGR (2024-2033)']
+Row 6: ['Revenue (USD Million)', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 7: ['Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research']
+Row 8: []
+Row 9: []
+
+--- SHEET: Canada ---
+Total Rows: 9
+Row 1: []
+Row 2: []
+Row 3: []
+Row 4: ['Canada Para-Aramid Ballistic Fabrics Market, 2024-2033 (USD Million)']
+Row 5: ['', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', 'CAGR (2024-2033)']
+Row 6: ['Revenue (USD Million)', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'xx.xx', 'x.x%']
+Row 7: ['Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research']
+Row 8: []
+Row 9: []

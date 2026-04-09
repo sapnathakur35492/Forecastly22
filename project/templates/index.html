@@ -3413,8 +3413,10 @@
     <nav class="nav">
         <div class="nav-inner">
             <div class="nav-brand" onclick="showPage('home')">
-                <img src="/static/img/logo.png" alt="Estimately"
-                    style="height: 42px; width: auto; object-fit: contain;">
+                <div style="display:flex;align-items:center;gap:.5rem">
+                    <div style="background:var(--primary);color:white;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.2rem">F</div>
+                    <div style="font-weight:800;font-size:1.4rem;color:var(--primary);letter-spacing:-0.5px">Forecastly<span style="color:var(--accent)">.io</span></div>
+                </div>
                 <div
                     style="font-weight: 400; color: var(--gray-600); font-size: .8rem; margin-left: 8px; border-left: 1px solid var(--gray-200); padding-left: 8px;">
                     Market Intelligence</div>
@@ -5734,7 +5736,8 @@
                 let n = document.querySelectorAll('.nav-name'); n.forEach(el => el.innerHTML = data.site.name + '<span>| ' + data.site.tagline + '</span>');
                 let footers = document.querySelectorAll('.footer');
                 footers.forEach(f => {
-                    f.innerHTML = data.site.footer_text || ('© 2026 ' + data.site.name + ' · <a href="#">Privacy</a> · <a href="#">Terms</a>');
+                    let email = data.site.support_email || 'hello@forecastly.io';
+                    f.innerHTML = data.site.footer_text || (`© 2026 ${data.site.name} · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:${email}">${email}</a>`);
                 });
 
                 // Update hero if present
@@ -5742,7 +5745,7 @@
                 let hs = document.querySelector('.hero-sub'); if (hs) hs.textContent = data.site.hero_subtitle || hs.textContent;
                 document.title = data.site.name;
                 // Dynamic support tab
-                var se = document.getElementById('supportEmail'); if (se) se.textContent = data.site.support_email || 'hello@estimately.io';
+                var se = document.getElementById('supportEmail'); if (se) se.textContent = data.site.support_email || 'hello@forecastly.io';
                 var sp = document.getElementById('supportPhone'); if (sp) sp.textContent = data.site.support_phone || '+1-970-633-3460';
                 var sc = document.getElementById('supportChat'); if (sc) sc.textContent = data.site.support_chat_hours || 'Mon–Fri, 9AM–6PM EST';
             }

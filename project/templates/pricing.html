@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Pricing | Estimately.io{% endblock %}
+
+{% block meta_description %}Transparent, per-country pricing for market intelligence reports. Pay only for what you need with auto-capping for bulk orders.{% endblock %}
+
+{% block extra_css %}
+/* Original Pricing Styles */
+.pricing-sec { padding: 4rem 2rem; background: white }
+.pricing-inner { max-width: 1000px; margin: 0 auto }
+.sec-label { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #42A5F5; margin-bottom: .8rem; width: 100%; text-align: center }
+.sec-title { font-family: 'Space Grotesk',sans-serif; font-size: 2.2rem; font-weight: 700; color: #0A3D62; margin-bottom: 2rem; text-align: center }
+.price-how { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; margin-bottom: 4rem; align-items: start }
+.price-how-left { background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03) }
+.price-unit { display: flex; gap: 1rem; align-items: center; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.2rem; margin-bottom: 1rem; transition: .2s }
+.price-unit:hover { border-color: #42A5F5; transform: translateY(-2px) }
+.price-unit-icon { font-size: 1.8rem; width: 48px; height: 48px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.04) }
+.price-unit-price { font-size: 1.4rem; font-weight: 800; color: #0A3D62 }
+.price-unit-info { flex: 1 }
+.price-unit-title { font-weight: 700; font-size: .95rem; color: #0A3D62 }
+.price-unit-desc { font-size: .75rem; color: #64748B }
+.price-cap { background: #0A3D62; border-radius: 16px; padding: 1.5rem; color: white; margin-top: 1.5rem }
+.price-cap-badge { display: inline-block; font-size: .6rem; font-weight: 800; background: #42A5F5; color: white; padding: .2rem .6rem; border-radius: 4px; margin-bottom: .8rem; letter-spacing: 1px }
+.price-cap-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: .8rem }
+.price-cap-row:last-child { margin-bottom: 0 }
+.price-ex { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.2rem; text-align: center; transition: .2s }
+.price-ex:hover { border-color: #42A5F5; background: white }
+.price-ex-scenario { font-size: .75rem; font-weight: 700; color: #64748B; margin-bottom: .4rem; text-transform: uppercase; letter-spacing: .5px }
+.price-ex-price { font-size: 1.5rem; font-weight: 800; color: #0A3D62; margin-bottom: .2rem }
+.price-ex-math { font-size: .7rem; color: #94A3B8; font-weight: 500 }
+.price-examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem }
+@media(max-width:768px){ .price-how { grid-template-columns: 1fr } .price-examples { grid-template-columns: 1fr } }
+{% endblock %}
+
+{% block content %}
+<section class="pricing-sec" id="price-sec">
+    <div class="pricing-inner">
+        <div class="sec-label">Pricing</div>
+        <div class="sec-title">Pay only for what you need</div>
+        <p style="text-align:center;color:var(--gray-600);max-width:650px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.6">
+            No fixed packages. Pick your scope — Global, any country, any region — and your price builds
+            automatically. The more you add, the more you save.</p>
+
+        <div class="price-how">
+            <div class="price-how-left">
+                <h3 style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:1.2rem">🏗️ Build
+                    Your Report</h3>
+                <div style="display:flex;flex-direction:column;gap:1rem">
+                    <div style="display:flex;align-items:flex-start;gap:.8rem">
+                        <div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">
+                            1</div>
+                        <div>
+                            <div style="font-weight:700;font-size:.85rem;color:var(--primary)">Select your
+                                geography</div>
+                            <div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Tick Global,
+                                individual countries, or full regions. Each item costs $20.</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:flex-start;gap:.8rem">
+                        <div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">
+                            2</div>
+                        <div>
+                            <div style="font-weight:700;font-size:.85rem;color:var(--primary)">Add segmentation
+                                (optional)</div>
+                            <div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Turn on
+                                3-level segments for +$99 flat — applied across all your selected geographies.
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:flex-start;gap:.8rem">
+                        <div style="background:#E2E8F0;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;font-weight:800;color:#0A3D62">
+                            3</div>
+                        <div>
+                            <div style="font-weight:700;font-size:.85rem;color:var(--primary)">Auto-cap saves
+                                you money</div>
+                            <div style="font-size:.75rem;color:var(--gray-600);margin-top:.15rem">Select 10+
+                                countries? Price auto-caps at $199. Add segments? Caps at $299. You never
+                                overpay.</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:1.5rem;background:#F8FAFC;border-radius:12px;padding:1rem;border:1px solid #CBD5E1">
+                    <div style="font-size:.75rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem">✨ Smart caps
+                        — the more you select, the more you save</div>
+                    <div style="font-size:.7rem;color:#0A3D62;line-height:1.7">Select 10+ countries and your
+                        total caps at <b>$199</b> — even if 17 countries would cost $340 individually. Add
+                        segmentation and the total caps at <b>$299</b> — instead of $199 + $99 = $298, or even
+                        higher for custom countries.</div>
+                </div>
+            </div>
+
+            <div class="price-how-right">
+                <div class="price-unit">
+                    <div class="price-unit-icon">🌐</div>
+                    <div class="price-unit-price">$20</div>
+                    <div class="price-unit-info">
+                        <div class="price-unit-title">Global Market Size</div>
+                        <div class="price-unit-desc">Total worldwide market estimates, CAGR & forecasts</div>
+                    </div>
+                </div>
+                <div class="price-unit">
+                    <div class="price-unit-icon">🏳️</div>
+                    <div class="price-unit-price">$20</div>
+                    <div class="price-unit-info">
+                        <div class="price-unit-title">Per Country</div>
+                        <div class="price-unit-desc">Market size + forecast for any country — US, China,
+                            Germany, etc.</div>
+                    </div>
+                </div>
+                <div class="price-unit">
+                    <div class="price-unit-icon">📊</div>
+                    <div class="price-unit-price">+$99</div>
+                    <div class="price-unit-info">
+                        <div class="price-unit-title">3-Level Segmentation</div>
+                        <div class="price-unit-desc">Flat fee — segments applied at global, regional & country
+                            level</div>
+                    </div>
+                </div>
+                <div class="price-cap">
+                    <div class="price-cap-badge">AUTO-CAPS</div>
+                    <div class="price-cap-row">
+                        <div>
+                            <div style="font-size:.82rem;font-weight:700;color:white">10+ countries
+                                selected</div>
+                            <div style="font-size:.68rem;color:rgba(255,255,255,0.7)">Price stops at $199, no matter
+                                how many</div>
+                        </div>
+                        <div style="font-size:1.1rem;font-weight:800;color:white">$199</div>
+                    </div>
+                    <div class="price-cap-row">
+                        <div>
+                            <div style="font-size:.82rem;font-weight:700;color:white">Countries +
+                                Segmentation</div>
+                            <div style="font-size:.68rem;color:rgba(255,255,255,0.7)">Everything included, price stops
+                                at $299</div>
+                        </div>
+                        <div style="font-size:1.1rem;font-weight:800;color:white">$299</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:1.5rem">
+            <h3 style="font-size:1.15rem;font-weight:700;color:var(--primary)">See it in action</h3>
+            <p style="font-size:.85rem;color:var(--gray-600)">Here's what real configurations would cost:</p>
+        </div>
+        <div class="price-examples">
+            <div class="price-ex">
+                <div class="price-ex-scenario">Only US market data</div>
+                <div class="price-ex-price">$20</div>
+                <div class="price-ex-math">1 country × $20</div>
+            </div>
+            <div class="price-ex">
+                <div class="price-ex-scenario">Global + US + segments</div>
+                <div class="price-ex-price">$139</div>
+                <div class="price-ex-math">$20 + $20 + $99</div>
+            </div>
+            <div class="price-ex">
+                <div class="price-ex-scenario">North America (2 countries)</div>
+                <div class="price-ex-price">$40</div>
+                <div class="price-ex-math">2 countries × $20</div>
+            </div>
+            <div class="price-ex">
+                <div class="price-ex-scenario">All 17 countries</div>
+                <div class="price-ex-price">$199</div>
+                <div class="price-ex-math">$340 → auto-capped</div>
+            </div>
+            <div class="price-ex">
+                <div class="price-ex-scenario">5 countries + segments</div>
+                <div class="price-ex-price">$199</div>
+                <div class="price-ex-math">$100 + $99</div>
+            </div>
+            <div class="price-ex">
+                <div class="price-ex-scenario">All countries + segments</div>
+                <div class="price-ex-price">$299</div>
+                <div class="price-ex-math">$199 + $99 → capped</div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:3rem">
+            <button onclick="window.location.href='/builder/'"
+                style="background:var(--primary);color:white;display:inline-flex;align-items:center;gap:0.8rem;padding:1.1rem 3rem;border-radius:60px;font-weight:700;font-size:1.1rem;cursor:pointer;transition:.3s;border:none;box-shadow:0 10px 25px rgba(10,61,98,0.25)">
+                Build Your Report Now →
+            </button>
+            <div style="font-size:.8rem;color:var(--gray-600);margin-top:1rem">Free demo Excel available for
+                every configuration</div>
+        </div>
+    </div>
+</section>
+
+<div class="dark-cta" style="background:var(--primary); padding: 5rem 2rem; color: white; text-align: center;">
+    <div style="max-width:800px;margin:0 auto">
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Your analyst-verified market report, delivered in 60 minutes.</h2>
+        <p style="font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2.5rem;">No RFPs. No 6-week timelines. No $5,000 invoices. Download a free demo Excel right now to see the
+            exact report structure — no payment required. When you are ready, purchase and our analysts will
+            validate every number before delivering the full report to your inbox. Questions about the data?
+            Just email us.</p>
+        <button class="dark-cta-btn" onclick="window.location.href='/builder/'" style="background: white; color: var(--primary); border: none; padding: 1rem 2.5rem; border-radius: 60px; font-weight: 700; cursor: pointer; font-size: 1.1rem;">Download Free Demo Excel
+            →</button>
+        <div class="dark-cta-note" style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 1px;">FREE DEMO INSTANTLY · FROM $20/COUNTRY · AUTO-CAPS AT $199/$299 ·
+            ANALYST-VERIFIED</div>
+    </div>
+</div>
+{% endblock %}

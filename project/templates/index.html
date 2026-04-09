@@ -23,7 +23,7 @@
       ]
     }
     </script>
-    
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -493,19 +493,65 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem !important; }
-            .hero-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-            .hero-content { margin: 0 auto; }
-            .hero-search-bar input { padding-right: 1.5rem !important; border-radius: 60px !important; text-align: center; }
-            .hero-search-bar button { position: static !important; width: 100% !important; margin-top: 1rem; padding: 1.1rem !important; border-radius: 60px !important; }
-            .hero-stats { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; gap: 0.8rem !important; }
-            .hero-stat { padding: 0.6rem !important; }
-            .excel-preview { margin: 0 auto; }
-            .price-how { grid-template-columns: 1fr !important; gap: 3rem; }
-            .pricing-inner { padding: 3rem 1.5rem; }
+            .hero h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-search-bar input {
+                padding-right: 1.5rem !important;
+                border-radius: 60px !important;
+                text-align: center;
+            }
+
+            .hero-search-bar button {
+                position: static !important;
+                width: 100% !important;
+                margin-top: 1rem;
+                padding: 1.1rem !important;
+                border-radius: 60px !important;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+                max-width: 100% !important;
+                gap: 0.8rem !important;
+            }
+
+            .hero-stat {
+                padding: 0.6rem !important;
+            }
+
+            .excel-preview {
+                margin: 0 auto;
+            }
+
+            .price-how {
+                grid-template-columns: 1fr !important;
+                gap: 3rem;
+            }
+
+            .pricing-inner {
+                padding: 3rem 1.5rem;
+            }
+
             /* Navigation Mobile Fix */
-            .nav { padding: 0 1rem; }
-            .nav-name { font-size: 1rem; }
+            .nav {
+                padding: 0 1rem;
+            }
+
+            .nav-name {
+                font-size: 1rem;
+            }
         }
 
         .hero-stats {
@@ -526,7 +572,7 @@
             border-radius: 10px;
             text-align: left;
             transition: all 0.25s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         .hero-stat:hover {
@@ -1434,12 +1480,26 @@
                 padding: 3rem 1rem
             }
         }
+
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-4px); }
-            75% { transform: translateX(4px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-4px);
+            }
+
+            75% {
+                transform: translateX(4px);
+            }
         }
-        .shake { animation: shake 0.3s ease-in-out; }
+
+        .shake {
+            animation: shake 0.3s ease-in-out;
+        }
 
         .footer {
             padding: 2.5rem 2rem;
@@ -1508,56 +1568,399 @@
         }
 
         /* HOW IT WORKS PAGE STYLES */
-        .hiw-hero { padding: 4rem 2rem 3rem; background: linear-gradient(160deg,#F8FBFF,#EEF4FB,#F5F8FC); text-align: center }
-        .hiw-hero h1 { font-family: 'Space Grotesk',sans-serif; font-size: 2.8rem; font-weight: 700; color: #0A3D62; margin-bottom: .8rem }
-        .hiw-hero p { font-size: 1.05rem; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6 }
-        .hiw-section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto }
-        .hiw-label { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #0A3D62; margin-bottom: .8rem; background: #E2E8F0; padding: .3rem .8rem; border-radius: 30px }
-        .hiw-section h2 { font-family: 'Space Grotesk',sans-serif; font-size: 1.8rem; font-weight: 700; color: #0A3D62; margin-bottom: .5rem }
-        .hiw-section p { font-size: .92rem; color: #475569; line-height: 1.65; margin-bottom: 1rem }
-        .hiw-steps { display: flex; flex-direction: column; gap: 0; position: relative; margin: 2rem 0 }
-        .hiw-steps::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom,#E2E8F0,#0A3D62,#E2E8F0); border-radius: 3px }
-        .hiw-step-card { display: flex; gap: 1.5rem; align-items: flex-start; position: relative; padding: 1.5rem 0 }
-        .hiw-step-num { width: 72px; height: 72px; border-radius: 50%; background: #0A3D62; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: 1.5rem; flex-shrink: 0; position: relative; z-index: 1; box-shadow: 0 4px 12px rgba(10,61,98,0.15) }
-        .hiw-step-body { flex: 1; background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.5rem 1.8rem; transition: .2s; text-align: left; }
-        .hiw-step-body:hover { border-color: #0A3D62; box-shadow: 0 4px 16px rgba(10,61,98,0.06) }
-        .hiw-step-body h3 { font-size: 1.1rem; font-weight: 700; color: #0A3D62; margin-bottom: .4rem; font-family: 'Space Grotesk',sans-serif }
-        .hiw-step-body p { font-size: .88rem; color: #475569; line-height: 1.6; margin-bottom: .6rem }
-        .hiw-step-body .detail-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem }
-        .hiw-step-body .detail-chip { font-size: .7rem; font-weight: 600; padding: .3rem .7rem; border-radius: 20px; background: #F1F5F9; color: #0A3D62; border: 1px solid #E2E8F0 }
-        .hiw-step-body .tip { margin-top: .8rem; padding: .7rem .9rem; background: #F8FAFC; border-left: 3px solid #0A3D62; border-radius: 0 10px 10px 0; font-size: .8rem; color: #334155; line-height: 1.5 }
-        .hiw-divider { text-align: center; padding: 3rem 0; position: relative }
-        .hiw-divider::before { content: ''; position: absolute; left: 10%; right: 10%; top: 50%; height: 1px; background: #E2E8F0 }
-        .hiw-divider span { position: relative; background: white; padding: 0 1.5rem; font-size: .75rem; font-weight: 700; color: #0A3D62; letter-spacing: 2px; text-transform: uppercase }
-        .wyg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0 }
-        .wyg-card { background: white; border: 1px solid #E2E8F0; border-radius: 18px; padding: 1.8rem; transition: .2s; position: relative; overflow: hidden; text-align: left; }
-        .wyg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,#0A3D62,#42A5F5) }
-        .wyg-card:hover { border-color: #0A3D62; box-shadow: 0 6px 20px rgba(10,61,98,0.06); transform: translateY(-2px) }
-        .wyg-card .wyg-icon { font-size: 2rem; margin-bottom: .8rem }
-        .wyg-card h3 { font-size: 1rem; font-weight: 700; color: #0A3D62; margin-bottom: .5rem }
-        .wyg-card p { font-size: .82rem; color: #475569; line-height: 1.6; margin-bottom: .5rem }
-        .wyg-card .wyg-list { list-style: none; padding: 0; margin: .5rem 0 0 }
-        .wyg-card .wyg-list li { font-size: .78rem; color: #334155; padding: .3rem 0; padding-left: 1.2rem; position: relative; line-height: 1.5 }
-        .wyg-card .wyg-list li::before { content: ''; position: absolute; left: 0; top: .55rem; width: 6px; height: 6px; border-radius: 50%; background: #0A3D62 }
-        
-        @media(max-width:768px){ .wyg-grid { grid-template-columns:1fr } .hiw-step-num { width:52px; height:52px; font-size:1.1rem } .hiw-steps::before { left:25px } }
+        .hiw-hero {
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(160deg, #F8FBFF, #EEF4FB, #F5F8FC);
+            text-align: center
+        }
+
+        .hiw-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0A3D62;
+            margin-bottom: .8rem
+        }
+
+        .hiw-hero p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6
+        }
+
+        .hiw-section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .hiw-label {
+            display: inline-block;
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0A3D62;
+            margin-bottom: .8rem;
+            background: #E2E8F0;
+            padding: .3rem .8rem;
+            border-radius: 30px
+        }
+
+        .hiw-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A3D62;
+            margin-bottom: .5rem
+        }
+
+        .hiw-section p {
+            font-size: .92rem;
+            color: #475569;
+            line-height: 1.65;
+            margin-bottom: 1rem
+        }
+
+        .hiw-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            margin: 2rem 0
+        }
+
+        .hiw-steps::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #E2E8F0, #0A3D62, #E2E8F0);
+            border-radius: 3px
+        }
+
+        .hiw-step-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            position: relative;
+            padding: 1.5rem 0
+        }
+
+        .hiw-step-num {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #0A3D62;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(10, 61, 98, 0.15)
+        }
+
+        .hiw-step-body {
+            flex: 1;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            transition: .2s;
+            text-align: left;
+        }
+
+        .hiw-step-body:hover {
+            border-color: #0A3D62;
+            box-shadow: 0 4px 16px rgba(10, 61, 98, 0.06)
+        }
+
+        .hiw-step-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0A3D62;
+            margin-bottom: .4rem;
+            font-family: 'Space Grotesk', sans-serif
+        }
+
+        .hiw-step-body p {
+            font-size: .88rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: .6rem
+        }
+
+        .hiw-step-body .detail-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            margin-top: .8rem
+        }
+
+        .hiw-step-body .detail-chip {
+            font-size: .7rem;
+            font-weight: 600;
+            padding: .3rem .7rem;
+            border-radius: 20px;
+            background: #F1F5F9;
+            color: #0A3D62;
+            border: 1px solid #E2E8F0
+        }
+
+        .hiw-step-body .tip {
+            margin-top: .8rem;
+            padding: .7rem .9rem;
+            background: #F8FAFC;
+            border-left: 3px solid #0A3D62;
+            border-radius: 0 10px 10px 0;
+            font-size: .8rem;
+            color: #334155;
+            line-height: 1.5
+        }
+
+        .hiw-divider {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative
+        }
+
+        .hiw-divider::before {
+            content: '';
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 50%;
+            height: 1px;
+            background: #E2E8F0
+        }
+
+        .hiw-divider span {
+            position: relative;
+            background: white;
+            padding: 0 1.5rem;
+            font-size: .75rem;
+            font-weight: 700;
+            color: #0A3D62;
+            letter-spacing: 2px;
+            text-transform: uppercase
+        }
+
+        .wyg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0
+        }
+
+        .wyg-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 1.8rem;
+            transition: .2s;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .wyg-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0A3D62, #42A5F5)
+        }
+
+        .wyg-card:hover {
+            border-color: #0A3D62;
+            box-shadow: 0 6px 20px rgba(10, 61, 98, 0.06);
+            transform: translateY(-2px)
+        }
+
+        .wyg-card .wyg-icon {
+            font-size: 2rem;
+            margin-bottom: .8rem
+        }
+
+        .wyg-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0A3D62;
+            margin-bottom: .5rem
+        }
+
+        .wyg-card p {
+            font-size: .82rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: .5rem
+        }
+
+        .wyg-card .wyg-list {
+            list-style: none;
+            padding: 0;
+            margin: .5rem 0 0
+        }
+
+        .wyg-card .wyg-list li {
+            font-size: .78rem;
+            color: #334155;
+            padding: .3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            line-height: 1.5
+        }
+
+        .wyg-card .wyg-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .55rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #0A3D62
+        }
+
+        @media(max-width:768px) {
+            .wyg-grid {
+                grid-template-columns: 1fr
+            }
+
+            .hiw-step-num {
+                width: 52px;
+                height: 52px;
+                font-size: 1.1rem
+            }
+
+            .hiw-steps::before {
+                left: 25px
+            }
+        }
 
         /* WYG Excel Demo */
-        .wyg-excel-demo { background: white; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; margin: 2rem 0; box-shadow: 0 8px 24px rgba(10,61,98,0.05) }
-        .wyg-excel-header { background: #0A3D62; padding: .8rem 1.2rem; display: flex; justify-content: space-between; align-items: center }
-        .wyg-excel-header span { color: white; font-size: .8rem; font-weight: 600 }
-        .wyg-excel-tabs { display: flex; background: #F1F5F9; border-bottom: 1px solid #E2E8F0 }
-        .wyg-excel-tab { padding: .5rem 1rem; font-size: .7rem; font-weight: 600; color: #64748B; border-bottom: 2px solid transparent }
-        .wyg-excel-tab.active { color: #0A3D62; border-bottom-color: #0A3D62; background: white }
-        .wyg-excel-body { padding: 1rem; font-family: 'Inter', monospace; font-size: .7rem }
-        .wyg-excel-body table { width: 100%; border-collapse: collapse }
-        .wyg-excel-body th { background: #E9EDF2; padding: .4rem; text-align: center; font-weight: 600; color: #334155; border: 1px solid #E2E8F0; font-size: .65rem }
-        .wyg-excel-body td { padding: .35rem; text-align: center; border: 1px solid #E2E8F0; color: #0A3D62; font-weight: 500; font-size: .65rem }
-        .wyg-cta { text-align: center; padding: 3rem 2rem; background: #0A3D62; color: white; margin-top: 2rem }
-        .wyg-cta h2 { color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: .6rem }
-        .wyg-cta p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: .95rem }
-        .wyg-cta button { background: white; color: #0A3D62; border: none; padding: .9rem 2.5rem; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: .2s; font-family: 'Inter', sans-serif }
-        .wyg-cta button:hover { background: #F1F5F9; transform: translateY(-2px) }
+        .wyg-excel-demo {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 18px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 8px 24px rgba(10, 61, 98, 0.05)
+        }
+
+        .wyg-excel-header {
+            background: #0A3D62;
+            padding: .8rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .wyg-excel-header span {
+            color: white;
+            font-size: .8rem;
+            font-weight: 600
+        }
+
+        .wyg-excel-tabs {
+            display: flex;
+            background: #F1F5F9;
+            border-bottom: 1px solid #E2E8F0
+        }
+
+        .wyg-excel-tab {
+            padding: .5rem 1rem;
+            font-size: .7rem;
+            font-weight: 600;
+            color: #64748B;
+            border-bottom: 2px solid transparent
+        }
+
+        .wyg-excel-tab.active {
+            color: #0A3D62;
+            border-bottom-color: #0A3D62;
+            background: white
+        }
+
+        .wyg-excel-body {
+            padding: 1rem;
+            font-family: 'Inter', monospace;
+            font-size: .7rem
+        }
+
+        .wyg-excel-body table {
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        .wyg-excel-body th {
+            background: #E9EDF2;
+            padding: .4rem;
+            text-align: center;
+            font-weight: 600;
+            color: #334155;
+            border: 1px solid #E2E8F0;
+            font-size: .65rem
+        }
+
+        .wyg-excel-body td {
+            padding: .35rem;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            color: #0A3D62;
+            font-weight: 500;
+            font-size: .65rem
+        }
+
+        .wyg-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #0A3D62;
+            color: white;
+            margin-top: 2rem
+        }
+
+        .wyg-cta h2 {
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: .6rem
+        }
+
+        .wyg-cta p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: .95rem
+        }
+
+        .wyg-cta button {
+            background: white;
+            color: #0A3D62;
+            border: none;
+            padding: .9rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .2s;
+            font-family: 'Inter', sans-serif
+        }
+
+        .wyg-cta button:hover {
+            background: #F1F5F9;
+            transform: translateY(-2px)
+        }
 
         .country-grid {
             display: flex;
@@ -2617,6 +3020,7 @@
                 grid-template-columns: repeat(2, 1fr)
             }
         }
+
         /* HOW IT WORKS PAGE */
         .hiw-hero {
             padding: 4rem 2rem 3rem;
@@ -3009,8 +3413,11 @@
     <nav class="nav">
         <div class="nav-inner">
             <div class="nav-brand" onclick="showPage('home')">
-                <img src="/static/img/logo.png" alt="Estimately" style="height: 42px; width: auto; object-fit: contain;">
-                <div style="font-weight: 400; color: var(--gray-600); font-size: .8rem; margin-left: 8px; border-left: 1px solid var(--gray-200); padding-left: 8px;">Market Intelligence</div>
+                <img src="/static/img/logo.png" alt="Estimately"
+                    style="height: 42px; width: auto; object-fit: contain;">
+                <div
+                    style="font-weight: 400; color: var(--gray-600); font-size: .8rem; margin-left: 8px; border-left: 1px solid var(--gray-200); padding-left: 8px;">
+                    Market Intelligence</div>
             </div>
             <div class="nav-menu">
                 <a onclick="showNavPage('how-sec')">How It Works</a>
@@ -3061,10 +3468,22 @@
                             onclick="document.getElementById('homeSearchInput').value='Semiconductor';startReport()">Semiconductor</span>
                     </div>
                     <div class="hero-stats">
-                        <div class="hero-stat"><span class="hero-stat-icon">🔬</span><div class="hero-stat-info"><span class="hero-stat-label">Research-Backed</span><span class="hero-stat-sub">Primary + Secondary</span></div></div>
-                        <div class="hero-stat"><span class="hero-stat-icon">📐</span><div class="hero-stat-info"><span class="hero-stat-label">Source-Validated</span><span class="hero-stat-sub">Cross-Verified Data</span></div></div>
-                        <div class="hero-stat"><span class="hero-stat-icon">🛡️</span><div class="hero-stat-info"><span class="hero-stat-label">Analyst-Reviewed</span><span class="hero-stat-sub">Human QA Layer</span></div></div>
-                        <div class="hero-stat"><span class="hero-stat-icon">⏱️</span><div class="hero-stat-info"><span class="hero-stat-label">60-Min Delivery</span><span class="hero-stat-sub">Excel via Email</span></div></div>
+                        <div class="hero-stat"><span class="hero-stat-icon">🔬</span>
+                            <div class="hero-stat-info"><span class="hero-stat-label">Research-Backed</span><span
+                                    class="hero-stat-sub">Primary + Secondary</span></div>
+                        </div>
+                        <div class="hero-stat"><span class="hero-stat-icon">📐</span>
+                            <div class="hero-stat-info"><span class="hero-stat-label">Source-Validated</span><span
+                                    class="hero-stat-sub">Cross-Verified Data</span></div>
+                        </div>
+                        <div class="hero-stat"><span class="hero-stat-icon">🛡️</span>
+                            <div class="hero-stat-info"><span class="hero-stat-label">Analyst-Reviewed</span><span
+                                    class="hero-stat-sub">Human QA Layer</span></div>
+                        </div>
+                        <div class="hero-stat"><span class="hero-stat-icon">⏱️</span>
+                            <div class="hero-stat-info"><span class="hero-stat-label">60-Min Delivery</span><span
+                                    class="hero-stat-sub">Excel via Email</span></div>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -3158,38 +3577,83 @@
                 </div>
             </div>
         </div>
-        <section class="how-page-content" id="how-sec">
+
+        <section class="how" id="how-sec">
+            <div class="how-inner">
+                <div class="sec-label">Process</div>
+                <div class="sec-title">Analyst-verified data in 3 steps</div>
+                <div class="steps">
+                    <!-- Steps rendered from API -->
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="feat-sec">
+            <div class="feat-inner">
+                <div class="sec-label">Capabilities</div>
+                <div class="sec-title">The platform for precision sizing</div>
+                <div class="feat-grid">
+                    <!-- Features rendered from API -->
+                </div>
+            </div>
+        </section>
+
+        <section class="usecases">
+            <div class="uc-inner">
+                <div class="sec-label">Use Cases</div>
+                <div class="sec-title">Made for strategic decision makers</div>
+                <div class="uc-grid">
+                    <!-- Use cases rendered from API -->
+                </div>
+            </div>
+        </section>
+
+        <section class="how-page-content" id="how-detail-sec" style="display:none">
             <div class="hiw-hero">
                 <div class="hiw-label">Your Journey</div>
                 <h1>How It Works</h1>
-                <p>From your first search to a fully validated Excel datasheet in your inbox — here's every step of the process, in detail.</p>
+                <p>From your first search to a fully validated Excel datasheet in your inbox — here's every step of the
+                    process, in detail.</p>
             </div>
             <div class="hiw-section">
                 <div class="hiw-label">Step by step</div>
                 <h2>Your Report, in 5 Simple Steps</h2>
-                <p>Each step is designed to give you full control over what you get, at a price you choose — with zero lock-ins or hidden costs.</p>
+                <p>Each step is designed to give you full control over what you get, at a price you choose — with zero
+                    lock-ins or hidden costs.</p>
                 <div class="hiw-steps">
                     <div class="hiw-step-card">
                         <div class="hiw-step-num">1</div>
                         <div class="hiw-step-body">
                             <h3>Search any market</h3>
-                            <p>Type any market, industry, or niche into the search bar on our homepage. Our engine instantly recognizes the sector and prepares a structured report scope — no need to browse a catalog or fill out an inquiry form.</p>
-                            <p>You can search for anything: from broad sectors like "Renewable Energy" to ultra-specific niches like "Solid-State Battery for Electric Vehicles" or "AI-Powered Drug Discovery Platforms."</p>
+                            <p>Type any market, industry, or niche into the search bar on our homepage. Our engine
+                                instantly recognizes the sector and prepares a structured report scope — no need to
+                                browse a catalog or fill out an inquiry form.</p>
+                            <p>You can search for anything: from broad sectors like "Renewable Energy" to ultra-specific
+                                niches like "Solid-State Battery for Electric Vehicles" or "AI-Powered Drug Discovery
+                                Platforms."</p>
                             <div class="detail-chips">
                                 <span class="detail-chip">Any market or niche</span>
                                 <span class="detail-chip">No catalog browsing</span>
                                 <span class="detail-chip">Instant scope generation</span>
                             </div>
-                            <div class="tip">Try searches like: "Electric Vehicle Battery Market", "Cybersecurity SaaS", "Digital Therapeutics", "Semiconductor Wafer"</div>
+                            <div class="tip">Try searches like: "Electric Vehicle Battery Market", "Cybersecurity SaaS",
+                                "Digital Therapeutics", "Semiconductor Wafer"</div>
                         </div>
                     </div>
                     <div class="hiw-step-card">
                         <div class="hiw-step-num">2</div>
                         <div class="hiw-step-body">
                             <h3>Configure your report</h3>
-                            <p>Once inside the report builder, you get full control over every parameter. This is where you decide exactly what data you need — nothing more, nothing less.</p>
-                            <p><strong>Geography:</strong> Select the Global overview ($20), tick individual countries ($20 each), or select entire regions. We cover 17 countries across 5 regions — North America, Europe, Asia-Pacific, Middle East & Africa, and Latin America. Need a country not in the list? Add it as a custom entry.</p>
-                            <p><strong>Segmentation:</strong> Toggle on 3-level market segmentation (+$99 flat fee). Our engine auto-generates segment categories based on your market — for example, an EV report gets "By Vehicle Type", "By Component", and "By End-User". Segmentation data is applied at global, regional, and country level.</p>
+                            <p>Once inside the report builder, you get full control over every parameter. This is where
+                                you decide exactly what data you need — nothing more, nothing less.</p>
+                            <p><strong>Geography:</strong> Select the Global overview ($20), tick individual countries
+                                ($20 each), or select entire regions. We cover 17 countries across 5 regions — North
+                                America, Europe, Asia-Pacific, Middle East & Africa, and Latin America. Need a country
+                                not in the list? Add it as a custom entry.</p>
+                            <p><strong>Segmentation:</strong> Toggle on 3-level market segmentation (+$99 flat fee). Our
+                                engine auto-generates segment categories based on your market — for example, an EV
+                                report gets "By Vehicle Type", "By Component", and "By End-User". Segmentation data is
+                                applied at global, regional, and country level.</p>
                             <div class="detail-chips">
                                 <span class="detail-chip">17 default countries</span>
                                 <span class="detail-chip">Custom country support</span>
@@ -3204,24 +3668,34 @@
                         <div class="hiw-step-num">3</div>
                         <div class="hiw-step-body">
                             <h3>Preview with a free demo Excel</h3>
-                            <p>Before spending a single rupee, download a free demo Excel to see exactly what your report will look like. The demo contains the complete structure — every sheet, every table, every column — but with placeholder "xx.xx" values instead of actual data.</p>
-                            <p>This lets you verify that the report covers what you need: the right countries, the right segments, the right time horizon. If anything needs adjustment, change your configuration and download another demo — as many times as you want.</p>
+                            <p>Before spending a single rupee, download a free demo Excel to see exactly what your
+                                report will look like. The demo contains the complete structure — every sheet, every
+                                table, every column — but with placeholder "xx.xx" values instead of actual data.</p>
+                            <p>This lets you verify that the report covers what you need: the right countries, the right
+                                segments, the right time horizon. If anything needs adjustment, change your
+                                configuration and download another demo — as many times as you want.</p>
                             <div class="detail-chips">
                                 <span class="detail-chip">Instant download</span>
                                 <span class="detail-chip">No payment needed</span>
                                 <span class="detail-chip">Exact same structure as paid</span>
                                 <span class="detail-chip">Unlimited previews</span>
                             </div>
-                            <div class="tip">The demo Excel is not a sample from a different market — it's generated from YOUR exact configuration, with your selected countries and segments.</div>
+                            <div class="tip">The demo Excel is not a sample from a different market — it's generated
+                                from YOUR exact configuration, with your selected countries and segments.</div>
                         </div>
                     </div>
                     <div class="hiw-step-card">
                         <div class="hiw-step-num">4</div>
                         <div class="hiw-step-body">
                             <h3>Purchase securely</h3>
-                            <p>Happy with the structure? Hit "Buy Now" to complete your purchase. The pricing calculator shows your total in real-time as you configure, with no hidden fees.</p>
-                            <p><strong>How pricing works:</strong> Each country or Global = $20. Segmentation = +$99 flat. If you select 10+ countries, the price automatically caps at $199 — even if individual pricing would be higher. Add segmentation and it caps at $299. You always get the best possible price.</p>
-                            <p>We accept Stripe (all major credit/debit cards, Apple Pay, Google Pay) and PayPal. Your payment is confirmed instantly and you receive a unique Report ID for tracking.</p>
+                            <p>Happy with the structure? Hit "Buy Now" to complete your purchase. The pricing calculator
+                                shows your total in real-time as you configure, with no hidden fees.</p>
+                            <p><strong>How pricing works:</strong> Each country or Global = $20. Segmentation = +$99
+                                flat. If you select 10+ countries, the price automatically caps at $199 — even if
+                                individual pricing would be higher. Add segmentation and it caps at $299. You always get
+                                the best possible price.</p>
+                            <p>We accept Stripe (all major credit/debit cards, Apple Pay, Google Pay) and PayPal. Your
+                                payment is confirmed instantly and you receive a unique Report ID for tracking.</p>
                             <div class="detail-chips">
                                 <span class="detail-chip">Stripe & PayPal</span>
                                 <span class="detail-chip">Auto-cap at $199 / $299</span>
@@ -3234,11 +3708,19 @@
                         <div class="hiw-step-num">5</div>
                         <div class="hiw-step-body">
                             <h3>Analyst review & delivery in 60 minutes</h3>
-                            <p>This is what sets us apart. After payment, your report doesn't get auto-generated and dumped into your inbox. Instead, our in-house research analysts take over:</p>
-                            <p><strong>Minutes 1–5:</strong> Our data engine pulls relevant estimates from the DataHorizzon Research repository — a library of 70,000+ syndicated reports across 200+ industry verticals.</p>
-                            <p><strong>Minutes 5–40:</strong> An analyst reviews the segmentation structure, validates the market numbers using top-down and bottom-up triangulation, checks country-level proportionality, and flags any anomalies for correction.</p>
-                            <p><strong>Minutes 40–55:</strong> The final Excel workbook is assembled with styled tables, branded formatting, source attribution, and CAGR calculations across all sheets.</p>
-                            <p><strong>Minute 60:</strong> The completed, analyst-verified Excel report lands in your inbox with your Report ID. You can also access it anytime from your client dashboard.</p>
+                            <p>This is what sets us apart. After payment, your report doesn't get auto-generated and
+                                dumped into your inbox. Instead, our in-house research analysts take over:</p>
+                            <p><strong>Minutes 1–5:</strong> Our data engine pulls relevant estimates from the
+                                DataHorizzon Research repository — a library of 70,000+ syndicated reports across 200+
+                                industry verticals.</p>
+                            <p><strong>Minutes 5–40:</strong> An analyst reviews the segmentation structure, validates
+                                the market numbers using top-down and bottom-up triangulation, checks country-level
+                                proportionality, and flags any anomalies for correction.</p>
+                            <p><strong>Minutes 40–55:</strong> The final Excel workbook is assembled with styled tables,
+                                branded formatting, source attribution, and CAGR calculations across all sheets.</p>
+                            <p><strong>Minute 60:</strong> The completed, analyst-verified Excel report lands in your
+                                inbox with your Report ID. You can also access it anytime from your client dashboard.
+                            </p>
                             <div class="detail-chips">
                                 <span class="detail-chip">Human analyst review</span>
                                 <span class="detail-chip">70,000+ report database</span>
@@ -3246,7 +3728,9 @@
                                 <span class="detail-chip">Email delivery</span>
                                 <span class="detail-chip">Dashboard access</span>
                             </div>
-                            <div class="tip">Have questions about any number after delivery? Email us at support@estimately.io with your Report ID — our research team will respond with clarifications at no extra cost.</div>
+                            <div class="tip">Have questions about any number after delivery? Email us at
+                                support@estimately.io with your Report ID — our research team will respond with
+                                clarifications at no extra cost.</div>
                         </div>
                     </div>
                 </div>
@@ -3257,7 +3741,8 @@
             <div class="hiw-section">
                 <div class="hiw-label">Your deliverable</div>
                 <h2>What's Inside Your Excel Report</h2>
-                <p>Every report is a multi-sheet .xls workbook with structured data tables, styled formatting, and source attribution. Here's exactly what each section contains.</p>
+                <p>Every report is a multi-sheet .xls workbook with structured data tables, styled formatting, and
+                    source attribution. Here's exactly what each section contains.</p>
                 <div class="wyg-grid">
                     <div class="wyg-card">
                         <div class="wyg-icon">🏠</div>
@@ -3275,7 +3760,8 @@
                     <div class="wyg-card">
                         <div class="wyg-icon">🌐</div>
                         <h3>Global Sheet — Worldwide Market</h3>
-                        <p>The global overview of your market with total market size, regional breakdown, and segment analysis.</p>
+                        <p>The global overview of your market with total market size, regional breakdown, and segment
+                            analysis.</p>
                         <ul class="wyg-list">
                             <li>Global revenue line (base year through forecast)</li>
                             <li>Region-by-region breakdown table (if countries selected)</li>
@@ -3299,7 +3785,8 @@
                     <div class="wyg-card">
                         <div class="wyg-icon">🧩</div>
                         <h3>Segmentation — 3 Levels of Depth</h3>
-                        <p>When segmentation is enabled, you get three layers of market breakdown — tailored to your specific market.</p>
+                        <p>When segmentation is enabled, you get three layers of market breakdown — tailored to your
+                            specific market.</p>
                         <ul class="wyg-list">
                             <li>Auto-generated based on your report title keywords</li>
                             <li>Example: EV market → By Vehicle Type, By Component, By End-User</li>
@@ -3311,7 +3798,8 @@
                     <div class="wyg-card">
                         <div class="wyg-icon">💰</div>
                         <h3>Revenue Data — Market Size in Currency</h3>
-                        <p>When Revenue is selected as your metric, every table shows market value in your chosen currency.</p>
+                        <p>When Revenue is selected as your metric, every table shows market value in your chosen
+                            currency.</p>
                         <ul class="wyg-list">
                             <li>Available in USD, EUR, GBP, or JPY</li>
                             <li>Values displayed in Millions (Billions for JPY)</li>
@@ -3323,7 +3811,8 @@
                     <div class="wyg-card">
                         <div class="wyg-icon">📦</div>
                         <h3>Volume Data — Units & Tonnage</h3>
-                        <p>When Volume is selected, tables show physical quantities instead of currency — ideal for manufacturing and commodity markets.</p>
+                        <p>When Volume is selected, tables show physical quantities instead of currency — ideal for
+                            manufacturing and commodity markets.</p>
                         <ul class="wyg-list">
                             <li>Measured in Units or Tons (market-dependent)</li>
                             <li>Same structure as revenue: yearly + CAGR</li>
@@ -3337,9 +3826,11 @@
             <div class="hiw-section" style="text-align:center;">
                 <div class="hiw-label">Visual Preview</div>
                 <h2 style="margin-bottom:1rem;">Preview: What Your Excel Looks Like</h2>
-                <p style="margin-bottom:2rem;">Here's a snapshot of the actual structure you'll receive — with placeholder values replaced by real analyst-verified data after purchase.</p>
+                <p style="margin-bottom:2rem;">Here's a snapshot of the actual structure you'll receive — with
+                    placeholder values replaced by real analyst-verified data after purchase.</p>
                 <div class="wyg-excel-demo" style="max-width:900px; margin:0 auto;">
-                    <div class="wyg-excel-header"><span>Estimately — Market Report</span><span style="font-size:.65rem;opacity:.7">.xls</span></div>
+                    <div class="wyg-excel-header"><span>Forecastly.io — Market Report</span><span
+                            style="font-size:.65rem;opacity:.7">.xls</span></div>
                     <div class="wyg-excel-tabs">
                         <div class="wyg-excel-tab active">Home</div>
                         <div class="wyg-excel-tab">Global</div>
@@ -3352,19 +3843,80 @@
                     <div class="wyg-excel-body">
                         <table>
                             <thead>
-                                <tr><th colspan="7" style="background:#0A3D62;color:white;font-size:.7rem;padding:.5rem">Global Renewable Energy Storage Market, 2025–2033 (USD Million)</th></tr>
-                                <tr><th>Region</th><th>2025</th><th>2027</th><th>2029</th><th>2031</th><th>2033</th><th>CAGR</th></tr>
+                                <tr>
+                                    <th colspan="7"
+                                        style="background:#0A3D62;color:white;font-size:.7rem;padding:.5rem">Global
+                                        Renewable Energy Storage Market, 2025–2033 (USD Million)</th>
+                                </tr>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>2025</th>
+                                    <th>2027</th>
+                                    <th>2029</th>
+                                    <th>2031</th>
+                                    <th>2033</th>
+                                    <th>CAGR</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td style="text-align:left;font-weight:600">North America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
-                                <tr><td style="text-align:left;font-weight:600">Europe</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
-                                <tr><td style="text-align:left;font-weight:600">Asia Pacific</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
-                                <tr><td style="text-align:left;font-weight:600">Latin America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
-                                <tr><td style="text-align:left;font-weight:600">MEA</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
-                                <tr style="background:#F0F5FA;font-weight:700"><td style="text-align:left">Total</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                                <tr>
+                                    <td style="text-align:left;font-weight:600">North America</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left;font-weight:600">Europe</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left;font-weight:600">Asia Pacific</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left;font-weight:600">Latin America</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left;font-weight:600">MEA</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
+                                <tr style="background:#F0F5FA;font-weight:700">
+                                    <td style="text-align:left">Total</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>xx.x</td>
+                                    <td>x.x%</td>
+                                </tr>
                             </tbody>
                         </table>
-                        <div style="margin-top:.6rem;font-size:.6rem;color:#94A3B8;font-style:italic">Source: Primary Interviews, Secondary Research, Internal Databases and Estimately Research</div>
+                        <div style="margin-top:.6rem;font-size:.6rem;color:#94A3B8;font-style:italic">Source: Primary
+                            Interviews, Secondary Research, Internal Databases and Forecastly.io Research</div>
                     </div>
                 </div>
             </div>
@@ -3373,7 +3925,8 @@
                 <h2>Ready to see it for yourself?</h2>
                 <p>Download a free demo Excel for any market — instantly. No payment, no signup required.</p>
                 <button onclick="startReport()">Build Your Report Now →</button>
-                <div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">FREE DEMO INSTANTLY · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
+                <div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">FREE DEMO
+                    INSTANTLY · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
             </div>
         </section>
 
@@ -3553,25 +4106,46 @@
             <div class="meth-hero">
                 <div class="meth-label">Research Methodology</div>
                 <h1>Behind the Numbers</h1>
-                <p>Every datapoint in your Excel goes through a rigorous, multi-layered research process. Here's exactly how we turn raw intelligence into analyst-verified market estimates you can trust in boardrooms.</p>
+                <p>Every datapoint in your Excel goes through a rigorous, multi-layered research process. Here's exactly
+                    how we turn raw intelligence into analyst-verified market estimates you can trust in boardrooms.</p>
             </div>
 
             <!-- DATA FOUNDATION -->
             <div class="meth-section">
                 <div class="meth-label">Data Foundation</div>
                 <h2>Powered by 70,000+ Research Reports</h2>
-                <p>Every Estimately.io estimate begins with DataHorizzon Research — our proprietary intelligence backbone with one of the largest repositories of syndicated market research in the industry.</p>
+                <p>Every Forecastly.io estimate begins with DataHorizzon Research — our proprietary intelligence
+                    backbone with one of the largest repositories of syndicated market research in the industry.</p>
                 <div class="meth-db-card">
                     <div>
-                        <h3 style="color:white;font-size:1.3rem;margin-bottom:.8rem;font-family:'Space Grotesk',sans-serif">DataHorizzon Research Repository</h3>
-                        <p style="color:rgba(255,255,255,0.75);font-size:.9rem;line-height:1.6;margin-bottom:1rem">Our data engine draws from a continuously updated library of market intelligence spanning every major industry vertical — from semiconductors to pharmaceuticals, energy to fintech. This isn't scraped data or AI hallucinations. It's structured, source-validated research compiled by domain analysts over the past decade.</p>
-                        <p style="color:rgba(255,255,255,0.55);font-size:.78rem;line-height:1.5">Updated quarterly with new reports, revised forecasts, and expanded country coverage across all active sectors.</p>
+                        <h3
+                            style="color:white;font-size:1.3rem;margin-bottom:.8rem;font-family:'Space Grotesk',sans-serif">
+                            DataHorizzon Research Repository</h3>
+                        <p style="color:rgba(255,255,255,0.75);font-size:.9rem;line-height:1.6;margin-bottom:1rem">Our
+                            data engine draws from a continuously updated library of market intelligence spanning every
+                            major industry vertical — from semiconductors to pharmaceuticals, energy to fintech. This
+                            isn't scraped data or AI hallucinations. It's structured, source-validated research compiled
+                            by domain analysts over the past decade.</p>
+                        <p style="color:rgba(255,255,255,0.55);font-size:.78rem;line-height:1.5">Updated quarterly with
+                            new reports, revised forecasts, and expanded country coverage across all active sectors.</p>
                     </div>
                     <div class="meth-db-stats">
-                        <div class="meth-db-stat"><div class="num">70,000+</div><div class="lbl">Published Reports</div></div>
-                        <div class="meth-db-stat"><div class="num">200+</div><div class="lbl">Industry Verticals</div></div>
-                        <div class="meth-db-stat"><div class="num">50+</div><div class="lbl">Countries Covered</div></div>
-                        <div class="meth-db-stat"><div class="num">10Y</div><div class="lbl">Forecast Horizon</div></div>
+                        <div class="meth-db-stat">
+                            <div class="num">70,000+</div>
+                            <div class="lbl">Published Reports</div>
+                        </div>
+                        <div class="meth-db-stat">
+                            <div class="num">200+</div>
+                            <div class="lbl">Industry Verticals</div>
+                        </div>
+                        <div class="meth-db-stat">
+                            <div class="num">50+</div>
+                            <div class="lbl">Countries Covered</div>
+                        </div>
+                        <div class="meth-db-stat">
+                            <div class="num">10Y</div>
+                            <div class="lbl">Forecast Horizon</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3581,34 +4155,62 @@
                 <div style="max-width:1100px;margin:0 auto">
                     <div class="meth-label">Estimation Approach</div>
                     <h2>Top-Down Meets Bottom-Up</h2>
-                    <p>We don't rely on a single estimation method. Every market size figure is triangulated using two independent approaches — and only published when both converge within an acceptable variance range.</p>
+                    <p>We don't rely on a single estimation method. Every market size figure is triangulated using two
+                        independent approaches — and only published when both converge within an acceptable variance
+                        range.</p>
                     <div class="meth-approach">
                         <div class="meth-approach-card">
                             <div class="tag" style="background:#E2E8F0;color:#0A3D62">APPROACH 1</div>
                             <h3>🔻 Top-Down Approach</h3>
-                            <p>Starts from the macro level and narrows down. We begin with the total industry output or global market value from established databases, then apply filters to isolate the specific market segment.</p>
-                            <p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:</p>
-                            <p style="font-size:.82rem">1. Begin with total industry revenue from government statistics, trade associations, and international bodies (World Bank, IMF, UN Comtrade)</p>
-                            <p style="font-size:.82rem">2. Apply segmentation ratios derived from industry reports to isolate the target market</p>
-                            <p style="font-size:.82rem">3. Use regional GDP contribution, industry concentration, and trade data to break down by geography</p>
-                            <p style="font-size:.82rem">4. Cross-reference with company financial disclosures, annual reports, and investor presentations for revenue benchmarks</p>
-                            <p style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62"><strong>Best for:</strong> Mature markets with established industry-level data. Provides the overall market ceiling and validates bottom-up estimates.</p>
+                            <p>Starts from the macro level and narrows down. We begin with the total industry output or
+                                global market value from established databases, then apply filters to isolate the
+                                specific market segment.</p>
+                            <p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:
+                            </p>
+                            <p style="font-size:.82rem">1. Begin with total industry revenue from government statistics,
+                                trade associations, and international bodies (World Bank, IMF, UN Comtrade)</p>
+                            <p style="font-size:.82rem">2. Apply segmentation ratios derived from industry reports to
+                                isolate the target market</p>
+                            <p style="font-size:.82rem">3. Use regional GDP contribution, industry concentration, and
+                                trade data to break down by geography</p>
+                            <p style="font-size:.82rem">4. Cross-reference with company financial disclosures, annual
+                                reports, and investor presentations for revenue benchmarks</p>
+                            <p
+                                style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62">
+                                <strong>Best for:</strong> Mature markets with established industry-level data. Provides
+                                the overall market ceiling and validates bottom-up estimates.</p>
                         </div>
                         <div class="meth-approach-card">
                             <div class="tag" style="background:#E2E8F0;color:#0A3D62">APPROACH 2</div>
                             <h3>🔺 Bottom-Up Approach</h3>
-                            <p>Starts from individual data points and builds upward. We aggregate company-level revenues, unit shipments, pricing data, and capacity utilization to construct the market from its components.</p>
-                            <p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:</p>
-                            <p style="font-size:.82rem">1. Identify all major and mid-tier players in the market using competitive intelligence databases</p>
-                            <p style="font-size:.82rem">2. Extract segment-specific revenue from annual reports, SEC filings, investor calls, and press releases</p>
-                            <p style="font-size:.82rem">3. Estimate private company revenues using employee count proxies, funding data, and market share intelligence</p>
-                            <p style="font-size:.82rem">4. Aggregate across all players, add tail-end estimates for smaller firms, and validate against import/export data</p>
-                            <p style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62"><strong>Best for:</strong> Emerging and fragmented markets. Provides granular accuracy and validates the top-down ceiling.</p>
+                            <p>Starts from individual data points and builds upward. We aggregate company-level
+                                revenues, unit shipments, pricing data, and capacity utilization to construct the market
+                                from its components.</p>
+                            <p style="font-size:.82rem;font-weight:600;color:#0A3D62;margin-bottom:.6rem">How it works:
+                            </p>
+                            <p style="font-size:.82rem">1. Identify all major and mid-tier players in the market using
+                                competitive intelligence databases</p>
+                            <p style="font-size:.82rem">2. Extract segment-specific revenue from annual reports, SEC
+                                filings, investor calls, and press releases</p>
+                            <p style="font-size:.82rem">3. Estimate private company revenues using employee count
+                                proxies, funding data, and market share intelligence</p>
+                            <p style="font-size:.82rem">4. Aggregate across all players, add tail-end estimates for
+                                smaller firms, and validate against import/export data</p>
+                            <p
+                                style="font-size:.82rem;margin-top:1rem;padding:.7rem;background:#F8FAFC;border-radius:10px;border-left:3px solid #0A3D62">
+                                <strong>Best for:</strong> Emerging and fragmented markets. Provides granular accuracy
+                                and validates the top-down ceiling.</p>
                         </div>
                     </div>
-                    <div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;text-align:center;margin-top:1.5rem">
-                        <p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.4rem">🎯 Triangulation & Convergence</p>
-                        <p style="font-size:.82rem;color:#64748B;max-width:700px;margin:0 auto">Both approaches are run independently. If estimates converge within a 5-8% variance, the average is taken as the final figure. If variance exceeds this threshold, our analysts investigate the gap — checking for missing players, data anomalies, or structural market shifts — until the numbers align.</p>
+                    <div
+                        style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;text-align:center;margin-top:1.5rem">
+                        <p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.4rem">🎯 Triangulation &
+                            Convergence</p>
+                        <p style="font-size:.82rem;color:#64748B;max-width:700px;margin:0 auto">Both approaches are run
+                            independently. If estimates converge within a 5-8% variance, the average is taken as the
+                            final figure. If variance exceeds this threshold, our analysts investigate the gap —
+                            checking for missing players, data anomalies, or structural market shifts — until the
+                            numbers align.</p>
                     </div>
                 </div>
             </div>
@@ -3617,14 +4219,45 @@
             <div class="meth-section">
                 <div class="meth-label">Data Sources</div>
                 <h2>Where Our Data Comes From</h2>
-                <p>We combine six distinct categories of intelligence to ensure every estimate is grounded in verifiable, cross-referenced data — not assumptions.</p>
+                <p>We combine six distinct categories of intelligence to ensure every estimate is grounded in
+                    verifiable, cross-referenced data — not assumptions.</p>
                 <div class="meth-source-grid">
-                    <div class="meth-source"><div class="icon">📊</div><h4>Company Financials</h4><p>Annual reports, SEC filings, investor presentations, earnings transcripts from 10,000+ public companies globally</p></div>
-                    <div class="meth-source"><div class="icon">🏛️</div><h4>Government & Trade Data</h4><p>National statistics bureaus, customs data, UN Comtrade, World Bank, IMF, trade association publications</p></div>
-                    <div class="meth-source"><div class="icon">🔬</div><h4>Primary Research</h4><p>Interviews with C-suite executives, industry experts, supply chain managers, and domain specialists across sectors</p></div>
-                    <div class="meth-source"><div class="icon">📰</div><h4>Industry Publications</h4><p>Trade journals, white papers, conference proceedings, patent filings, and peer-reviewed research papers</p></div>
-                    <div class="meth-source"><div class="icon">💼</div><h4>Competitive Intelligence</h4><p>Product launches, M&A activity, partnerships, capacity expansions, pricing trends tracked across competitors</p></div>
-                    <div class="meth-source"><div class="icon">🗄️</div><h4>DataHorizzon Repository</h4><p>70,000+ syndicated reports with historical data, validated segmentation, and forecasts across 200+ verticals</p></div>
+                    <div class="meth-source">
+                        <div class="icon">📊</div>
+                        <h4>Company Financials</h4>
+                        <p>Annual reports, SEC filings, investor presentations, earnings transcripts from 10,000+ public
+                            companies globally</p>
+                    </div>
+                    <div class="meth-source">
+                        <div class="icon">🏛️</div>
+                        <h4>Government & Trade Data</h4>
+                        <p>National statistics bureaus, customs data, UN Comtrade, World Bank, IMF, trade association
+                            publications</p>
+                    </div>
+                    <div class="meth-source">
+                        <div class="icon">🔬</div>
+                        <h4>Primary Research</h4>
+                        <p>Interviews with C-suite executives, industry experts, supply chain managers, and domain
+                            specialists across sectors</p>
+                    </div>
+                    <div class="meth-source">
+                        <div class="icon">📰</div>
+                        <h4>Industry Publications</h4>
+                        <p>Trade journals, white papers, conference proceedings, patent filings, and peer-reviewed
+                            research papers</p>
+                    </div>
+                    <div class="meth-source">
+                        <div class="icon">💼</div>
+                        <h4>Competitive Intelligence</h4>
+                        <p>Product launches, M&A activity, partnerships, capacity expansions, pricing trends tracked
+                            across competitors</p>
+                    </div>
+                    <div class="meth-source">
+                        <div class="icon">🗄️</div>
+                        <h4>DataHorizzon Repository</h4>
+                        <p>70,000+ syndicated reports with historical data, validated segmentation, and forecasts across
+                            200+ verticals</p>
+                    </div>
                 </div>
             </div>
 
@@ -3633,18 +4266,58 @@
                 <div style="max-width:1100px;margin:0 auto">
                     <div class="meth-label">Delivery Process</div>
                     <h2>How You Get Analyst-Verified Data in 60 Minutes</h2>
-                    <p>Our 60-minute delivery isn't a compromise on quality — it's the result of a pre-built data infrastructure that lets our analysts focus on validation rather than starting research from scratch.</p>
+                    <p>Our 60-minute delivery isn't a compromise on quality — it's the result of a pre-built data
+                        infrastructure that lets our analysts focus on validation rather than starting research from
+                        scratch.</p>
                     <div class="meth-timeline">
-                        <div class="meth-tl-step"><div class="meth-tl-dot">📝</div><h4>You Configure</h4><p>Select your market, countries, segments, and forecast period</p><div class="meth-tl-time">0 min</div></div>
-                        <div class="meth-tl-step"><div class="meth-tl-dot">💳</div><h4>Payment</h4><p>Secure checkout via Stripe or PayPal</p><div class="meth-tl-time">2 min</div></div>
-                        <div class="meth-tl-step"><div class="meth-tl-dot">🔄</div><h4>Data Pull</h4><p>Engine queries DataHorizzon repository and pulls relevant estimates</p><div class="meth-tl-time">5 min</div></div>
-                        <div class="meth-tl-step"><div class="meth-tl-dot">🔬</div><h4>Analyst Review</h4><p>In-house analyst validates segmentation, checks numbers, flags anomalies</p><div class="meth-tl-time">15-40 min</div></div>
-                        <div class="meth-tl-step"><div class="meth-tl-dot">📊</div><h4>Excel Build</h4><p>Structured workbook generated with all sheets, styling, and source attribution</p><div class="meth-tl-time">45 min</div></div>
-                        <div class="meth-tl-step"><div class="meth-tl-dot">📧</div><h4>Delivered</h4><p>Excel emailed to your inbox with report ID</p><div class="meth-tl-time">60 min</div></div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">📝</div>
+                            <h4>You Configure</h4>
+                            <p>Select your market, countries, segments, and forecast period</p>
+                            <div class="meth-tl-time">0 min</div>
+                        </div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">💳</div>
+                            <h4>Payment</h4>
+                            <p>Secure checkout via Stripe or PayPal</p>
+                            <div class="meth-tl-time">2 min</div>
+                        </div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">🔄</div>
+                            <h4>Data Pull</h4>
+                            <p>Engine queries DataHorizzon repository and pulls relevant estimates</p>
+                            <div class="meth-tl-time">5 min</div>
+                        </div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">🔬</div>
+                            <h4>Analyst Review</h4>
+                            <p>In-house analyst validates segmentation, checks numbers, flags anomalies</p>
+                            <div class="meth-tl-time">15-40 min</div>
+                        </div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">📊</div>
+                            <h4>Excel Build</h4>
+                            <p>Structured workbook generated with all sheets, styling, and source attribution</p>
+                            <div class="meth-tl-time">45 min</div>
+                        </div>
+                        <div class="meth-tl-step">
+                            <div class="meth-tl-dot">📧</div>
+                            <h4>Delivered</h4>
+                            <p>Excel emailed to your inbox with report ID</p>
+                            <div class="meth-tl-time">60 min</div>
+                        </div>
                     </div>
-                    <div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;margin-top:2rem">
-                        <p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.8rem">Why 60 minutes — not instant?</p>
-                        <p style="font-size:.85rem;color:#475569;line-height:1.6">We intentionally avoid fully automated delivery because market data requires human judgment. An AI can pull numbers, but only an analyst can spot when a segmentation doesn't fit the market, when a country's numbers look off relative to its economic size, or when recent regulatory changes have shifted demand patterns. The 60-minute window gives our research team enough time to review, adjust, and sign off on every datapoint — so you get numbers you can present to leadership, not numbers you have to second-guess.</p>
+                    <div
+                        style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:1.5rem;margin-top:2rem">
+                        <p style="font-size:.9rem;font-weight:700;color:#0A3D62;margin-bottom:.8rem">Why 60 minutes —
+                            not instant?</p>
+                        <p style="font-size:.85rem;color:#475569;line-height:1.6">We intentionally avoid fully automated
+                            delivery because market data requires human judgment. An AI can pull numbers, but only an
+                            analyst can spot when a segmentation doesn't fit the market, when a country's numbers look
+                            off relative to its economic size, or when recent regulatory changes have shifted demand
+                            patterns. The 60-minute window gives our research team enough time to review, adjust, and
+                            sign off on every datapoint — so you get numbers you can present to leadership, not numbers
+                            you have to second-guess.</p>
                     </div>
                 </div>
             </div>
@@ -3655,10 +4328,30 @@
                 <h2>Four Layers of Validation</h2>
                 <p>Every report passes through four independent quality checks before it reaches your inbox.</p>
                 <div class="meth-qa-grid">
-                    <div class="meth-qa"><div class="icon">🔢</div><h4>Numerical Consistency</h4><p>Region totals must sum to global. Country totals must sum to region. CAGR must align with year-on-year growth.</p></div>
-                    <div class="meth-qa"><div class="icon">📐</div><h4>Proportionality Check</h4><p>Country market shares validated against GDP ratios, industrial output, and known consumption patterns.</p></div>
-                    <div class="meth-qa"><div class="icon">🔄</div><h4>Cross-Reference</h4><p>Estimates compared against at least 2 independent sources. Outliers are investigated and adjusted.</p></div>
-                    <div class="meth-qa"><div class="icon">👁️</div><h4>Analyst Sign-Off</h4><p>Senior analyst reviews the final Excel for logical consistency, formatting accuracy, and data integrity before delivery.</p></div>
+                    <div class="meth-qa">
+                        <div class="icon">🔢</div>
+                        <h4>Numerical Consistency</h4>
+                        <p>Region totals must sum to global. Country totals must sum to region. CAGR must align with
+                            year-on-year growth.</p>
+                    </div>
+                    <div class="meth-qa">
+                        <div class="icon">📐</div>
+                        <h4>Proportionality Check</h4>
+                        <p>Country market shares validated against GDP ratios, industrial output, and known consumption
+                            patterns.</p>
+                    </div>
+                    <div class="meth-qa">
+                        <div class="icon">🔄</div>
+                        <h4>Cross-Reference</h4>
+                        <p>Estimates compared against at least 2 independent sources. Outliers are investigated and
+                            adjusted.</p>
+                    </div>
+                    <div class="meth-qa">
+                        <div class="icon">👁️</div>
+                        <h4>Analyst Sign-Off</h4>
+                        <p>Senior analyst reviews the final Excel for logical consistency, formatting accuracy, and data
+                            integrity before delivery.</p>
+                    </div>
                 </div>
             </div>
 
@@ -3667,21 +4360,27 @@
                 <h2>Convinced by the process? Try it risk-free.</h2>
                 <p>Download a free demo Excel instantly to see the exact report structure — no payment needed.</p>
                 <button onclick="startReport()">Build Your Report Now →</button>
-                <div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">70,000+ REPORTS · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
+                <div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">70,000+
+                    REPORTS · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
             </div>
-            <div class="footer">Estimately.io · Market Size Estimates & Forecasts in Excel · &copy; 2026</div>
+            <div class="footer">Forecastly.io · Market Size Estimates & Forecasts in Excel · &copy; 2026</div>
         </section>
         <section class="blog-promo-sec" id="blog-promo-sec" style="background: #F8FAFC; padding: 5rem 2rem;">
             <div class="blog-promo-inner" style="max-width: 1200px; margin: 0 auto;">
-                <div class="blog-promo-label" style="text-align:center; color: var(--accent); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem;">Insights</div>
-                <div class="blog-promo-title" style="text-align:center; font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: var(--primary); margin-bottom:3.5rem; font-weight: 700;">Latest from the Forecastly blog</div>
-                
+                <div class="blog-promo-label"
+                    style="text-align:center; color: var(--accent); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem;">
+                    Insights</div>
+                <div class="blog-promo-title"
+                    style="text-align:center; font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: var(--primary); margin-bottom:3.5rem; font-weight: 700;">
+                    Latest from the Forecastly blog</div>
+
                 <style>
                     .home-blog-grid {
                         display: grid;
                         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
                         gap: 2rem;
                     }
+
                     .home-blog-card {
                         background: white;
                         border-radius: 20px;
@@ -3693,11 +4392,13 @@
                         text-decoration: none;
                         color: inherit;
                     }
+
                     .home-blog-card:hover {
                         transform: translateY(-8px);
                         border-color: var(--accent);
-                        box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+                        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
                     }
+
                     .home-blog-thumb {
                         height: 180px;
                         background: #EEF7FF;
@@ -3706,9 +4407,11 @@
                         justify-content: center;
                         font-size: 3.5rem;
                     }
+
                     .home-blog-body {
                         padding: 1.8rem;
                     }
+
                     .home-blog-tag {
                         font-size: 0.72rem;
                         font-weight: 800;
@@ -3717,6 +4420,7 @@
                         letter-spacing: 1px;
                         margin-bottom: 0.8rem;
                     }
+
                     .home-blog-card h3 {
                         font-family: 'Space Grotesk', sans-serif;
                         font-size: 1.35rem;
@@ -3724,6 +4428,7 @@
                         margin-bottom: 0.8rem;
                         line-height: 1.35;
                     }
+
                     .home-blog-card p {
                         font-size: 0.92rem;
                         color: var(--gray-600);
@@ -3735,6 +4440,7 @@
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                     }
+
                     .home-blog-footer {
                         padding-top: 1.2rem;
                         border-top: 1px solid var(--gray-100);
@@ -3744,6 +4450,7 @@
                         justify-content: space-between;
                         align-items: center;
                     }
+
                     .home-read-more {
                         color: var(--primary);
                         font-weight: 700;
@@ -3757,33 +4464,36 @@
                         <div class="home-blog-body">
                             <div class="home-blog-tag">Market Intelligence</div>
                             <h3>How to Size Any Market in Under 5 Minutes</h3>
-                            <p>Learn the top-down and bottom-up frameworks that analysts use to estimate TAM, SAM, and SOM — and how Forecastly automates the process.</p>
+                            <p>Learn the top-down and bottom-up frameworks that analysts use to estimate TAM, SAM, and
+                                SOM — and how Forecastly automates the process.</p>
                             <div class="home-blog-footer">
                                 <span>March 28, 2026</span>
                                 <span class="home-read-more">Read More →</span>
                             </div>
                         </div>
                     </a>
-                    
+
                     <a href="/blog/why-3-level-segmentation-matters-for-b2b-decisions/" class="home-blog-card">
                         <div class="home-blog-thumb">🔬</div>
                         <div class="home-blog-body">
                             <div class="home-blog-tag">Segmentation</div>
                             <h3>Why 3-Level Segmentation Matters for B2B Decisions</h3>
-                            <p>Granular segmentation reveals hidden revenue pockets that flat reports miss. Here's how to break a $50B market into actionable sub-segments.</p>
+                            <p>Granular segmentation reveals hidden revenue pockets that flat reports miss. Here's how
+                                to break a $50B market into actionable sub-segments.</p>
                             <div class="home-blog-footer">
                                 <span>March 22, 2026</span>
                                 <span class="home-read-more">Read More →</span>
                             </div>
                         </div>
                     </a>
-                    
+
                     <a href="/blog/10-competitors-you-should-track-in-every-market-report/" class="home-blog-card">
                         <div class="home-blog-thumb">🏆</div>
                         <div class="home-blog-body">
                             <div class="home-blog-tag">Competitor Analysis</div>
                             <h3>10 Competitors You Should Track in Every Market Report</h3>
-                            <p>From incumbents to fast-movers — tracking the right competitors gives you a strategic edge. Here's our framework for competitive mapping.</p>
+                            <p>From incumbents to fast-movers — tracking the right competitors gives you a strategic
+                                edge. Here's our framework for competitive mapping.</p>
                             <div class="home-blog-footer">
                                 <span>March 15, 2026</span>
                                 <span class="home-read-more">Read More →</span>
@@ -3793,7 +4503,8 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 4rem;">
-                    <a href="/blog/" style="display: inline-flex; align-items: center; gap: 0.8rem; background: var(--primary); color: white; padding: 1rem 2.2rem; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.2s;">
+                    <a href="/blog/"
+                        style="display: inline-flex; align-items: center; gap: 0.8rem; background: var(--primary); color: white; padding: 1rem 2.2rem; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: 0.2s;">
                         View All Articles <span style="font-size: 1.2rem;">→</span>
                     </a>
                 </div>
@@ -3836,7 +4547,8 @@
                 </div>
                 <div class="faq-item" onclick="this.classList.toggle('open')">
                     <div class="faq-q">What payment methods do you accept? <span>+</span></div>
-                    <div class="faq-a">We accept payments through PayPal. All transactions are secure and encrypted. You will receive a payment
+                    <div class="faq-a">We accept payments through PayPal. All transactions are secure and encrypted. You
+                        will receive a payment
                         confirmation and your unique report ID immediately after checkout. The report delivery begins
                         right after payment is confirmed.</div>
                 </div>
@@ -3858,7 +4570,8 @@
                 </div>
                 <div class="faq-item" onclick="this.classList.toggle('open')">
                     <div class="faq-q">What is the difference between Basic, Professional, and Enterprise?
-                        <span>+</span></div>
+                        <span>+</span>
+                    </div>
                     <div class="faq-a">There are no fixed packages. You build your own report — select Global ($20), add
                         any countries ($20 each), and optionally turn on 3-level segmentation (+$99 flat). If you select
                         10+ countries, the price auto-caps at $199 — even if individual pricing would be higher. With
@@ -4009,7 +4722,8 @@
                                     <option value="MEA">MEA</option>
                                 </select><button id="addCountryBtn"
                                     style="background:var(--accent);border:none;padding:.45rem .8rem;border-radius:40px;color:#fff;font-weight:600;cursor:pointer;font-size:.72rem">+
-                                    Add</button></div>
+                                    Add</button>
+                            </div>
                             <div id="extraCountryNote"
                                 style="margin-top:.5rem;padding:.4rem .6rem;background:#F8FAFC;border:1px solid #CBD5E1;border-radius:8px;font-size:.7rem;color:#0A3D62;text-align:center;display:none">
                             </div>
@@ -4019,7 +4733,8 @@
                         <div id="countryWarningNote"
                             style="background:#F8FAFC;padding:.6rem .7rem;border-radius:10px;font-size:.72rem;color:#0A3D62;margin-top:.7rem;text-align:center">
                             <span id="countryNoteText">💡 $20 per country. Select 10+ and price auto-caps at
-                                $199.</span></div>
+                                $199.</span>
+                        </div>
                         <div id="upsellBanner"
                             style="background:#E2E8F0;border:1.5px solid #CBD5E1;border-radius:10px;padding:.5rem .7rem;font-size:.7rem;color:#0A3D62;font-weight:600;margin-top:.5rem;text-align:center;display:none">
                         </div>
@@ -4115,8 +4830,11 @@
             <div class="dashboard-sidebar">
                 <div class="dash-sidebar-brand" onclick="showPage('home')">
                     <div class="ds-logo" style="display: flex; align-items: center; gap: 10px;">
-                        <img src="/static/img/logo.png" alt="Estimately" style="height: 32px; width: auto; object-fit: contain;">
-                        <div style="font-weight: 400; color: var(--gray-600); font-size: .7rem; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 8px;">Market Intelligence</div>
+                        <img src="/static/img/logo.png" alt="Estimately"
+                            style="height: 32px; width: auto; object-fit: contain;">
+                        <div
+                            style="font-weight: 400; color: var(--gray-600); font-size: .7rem; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 8px;">
+                            Market Intelligence</div>
                     </div>
                 </div>
                 <div class="menu-list">
@@ -4190,14 +4908,14 @@
         var verifiedEmail = '', generatedCode = '', selectedPayMethod = 'paypal', orders = [];
         var segmentationOn = false;
         var pendingAction = null;
-        function showPage(p) { 
-            document.querySelectorAll('.page').forEach(function (pg) { pg.classList.remove('active') }); 
-            document.getElementById('page-' + p).classList.add('active'); 
-            
+        function showPage(p) {
+            document.querySelectorAll('.page').forEach(function (pg) { pg.classList.remove('active') });
+            document.getElementById('page-' + p).classList.add('active');
+
             // Dynamic SEO Meta Updates
             const titleEl = document.getElementById('site-title');
             const metaDesc = document.getElementById('meta-description');
-            
+
             if (p === 'home') {
                 titleEl.textContent = 'Forecastly.io | Market Size Estimates & Forecasts in Excel';
                 metaDesc.setAttribute('content', 'Analyst-verified Excel datasheets for any market. 13-country breakdowns, 3-level segmentation, 10-year forecasts. Starting at $20.');
@@ -4209,12 +4927,12 @@
                 metaDesc.setAttribute('content', 'Access your analyst-verified market reports and orders.');
             }
 
-            if (p === 'dashboard') { 
-                document.querySelector('.nav').style.display = 'none'; 
-                if (typeof refreshDashboard === 'function') refreshDashboard(); 
-            } else { 
-                document.querySelector('.nav').style.display = '' 
-            } 
+            if (p === 'dashboard') {
+                document.querySelector('.nav').style.display = 'none';
+                if (typeof refreshDashboard === 'function') refreshDashboard();
+            } else {
+                document.querySelector('.nav').style.display = ''
+            }
             window.scrollTo(0, 0);
         }
         function scrollToSec(id) { showPage('home'); setTimeout(function () { var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }) }, 100) }
@@ -4222,7 +4940,7 @@
             clearErrors();
             var qInput = document.getElementById('homeSearchInput');
             var q = qInput.value.trim();
-            
+
             // Validation: block empty or non-descriptive input
             var v = validateMarketTitle(q);
             if (!v.valid) {
@@ -4370,7 +5088,7 @@
             updateForecastOptions();
             var q = document.getElementById('reportTitleInput').value.trim();
             if (q) refreshSeg();
-            
+
             document.getElementById('reportTitleInput').addEventListener('input', refreshSeg);
             document.getElementById('baseYear').addEventListener('change', updateForecastOptions);
             document.getElementById('marketMetric').addEventListener('change', updatePriceDisplay);
@@ -4441,7 +5159,7 @@
                     </div>
                     <div class="country-grid"></div>
                     <div class="country-grid" id="custom_${r.name.replace(/\s/g, '_')}"></div>`;
-                
+
                 var g = d.querySelector('.country-grid');
                 r.countries.forEach(function (co) {
                     var w = document.createElement('div');
@@ -4894,11 +5612,11 @@
                     let errHtml = `<div style="background:#FEF2F2;border:2.5px solid #FCA5A5;border-radius:16px;padding:2rem;text-align:center;color:#991B1B;box-shadow:0 10px 25px rgba(220,38,38,0.1)">
                              <div style="font-size:2.5rem;margin-bottom:.8rem">⚠️</div>
                              <div style="font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem">${data.error}</div>`;
-                    
+
                     if (data.error.includes("INVALID")) {
-                         errHtml += `<div style="font-size:.85rem;color:#7F1D1D;max-width:350px;margin:0 auto">Please provide a specific industry or technology name (e.g., "AI in Healthcare" instead of just "AI").</div>`;
+                        errHtml += `<div style="font-size:.85rem;color:#7F1D1D;max-width:350px;margin:0 auto">Please provide a specific industry or technology name (e.g., "AI in Healthcare" instead of just "AI").</div>`;
                     } else {
-                         errHtml += `<div style="font-size:.75rem;margin-top:.8rem;color:#7F1D1D;line-height:1.4">Our AI engine is currently throttled or disconnected. Update the <b>OPENAI_API_KEY</b> in your .env file to restore dynamic industry research.</div>`;
+                        errHtml += `<div style="font-size:.75rem;margin-top:.8rem;color:#7F1D1D;line-height:1.4">Our AI engine is currently throttled or disconnected. Update the <b>OPENAI_API_KEY</b> in your .env file to restore dynamic industry research.</div>`;
                     }
                     errHtml += `</div>`;
                     c.innerHTML = errHtml;
@@ -5153,7 +5871,7 @@
             // Dynamic SEO Meta Updates for Sub-sections
             const titleEl = document.getElementById('site-title');
             const metaDesc = document.getElementById('meta-description');
-            
+
             if (sectionId === 'how-sec') {
                 titleEl.textContent = 'How It Works | Forecastly.io';
                 metaDesc.setAttribute('content', 'Learn about our 5-step process for delivering analyst-verified market intelligence in Excel.');

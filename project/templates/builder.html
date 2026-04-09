@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Report Builder | Estimately.io{% endblock %}
+
+{% block meta_description %}Configure your custom market report with 50+ countries and 3-level segmentation. Get a free demo Excel instantly.{% endblock %}
+
+{% block extra_css %}
+/* Builder Specific Styles */
+#builderContent { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem 2rem; }
+.builder-header { background: linear-gradient(135deg,#0A3D62,#0A3D62); border-radius: 20px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.builder-card { background: white; border-radius: 20px; box-shadow: 0 4px 16px rgba(0,0,0,.05); padding: 1.4rem 1.8rem; margin-bottom: 1.2rem; border: 1px solid var(--gray-200); }
+.seg-empty { padding: 1.5rem; text-align: center; color: var(--gray-400); font-style: italic; font-size: 0.85rem; border: 1.5px dashed var(--gray-200); border-radius: 12px; }
+.download-notice { 
+    position: fixed; top: 20px; right: 20px; background: #10B981; color: white; padding: 1rem 1.5rem; 
+    border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); z-index: 1000; display: none;
+    font-weight: 600; align-items: center; gap: 8px;
+}
+.input-error { border-color: #DC2626 !important; background-color: #FEF2F2 !important; }
+
+/* Gate Overlay */
+#gateOverlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+    background: rgba(10, 22, 40, .6); backdrop-filter: blur(6px); 
+    z-index: 300; display: flex; align-items: center; justify-content: center;
+}
+.gate-card {
+    background: white; border-radius: 24px; padding: 2.5rem; 
+    max-width: 440px; width: 90%; text-align: center; 
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .15);
+}
+{% endblock %}
+
+{% block content %}
+<div id="page-builder" class="active">
+    <div id="gateOverlay" style="display: {% if user.is_authenticated %}none{% else %}flex{% endif %};">
+        <div class="gate-card">
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;color:var(--primary);margin-bottom:.5rem">Verify your email</h2>
+            <p id="gateDesc" style="font-size:.88rem;color:var(--gray-600);margin-bottom:1.5rem">Enter your business email to access the report builder.</p>
+            <div id="gateStep1">
+                <input type="email" id="gateEmail" placeholder="you@company.com" style="width:100%;padding:.85rem 1rem;border:2px solid var(--gray-200);border-radius:12px;font-size:.95rem;margin-bottom:.8rem;text-align:center;font-family:'Inter',sans-serif">
+                <button onclick="sendCode()" style="width:100%;padding:.85rem;background:var(--accent);color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Send Verification Code</button>
+                <div style="font-size:.75rem;color:#94A3B8;margin-top:.8rem">We'll send a 6-digit code.</div>
+                <div style="margin-top:.8rem"><a href="/" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem">← Back to Home</a></div>
+            </div>
+            <div id="gateStep2" style="display:none">
+                <input type="text" id="gateCode" placeholder="Enter 6-digit code" maxlength="6" style="width:100%;padding:.85rem 1rem;border:2px solid var(--gray-200);border-radius:12px;font-size:.95rem;margin-bottom:.8rem;text-align:center;font-family:'Inter',sans-serif">
+                <button onclick="verifyCode()" style="width:100%;padding:.85rem;background:var(--accent);color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Verify & Continue</button>
+                <div id="gateError" style="color:#DC2626;font-size:.8rem;margin-top:.4rem;display:none">Invalid code.</div>
+                <div id="gateSuccess" style="color:var(--accent);font-size:.8rem;margin-top:.4rem;display:none">✓ Verified!</div>
+                <div style="margin-top:.6rem"><a href="#" onclick="resetGate();return false" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem">← Different email</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="builderContent" style="display: {% if user.is_authenticated %}block{% else %}none{% endif %};">
+        <div class="builder-header">
+            <h2 id="builderReportTitle" style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:400">Report Builder</h2>
+            <div style="background:rgba(255,255,255,.2);padding:.3rem .8rem;border-radius:30px;font-size:.75rem;font-weight:600">📊 Demo Preview</div>
+        </div>
+
+        <div class="builder-card">
+            <div style="font-weight:600;font-size:.92rem;margin-bottom:.4rem">🔍 Market Report Title</div>
+            <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+                <input type="text" id="reportTitleInput" placeholder="e.g., Global Electric Vehicle Battery Market ..." style="flex:3;min-width:240px;padding:.8rem 1.2rem;border:1.5px solid var(--gray-200);border-radius:60px;font-size:.92rem;background:#FAFBFC;font-family:'Inter',sans-serif">
+            </div>
+            <div style="font-size:.75rem;color:#94A3B8;margin-top:.5rem">💡 Try: "Electric Vehicle Market", "Renewable Energy Storage"</div>
+        </div>
+
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.2rem">
+            <div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem">
+                <div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📅 Base Year</div>
+                <select id="baseYear" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif">
+                    <option value="2024" selected>2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+            <div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem">
+                <div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📆 Forecast</div>
+                <select id="forecastPeriod" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif"></select>
+            </div>
+            <div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem">
+                <div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">📏 Metric</div>
+                <select id="marketMetric" onchange="updatePriceDisplay()" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif">
+                    <option value="revenue" selected>Revenue (USD Million)</option>
+                    <option value="volume">Volume (Units/Tons)</option>
+                    <option value="both">Revenue + Volume</option>
+                </select>
+            </div>
+            <div style="flex:1;min-width:160px;background:white;border-radius:14px;border:1px solid var(--gray-200);padding:.9rem 1rem">
+                <div style="font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--gray-600);margin-bottom:.35rem">💲 Currency</div>
+                <select id="currency" style="width:100%;padding:.5rem;border:1.5px solid var(--gray-200);border-radius:10px;font-size:.82rem;background:#FAFBFC;font-family:'Inter',sans-serif">
+                    <option value="USD" selected>USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="JPY">JPY (¥)</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr .85fr;gap:1.2rem;margin-bottom:1.2rem">
+            <div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem">
+                <div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">🌍 Regions & Countries</div>
+                <div id="globalCheckWrap" style="display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;background:#FEF2F2;border:2px solid #FCA5A5;border-radius:12px;margin-bottom:1rem;cursor:pointer" onclick="document.getElementById('chk_global').click()">
+                    <input type="checkbox" id="chk_global" style="accent-color:#DC2626;width:16px;height:16px;cursor:pointer" onclick="event.stopPropagation()">
+                    <div style="flex:1">
+                        <div style="font-size:.88rem;font-weight:700;color:#991B1B">🌐 Global Market Size</div>
+                        <div style="font-size:.65rem;color:#7F1D1D">Total worldwide market — estimates, CAGR & forecasts</div>
+                    </div>
+                    <div style="background:#DC2626;color:white;font-size:.62rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;letter-spacing:.5px">$20</div>
+                </div>
+                <div id="regionsContainer"></div>
+                <div style="margin-top:.8rem;background:#F8FAFC;padding:.7rem .8rem;border-radius:12px">
+                    <div style="font-weight:500;font-size:.75rem;color:var(--gray-600);margin-bottom:.3rem">➕ Add custom country</div>
+                    <div style="display:flex;gap:.4rem;margin-top:.4rem;align-items:center;flex-wrap:wrap">
+                        <input type="text" id="customCountryInput" placeholder="Country ..." style="flex:2;min-width:100px;padding:.45rem .7rem;border:1.5px solid var(--gray-200);border-radius:40px;font-size:.78rem;font-family:'Inter',sans-serif">
+                        <select id="customRegionSelect" style="flex:1;min-width:110px;padding:.45rem .5rem;border:1.5px solid var(--gray-200);border-radius:40px;font-size:.72rem;font-family:'Inter',sans-serif">
+                            <option value="North America">N. America</option>
+                            <option value="Europe" selected>Europe</option>
+                            <option value="Asia-Pacific">Asia-Pacific</option>
+                            <option value="Latin America">Latin America</option>
+                            <option value="MEA">MEA</option>
+                        </select>
+                        <button id="addCountryBtn" style="background:var(--accent);border:none;padding:.45rem .8rem;border-radius:40px;color:#fff;font-weight:600;cursor:pointer;font-size:.72rem">+ Add</button>
+                    </div>
+                    <div id="customChipsContainer" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.3rem"></div>
+                </div>
+                <div id="countryWarningNote" style="background:#F8FAFC;padding:.6rem .7rem;border-radius:10px;font-size:.72rem;color:#0A3D62;margin-top:.7rem;text-align:center">
+                    <span id="countryNoteText">💡 $20 per country. Select 10+ and price auto-caps at $199.</span>
+                </div>
+                <div id="upsellBanner" style="background:#E2E8F0;border:1.5px solid #CBD5E1;border-radius:10px;padding:.5rem .7rem;font-size:.7rem;color:#0A3D62;font-weight:600;margin-top:.5rem;text-align:center;display:none"></div>
+            </div>
+
+            <div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem">
+                <div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">📊 Market Segmentation</div>
+                <div id="segmentationLevels">
+                    <div class="seg-empty">⌨️ Type a title to auto-generate.</div>
+                </div>
+                <div style="margin-top:.5rem;background:#F8FAFC;padding:.5rem .6rem;border-radius:10px;font-size:.7rem;color:var(--gray-600);text-align:center">📌 Included in Enterprise.</div>
+                <div style="margin-top:.7rem">
+                    <textarea id="customSegmentInput" rows="2" style="width:100%;padding:.5rem .7rem;border:1.5px solid var(--gray-200);border-radius:12px;font-size:.78rem;font-family:'Inter',sans-serif;resize:vertical;background:#FAFBFC" placeholder="Custom segments (optional)"></textarea>
+                </div>
+            </div>
+
+            <div style="background:white;border-radius:18px;border:1px solid var(--gray-200);padding:1.3rem 1.4rem">
+                <div style="font-weight:700;font-size:1rem;margin-bottom:.9rem;border-left:4px solid var(--accent);padding-left:.8rem">🏷️ Pricing Calculator</div>
+                <div id="priceLiveBox" style="background:#F8FAFC;border:2px solid #CBD5E1;border-radius:14px;padding:1rem;margin-bottom:.8rem;text-align:center">
+                    <div style="font-size:.7rem;font-weight:600;color:#0A3D62;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem">Your Report Price</div>
+                    <div id="priceLiveAmount" style="font-size:2rem;font-weight:800;color:#0A3D62">$0</div>
+                    <div id="priceLiveDetail" style="font-size:.68rem;color:#0A3D62;margin-top:.2rem">Select countries to begin</div>
+                    <div id="priceLiveSavings" style="font-size:.65rem;color:#1E88E5;font-weight:600;margin-top:.3rem;display:none"></div>
+                </div>
+                <div id="segToggleWrap" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem .9rem;background:#F0F9FF;border:1.5px solid #0EA5E9;border-radius:12px;margin-bottom:.8rem;cursor:pointer;transition:all 0.3s;" onclick="toggleSegmentation()">
+                    <div style="display:flex;align-items:center;gap:.6rem">
+                        <div id="segToggleIcon" style="font-size:1.2rem;opacity:0.9">📊</div>
+                        <div>
+                            <div id="segToggleTitle" style="font-size:.85rem;font-weight:700;color:#0369A1">Add Segmentation</div>
+                            <div id="segToggleDesc" style="font-size:.65rem;color:#0C4A6E">Segments at Global, Region & Country levels</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:.8rem">
+                        <div style="background:#0284C7;color:white;font-size:.62rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;letter-spacing:.5px">+$99</div>
+                        <div id="segToggle" style="width:44px;height:24px;border-radius:24px;background:#CBD5E1;position:relative;transition:.3s;flex-shrink:0">
+                            <div style="width:20px;height:20px;border-radius:50%;background:white;position:absolute;top:2px;left:2px;transition:.3s;box-shadow:0 1px 3px rgba(0,0,0,0.2)" id="segToggleKnob"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pricingTips" style="background:#F8FAFC;border:1px solid var(--gray-200);border-radius:12px;padding:.7rem .8rem;margin-bottom:.8rem">
+                    <div style="font-size:.75rem;font-weight:700;color:#0A3D62;margin-bottom:.5rem">💡 How Pricing Works</div>
+                    <div style="font-size:.68rem;color:var(--gray-600);line-height:1.6">
+                        • Each country = <b>$20</b><br>
+                        • 3-Level Segmentation = <b>+$99</b> flat<br>
+                        • <span style="color:#0A3D62;font-weight:600">10+ countries → auto-caps at $199</span><br>
+                        • <span style="color:#0A3D62;font-weight:600">With segments → caps at $299</span><br>
+                    </div>
+                </div>
+                <div id="pricingCards" style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem"></div>
+                <div id="metricNote" style="display:none;background:#FFF3E0;border:1.5px solid #FFB74D;border-radius:10px;padding:.6rem .8rem;font-size:.72rem;color:#E65100;font-weight:600;margin-bottom:.8rem;text-align:center">⚠️ Revenue + Volume selected — pricing is multiplied by 1.5×.</div>
+                <div style="margin-top:.6rem;background:#F8FAFC;padding:.5rem .6rem;border-radius:10px;font-size:.7rem;color:var(--gray-600);text-align:center">⚡ Analyst-verified .xls delivered in 60 min</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="downloadNotice" class="download-notice">✅ Demo Excel downloaded!</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Integration logic for builder.html
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read q from URL or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        let q = urlParams.get('q');
+        if(!q) q = localStorage.getItem('last_search');
+        
+        if(q) {
+            document.getElementById('reportTitleInput').value = q;
+            // Trigger initial builder setup
+            if(typeof initBuilder === 'function') initBuilder();
+        }
+    });
+
+    // Helper functions for OTP flow in builder
+    function resetGate() {
+        document.getElementById('gateStep1').style.display = 'block';
+        document.getElementById('gateStep2').style.display = 'none';
+        document.getElementById('gateDesc').textContent = 'Enter your business email to access the report builder.';
+    }
+</script>
+{% endblock %}

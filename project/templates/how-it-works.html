@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}How It Works | Estimately.io{% endblock %}
+
+{% block meta_description %}Learn about Estimately's 5-step process for delivering analyst-verified market intelligence in Excel within 60 minutes.{% endblock %}
+
+{% block extra_css %}
+/* Original HIW Styles */
+.hiw-hero { padding: 4rem 2rem 3rem; background: linear-gradient(160deg,#F8FBFF,#EEF4FB,#F5F8FC); text-align: center }
+.hiw-hero h1 { font-family: 'Space Grotesk',sans-serif; font-size: 2.8rem; font-weight: 700; color: #0A3D62; margin-bottom: .8rem }
+.hiw-hero p { font-size: 1.05rem; color: #475569; max-width: 680px; margin: 0 auto; line-height: 1.6 }
+.hiw-section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto }
+.hiw-label { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #0A3D62; margin-bottom: .8rem; background: #E2E8F0; padding: .3rem .8rem; border-radius: 30px }
+.hiw-section h2 { font-family: 'Space Grotesk',sans-serif; font-size: 1.8rem; font-weight: 700; color: #0A3D62; margin-bottom: .5rem }
+.hiw-section p { font-size: .92rem; color: #475569; line-height: 1.65; margin-bottom: 1rem }
+.hiw-steps { display: flex; flex-direction: column; gap: 0; position: relative; margin: 2rem 0 }
+.hiw-steps::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom,#E2E8F0,#0A3D62,#E2E8F0); border-radius: 3px }
+.hiw-step-card { display: flex; gap: 1.5rem; align-items: flex-start; position: relative; padding: 1.5rem 0 }
+.hiw-step-num { width: 72px; height: 72px; border-radius: 50%; background: #0A3D62; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: 1.5rem; flex-shrink: 0; position: relative; z-index: 1; box-shadow: 0 4px 12px rgba(10,61,98,0.15) }
+.hiw-step-body { flex: 1; background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 1.5rem 1.8rem; transition: .2s; }
+.hiw-step-body:hover { border-color: #0A3D62; box-shadow: 0 4px 16px rgba(10,61,98,0.06) }
+.hiw-step-body h3 { font-size: 1.1rem; font-weight: 700; color: #0A3D62; margin-bottom: .4rem; font-family: 'Space Grotesk',sans-serif }
+.hiw-step-body p { font-size: .88rem; color: #475569; line-height: 1.6; margin-bottom: .6rem }
+.hiw-step-body .detail-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem }
+.hiw-step-body .detail-chip { font-size: .7rem; font-weight: 600; padding: .3rem .7rem; border-radius: 20px; background: #F1F5F9; color: #0A3D62; border: 1px solid #E2E8F0 }
+.hiw-step-body .tip { margin-top: .8rem; padding: .7rem .9rem; background: #F8FAFC; border-left: 3px solid #0A3D62; border-radius: 0 10px 10px 0; font-size: .8rem; color: #334155; line-height: 1.5 }
+.hiw-divider { text-align: center; padding: 3rem 0; position: relative }
+.hiw-divider::before { content: ''; position: absolute; left: 10%; right: 10%; top: 50%; height: 1px; background: #E2E8F0 }
+.hiw-divider span { position: relative; background: white; padding: 0 1.5rem; font-size: .75rem; font-weight: 700; color: #0A3D62; letter-spacing: 2px; text-transform: uppercase }
+.wyg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0 }
+.wyg-card { background: white; border: 1px solid #E2E8F0; border-radius: 18px; padding: 1.8rem; transition: .2s; position: relative; overflow: hidden; }
+.wyg-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,#0A3D62,#42A5F5) }
+.wyg-card:hover { border-color: #0A3D62; box-shadow: 0 6px 20px rgba(10,61,98,0.06); transform: translateY(-2px) }
+.wyg-card .wyg-icon { font-size: 2rem; margin-bottom: .8rem }
+.wyg-card h3 { font-size: 1rem; font-weight: 700; color: #0A3D62; margin-bottom: .5rem }
+.wyg-card p { font-size: .82rem; color: #475569; line-height: 1.6; margin-bottom: .5rem }
+.wyg-card .wyg-list { list-style: none; padding: 0; margin: .5rem 0 0 }
+.wyg-card .wyg-list li { font-size: .78rem; color: #334155; padding: .3rem 0; padding-left: 1.2rem; position: relative; line-height: 1.5 }
+.wyg-card .wyg-list li::before { content: ''; position: absolute; left: 0; top: .55rem; width: 6px; height: 6px; border-radius: 50%; background: #0A3D62 }
+.wyg-excel-demo { background: white; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; margin: 2rem 0; box-shadow: 0 8px 24px rgba(10,61,98,0.05) }
+.wyg-excel-header { background: #0A3D62; padding: .8rem 1.2rem; display: flex; justify-content: space-between; align-items: center }
+.wyg-excel-header span { color: white; font-size: .8rem; font-weight: 600 }
+.wyg-excel-tabs { display: flex; background: #F1F5F9; border-bottom: 1px solid #E2E8F0 }
+.wyg-excel-tab { padding: .5rem 1rem; font-size: .7rem; font-weight: 600; color: #64748B; border-bottom: 2px solid transparent }
+.wyg-excel-tab.active { color: #0A3D62; border-bottom-color: #0A3D62; background: white }
+.wyg-excel-body { padding: 1rem; font-family: 'Inter', monospace; font-size: .7rem }
+.wyg-excel-body table { width: 100%; border-collapse: collapse }
+.wyg-excel-body th { background: #E9EDF2; padding: .4rem; text-align: center; font-weight: 600; color: #334155; border: 1px solid #E2E8F0; font-size: .65rem }
+.wyg-excel-body td { padding: .35rem; text-align: center; border: 1px solid #E2E8F0; color: #0A3D62; font-weight: 500; font-size: .65rem }
+.wyg-cta { text-align: center; padding: 3rem 2rem; background: #0A3D62; color: white; margin-top: 2rem }
+.wyg-cta h2 { color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: .6rem }
+.wyg-cta p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: .95rem }
+.wyg-cta button { background: white; color: #0A3D62; border: none; padding: .9rem 2.5rem; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: .2s; font-family: 'Inter', sans-serif }
+.wyg-cta button:hover { background: #F1F5F9; transform: translateY(-2px) }
+@media(max-width:768px){ .wyg-grid { grid-template-columns:1fr } .hiw-step-num { width:52px; height:52px; font-size:1.1rem } .hiw-steps::before { left:25px } }
+{% endblock %}
+
+{% block content %}
+<section class="how-page-content" id="how-sec">
+    <div class="hiw-hero">
+        <div class="hiw-label">Your Journey</div>
+        <h1>How It Works</h1>
+        <p>From your first search to a fully validated Excel datasheet in your inbox — here's every step of the process, in detail.</p>
+    </div>
+    <div class="hiw-section">
+        <div class="hiw-label">Step by step</div>
+        <h2>Your Report, in 5 Simple Steps</h2>
+        <p>Each step is designed to give you full control over what you get, at a price you choose — with zero lock-ins or hidden costs.</p>
+        <div class="hiw-steps">
+            <div class="hiw-step-card">
+                <div class="hiw-step-num">1</div>
+                <div class="hiw-step-body">
+                    <h3>Search any market</h3>
+                    <p>Type any market, industry, or niche into the search bar on our homepage. Our engine instantly recognizes the sector and prepares a structured report scope — no need to browse a catalog or fill out an inquiry form.</p>
+                    <p>You can search for anything: from broad sectors like "Renewable Energy" to ultra-specific niches like "Solid-State Battery for Electric Vehicles" or "AI-Powered Drug Discovery Platforms."</p>
+                    <div class="detail-chips">
+                        <span class="detail-chip">Any market or niche</span>
+                        <span class="detail-chip">No catalog browsing</span>
+                        <span class="detail-chip">Instant scope generation</span>
+                    </div>
+                    <div class="tip">Try searches like: "Electric Vehicle Battery Market", "Cybersecurity SaaS", "Digital Therapeutics", "Semiconductor Wafer"</div>
+                </div>
+            </div>
+            <div class="hiw-step-card">
+                <div class="hiw-step-num">2</div>
+                <div class="hiw-step-body">
+                    <h3>Configure your report</h3>
+                    <p>Once inside the report builder, you get full control over every parameter. This is where you decide exactly what data you need — nothing more, nothing less.</p>
+                    <p><strong>Geography:</strong> Select the Global overview ($20), tick individual countries ($20 each), or select entire regions. We cover 17 countries across 5 regions — North America, Europe, Asia-Pacific, Middle East & Africa, and Latin America. Need a country not in the list? Add it as a custom entry.</p>
+                    <p><strong>Segmentation:</strong> Toggle on 3-level market segmentation (+$99 flat fee). Our engine auto-generates segment categories based on your market — for example, an EV report gets "By Vehicle Type", "By Component", and "By End-User". Segmentation data is applied at global, regional, and country level.</p>
+                    <div class="detail-chips">
+                        <span class="detail-chip">17 default countries</span>
+                        <span class="detail-chip">Custom country support</span>
+                        <span class="detail-chip">3-level segmentation</span>
+                        <span class="detail-chip">Multi-currency</span>
+                        <span class="detail-chip">Revenue + Volume</span>
+                        <span class="detail-chip">Up to 10Y forecast</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-step-card">
+                <div class="hiw-step-num">3</div>
+                <div class="hiw-step-body">
+                    <h3>Preview with a free demo Excel</h3>
+                    <p>Before spending a single rupee, download a free demo Excel to see exactly what your report will look like. The demo contains the complete structure — every sheet, every table, every column — but with placeholder "xx.xx" values instead of actual data.</p>
+                    <p>This lets you verify that the report covers what you need: the right countries, the right segments, the right time horizon. If anything needs adjustment, change your configuration and download another demo — as many times as you want.</p>
+                    <div class="detail-chips">
+                        <span class="detail-chip">Instant download</span>
+                        <span class="detail-chip">No payment needed</span>
+                        <span class="detail-chip">Exact same structure as paid</span>
+                        <span class="detail-chip">Unlimited previews</span>
+                    </div>
+                    <div class="tip">The demo Excel is not a sample from a different market — it's generated from YOUR exact configuration, with your selected countries and segments.</div>
+                </div>
+            </div>
+            <div class="hiw-step-card">
+                <div class="hiw-step-num">4</div>
+                <div class="hiw-step-body">
+                    <h3>Purchase securely</h3>
+                    <p>Happy with the structure? Hit "Buy Now" to complete your purchase. The pricing calculator shows your total in real-time as you configure, with no hidden fees.</p>
+                    <p><strong>How pricing works:</strong> Each country or Global = $20. Segmentation = +$99 flat. If you select 10+ countries, the price automatically caps at $199 — even if individual pricing would be higher. Add segmentation and it caps at $299. You always get the best possible price.</p>
+                    <p>We accept Stripe (all major credit/debit cards, Apple Pay, Google Pay) and PayPal. Your payment is confirmed instantly and you receive a unique Report ID for tracking.</p>
+                    <div class="detail-chips">
+                        <span class="detail-chip">Stripe & PayPal</span>
+                        <span class="detail-chip">Auto-cap at $199 / $299</span>
+                        <span class="detail-chip">No hidden fees</span>
+                        <span class="detail-chip">Instant confirmation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hiw-step-card">
+                <div class="hiw-step-num">5</div>
+                <div class="hiw-step-body">
+                    <h3>Analyst review & delivery in 60 minutes</h3>
+                    <p>This is what sets us apart. After payment, your report doesn't get auto-generated and dumped into your inbox. Instead, our in-house research analysts take over:</p>
+                    <p><strong>Minutes 1–5:</strong> Our data engine pulls relevant estimates from the DataHorizzon Research repository — a library of 70,000+ syndicated reports across 200+ industry verticals.</p>
+                    <p><strong>Minutes 5–40:</strong> An analyst reviews the segmentation structure, validates the market numbers using top-down and bottom-up triangulation, checks country-level proportionality, and flags any anomalies for correction.</p>
+                    <p><strong>Minutes 40–55:</strong> The final Excel workbook is assembled with styled tables, branded formatting, source attribution, and CAGR calculations across all sheets.</p>
+                    <p><strong>Minute 60:</strong> The completed, analyst-verified Excel report lands in your inbox with your Report ID. You can also access it anytime from your client dashboard.</p>
+                    <div class="detail-chips">
+                        <span class="detail-chip">Human analyst review</span>
+                        <span class="detail-chip">70,000+ report database</span>
+                        <span class="detail-chip">Top-down + bottom-up</span>
+                        <span class="detail-chip">Email delivery</span>
+                        <span class="detail-chip">Dashboard access</span>
+                    </div>
+                    <div class="tip">Have questions about any number after delivery? Email us at support@estimately.io with your Report ID — our research team will respond with clarifications at no extra cost.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hiw-divider"><span>What you get</span></div>
+
+    <div class="hiw-section">
+        <div class="hiw-label">Your deliverable</div>
+        <h2>What's Inside Your Excel Report</h2>
+        <p>Every report is a multi-sheet .xls workbook with structured data tables, styled formatting, and source attribution. Here's exactly what each section contains.</p>
+        <div class="wyg-grid">
+            <div class="wyg-card">
+                <div class="wyg-icon">🏠</div>
+                <h3>Home Sheet — Report Summary</h3>
+                <p>The first sheet gives you a complete overview of your report configuration at a glance.</p>
+                <ul class="wyg-list">
+                    <li>Report title and market description</li>
+                    <li>Selected countries and regions</li>
+                    <li>Forecast period and base year</li>
+                    <li>Metric (Revenue/Volume/Both) and currency</li>
+                    <li>Segmentation status and pricing summary</li>
+                    <li>Branded Estimately header with report metadata</li>
+                </ul>
+            </div>
+            <div class="wyg-card">
+                <div class="wyg-icon">🌐</div>
+                <h3>Global Sheet — Worldwide Market</h3>
+                <p>The global overview of your market with total market size, regional breakdown, and segment analysis.</p>
+                <ul class="wyg-list">
+                    <li>Global revenue line (base year through forecast)</li>
+                    <li>Region-by-region breakdown table (if countries selected)</li>
+                    <li>CAGR column for each row</li>
+                    <li>Segment tables (if segmentation is ON) — one per level</li>
+                    <li>Source attribution row below each table</li>
+                </ul>
+            </div>
+            <div class="wyg-card">
+                <div class="wyg-icon">🌍</div>
+                <h3>Regional Sheets — Country Breakdowns</h3>
+                <p>One dedicated sheet for each region you selected, containing country-level granularity.</p>
+                <ul class="wyg-list">
+                    <li>Regional total revenue/volume line</li>
+                    <li>Country-by-country table within that region</li>
+                    <li>Per-country segmentation tables (Enterprise)</li>
+                    <li>Custom countries appear alongside default countries</li>
+                    <li>Consistent formatting across all regional sheets</li>
+                </ul>
+            </div>
+            <div class="wyg-card">
+                <div class="wyg-icon">🧩</div>
+                <h3>Segmentation — 3 Levels of Depth</h3>
+                <p>When segmentation is enabled, you get three layers of market breakdown — tailored to your specific market.</p>
+                <ul class="wyg-list">
+                    <li>Auto-generated based on your report title keywords</li>
+                    <li>Example: EV market → By Vehicle Type, By Component, By End-User</li>
+                    <li>Applied at global, regional, AND country level</li>
+                    <li>Each segment table includes items, yearly data, and CAGR</li>
+                    <li>Analyst-verified for relevance before delivery</li>
+                </ul>
+            </div>
+            <div class="wyg-card">
+                <div class="wyg-icon">💰</div>
+                <h3>Revenue Data — Market Size in Currency</h3>
+                <p>When Revenue is selected as your metric, every table shows market value in your chosen currency.</p>
+                <ul class="wyg-list">
+                    <li>Available in USD, EUR, GBP, or JPY</li>
+                    <li>Values displayed in Millions (Billions for JPY)</li>
+                    <li>Year-by-year estimates from base year to forecast end</li>
+                    <li>CAGR calculated from base to final year</li>
+                    <li>Total row with aggregated figures</li>
+                </ul>
+            </div>
+            <div class="wyg-card">
+                <div class="wyg-icon">📦</div>
+                <h3>Volume Data — Units & Tonnage</h3>
+                <p>When Volume is selected, tables show physical quantities instead of currency — ideal for manufacturing and commodity markets.</p>
+                <ul class="wyg-list">
+                    <li>Measured in Units or Tons (market-dependent)</li>
+                    <li>Same structure as revenue: yearly + CAGR</li>
+                    <li>When "Both" is selected: revenue table first, then volume table directly below</li>
+                    <li>Both metrics in one workbook, no separate files</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="hiw-section" style="text-align:center;">
+        <div class="hiw-label">Visual Preview</div>
+        <h2 style="margin-bottom:1rem;">Preview: What Your Excel Looks Like</h2>
+        <p style="margin-bottom:2rem;">Here's a snapshot of the actual structure you'll receive — with placeholder values replaced by real analyst-verified data after purchase.</p>
+        <div class="wyg-excel-demo" style="max-width:900px; margin:0 auto;">
+            <div class="wyg-excel-header"><span>Estimately — Market Report</span><span style="font-size:.65rem;opacity:.7">.xls</span></div>
+            <div class="wyg-excel-tabs">
+                <div class="wyg-excel-tab active">Home</div>
+                <div class="wyg-excel-tab">Global</div>
+                <div class="wyg-excel-tab">North America</div>
+                <div class="wyg-excel-tab">Europe</div>
+                <div class="wyg-excel-tab">Asia-Pacific</div>
+                <div class="wyg-excel-tab">LATAM</div>
+                <div class="wyg-excel-tab">MEA</div>
+            </div>
+            <div class="wyg-excel-body">
+                <table>
+                    <thead>
+                        <tr><th colspan="7" style="background:#0A3D62;color:white;font-size:.7rem;padding:.5rem">Global Renewable Energy Storage Market, 2025–2033 (USD Million)</th></tr>
+                        <tr><th>Region</th><th>2025</th><th>2027</th><th>2029</th><th>2031</th><th>2033</th><th>CAGR</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="text-align:left;font-weight:600">North America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                        <tr><td style="text-align:left;font-weight:600">Europe</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                        <tr><td style="text-align:left;font-weight:600">Asia Pacific</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                        <tr><td style="text-align:left;font-weight:600">Latin America</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                        <tr><td style="text-align:left;font-weight:600">MEA</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                        <tr style="background:#F0F5FA;font-weight:700"><td style="text-align:left">Total</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>xx.x</td><td>x.x%</td></tr>
+                    </tbody>
+                </table>
+                <div style="margin-top:.6rem;font-size:.6rem;color:#94A3B8;font-style:italic">Source: Primary Interviews, Secondary Research, Internal Databases and Estimately Research</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wyg-cta">
+        <h2>Ready to see it for yourself?</h2>
+        <p>Download a free demo Excel for any market — instantly. No payment, no signup required.</p>
+        <button onclick="window.location.href='/builder/'">Build Your Report Now →</button>
+        <div style="font-size:.7rem;color:rgba(255,255,255,0.45);margin-top:.8rem;letter-spacing:1px">FREE DEMO INSTANTLY · ANALYST-VERIFIED · 60-MIN DELIVERY</div>
+    </div>
+</section>
+{% endblock %}

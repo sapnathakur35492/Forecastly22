@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="meta-description" content="{% block meta_description %}Analyst-verified Excel datasheets for any market. 13-country breakdowns, 3-level segmentation, 10-year forecasts. Starting at $20. Delivered in 60 minutes.{% endblock %}">
+    <link rel="canonical" href="https://forecastly.io{{ request.path }}" />
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title id="site-title">{% block title %}Forecastly.io | Market Size Estimates & Forecasts in Excel{% endblock %}</title>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Forecastly.io",
+      "url": "https://forecastly.io",
+      "logo": "https://forecastly.io/static/img/logo.png",
+      "description": "Premium market intelligence in Excel, delivered by analysts in 60 minutes.",
+      "sameAs": [
+        "https://www.linkedin.com/company/forecastly-io"
+      ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ORIGINAL STYLES RESTORED */
+        * { margin: 0; padding: 0; box-sizing: border-box }
+        :root {
+            --primary: #0A3D62; --primary-dark: #0A3D62; --accent: #42A5F5; --accent-hover: #1E88E5;
+            --green: #16A34A; --gray-50: #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1; --gray-600: #475569; --gray-700: #334155; --gray-800: #1E293B;
+            --white: #FFFFFF; --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05); --radius-md: 16px; --radius-xl: 24px
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.5; overflow-x: hidden }
+        
+        /* Nav */
+        .nav { position: sticky; top: 0; z-index: 200; background: rgba(255, 255, 255, .98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 0 2rem }
+        .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px }
+        .nav-brand { display: flex; align-items: center; gap: .75rem; cursor: pointer; text-decoration: none; }
+        .nav-name { font-size: 1.25rem; font-weight: 700; color: var(--primary); letter-spacing: -.3px }
+        .nav-name span { font-weight: 400; color: var(--gray-600); font-size: .8rem; margin-left: 4px }
+        .nav-menu { display: flex; align-items: center; gap: .3rem }
+        .nav-menu a { text-decoration: none; font-size: .88rem; font-weight: 500; color: var(--gray-600); padding: .5rem .8rem; border-radius: 40px; transition: .2s; cursor: pointer }
+        .nav-menu a:hover { background: var(--gray-100); color: var(--primary) }
+        .nav-menu .nav-cta { background: var(--primary); color: #fff; padding: .5rem 1.4rem; font-weight: 600 }
+        
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 310 }
+        .hamburger span { width: 24px; height: 2.5px; background: var(--primary); border-radius: 2px; transition: .3s }
+        .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: white; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, .1); z-index: 299; flex-direction: column; gap: .5rem; border-bottom: 2px solid var(--gray-200) }
+        .mobile-menu.open { display: flex }
+        .mobile-menu a { text-decoration: none; font-size: 1rem; font-weight: 600; color: var(--gray-700); padding: .8rem 1rem; border-radius: 12px; transition: .2s }
+        .mobile-menu .nav-cta { background: var(--primary); color: white; text-align: center; border-radius: 60px; font-weight: 700; padding: .8rem }
+
+        /* Footer */
+        .footer { padding: 2.5rem 2rem; text-align: center; border-top: 1px solid var(--gray-200); font-size: .75rem; color: var(--gray-600); background: white }
+        .footer a { color: #42A5F5; text-decoration: none; transition: .2s }
+        .footer a:hover { color: var(--primary) }
+
+        {% block extra_css %}{% endblock %}
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" style="height: 32px;">
+                <div class="nav-name">Estimately<span>| Market Intelligence</span></div>
+            </a>
+            <div class="nav-menu">
+                <a href="/how-it-works/">How It Works</a>
+                <a href="/behind-the-numbers/">Behind the Numbers</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/blog/">Blog</a>
+                <a href="/builder/" class="nav-cta">Build Report</a>
+            </div>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/how-it-works/" onclick="closeMobileMenu()">How It Works</a>
+        <a href="/behind-the-numbers/" onclick="closeMobileMenu()">Behind the Numbers</a>
+        <a href="/pricing/" onclick="closeMobileMenu()">Pricing</a>
+        <a href="/faq/" onclick="closeMobileMenu()">FAQ</a>
+        <a href="/blog/" onclick="closeMobileMenu()">Blog</a>
+        <a href="/builder/" class="nav-cta" onclick="closeMobileMenu()">Build Report</a>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        © 2026 Estimately.io · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Support</a> · <a href="mailto:hello@estimately.io">hello@estimately.io</a>
+    </footer>
+
+    {% csrf_token %}
+
+    <script>
+        // Original basic scripts
+        function toggleMobileMenu() {
+            var hm = document.getElementById('mobileMenu');
+            var hmb = document.querySelector('.hamburger');
+            if (hm) hm.classList.toggle('open');
+            if (hmb) hmb.classList.toggle('open');
+        }
+        function closeMobileMenu() {
+            var hm = document.getElementById('mobileMenu');
+            var hmb = document.querySelector('.hamburger');
+            if (hm) hm.classList.remove('open');
+            if (hmb) hmb.classList.remove('open');
+        }
+        function getCSRF() {
+            return document.querySelector("[name=csrfmiddlewaretoken]").value;
+        }
+    </script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

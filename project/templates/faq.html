@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FAQ | Estimately.io{% endblock %}
+
+{% block meta_description %}Frequently asked questions about Estimately's market intelligence reports, delivery process, pricing, and methodology.{% endblock %}
+
+{% block extra_css %}
+/* Original FAQ Styles */
+.faq { padding: 4rem 2rem; background: var(--gray-50) }
+.faq-inner { max-width: 800px; margin: 0 auto }
+.sec-label { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #42A5F5; margin-bottom: .8rem; width: 100%; text-align: center }
+.sec-title { font-family: 'Space Grotesk',sans-serif; font-size: 2.2rem; font-weight: 700; color: #0A3D62; margin-bottom: 2rem; text-align: center }
+.faq-item { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-md); margin-bottom: 1rem; overflow: hidden; transition: all .2s }
+.faq-item:hover { border-color: #CBD5E1; box-shadow: 0 4px 12px rgba(0, 0, 0, .04) }
+.faq-q { padding: 1rem 1.2rem; font-weight: 600; font-size: .9rem; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center }
+.faq-q span { transition: transform .3s; font-size: 1.2rem }
+.faq-item.open .faq-q span { transform: rotate(45deg) }
+.faq-a { padding: 0 1.2rem; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: .85rem; color: var(--gray-600); line-height: 1.7 }
+.faq-item.open .faq-a { max-height: 400px; padding: 0 1.2rem 1rem }
+@media(max-width:768px){ .faq { padding: 3rem 1rem } }
+{% endblock %}
+
+{% block content %}
+<section class="faq" id="faq-sec">
+    <div class="faq-inner">
+        <div class="sec-label">FAQ</div>
+        <div class="sec-title">Got questions? We have answers.</div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Can I see the report structure before paying? <span>+</span></div>
+            <div class="faq-a">Absolutely — and you do not need to pay anything. You can download a free demo
+                Excel instantly for any market and any package configuration. The demo contains the exact same
+                structure, formatting, sheets, and segmentation as the paid version — just with placeholder
+                "xx.xx" values instead of real data. Review everything first, and purchase only when you are
+                satisfied with the structure.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">What will I receive after purchase? <span>+</span></div>
+            <div class="faq-a">Within 60 minutes of payment, you will receive a professionally structured .xls
+                Excel file delivered to your registered email. Before delivery, our in-house analysts review the
+                segmentation and validate the market numbers to ensure accuracy. The file includes multiple
+                sheets — Home, Global, Regional, and Country-level tabs with full market sizing data and segment
+                breakdowns. Note: You can also download a free demo Excel instantly before purchasing to preview
+                the exact structure and layout.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Why does delivery take 60 minutes? <span>+</span></div>
+            <div class="faq-a">Unlike auto-generated reports, every Forecastly.io report goes through a human
+                review layer. Our in-house research analysts reconfirm the segmentation structure, cross-check
+                data sources, and validate the market numbers before the file reaches you. This ensures you get
+                reliable, boardroom-ready data — not just raw outputs.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">Which countries are included in the base price? <span>+</span></div>
+            <div class="faq-a">Every report includes 13 countries across 5 regions: US, Canada (North America),
+                Germany, UK, France (Europe), China, Japan, India, South Korea (Asia-Pacific), Saudi Arabia,
+                South Africa (MEA), Brazil, Mexico (Latin America) — plus "Rest of" aggregates for each region.
+                Need more countries? Add them at $10/country (Professional) or $20/country (Enterprise).</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">What payment methods do you accept? <span>+</span></div>
+            <div class="faq-a">We accept payments through PayPal. All transactions are secure and encrypted. You will receive a payment
+                confirmation and your unique report ID immediately after checkout. The report delivery begins
+                right after payment is confirmed.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">What if I have questions about the data after purchase? <span>+</span></div>
+            <div class="faq-a">We stand behind every report. If you have questions about any numbers,
+                methodology, or data points in your delivered report, simply email us at support with your
+                report ID. Our research team will review your query and respond with clarifications, additional
+                context, or corrections if needed — at no extra cost.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">How is the market segmentation generated? <span>+</span></div>
+            <div class="faq-a">Our engine analyzes your report title and generates 3 levels of segmentation
+                tailored to that specific market. For example, an EV market report gets segmented by Vehicle
+                Type, Component, and End-User — while a pharma report gets Drug Type, Therapeutic Area, and
+                Distribution Channel. Before delivery, our analysts verify that the segmentation is appropriate
+                and accurate for your market. Enterprise plans include segment data at global, regional, and
+                country level.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-q">What is the difference between Basic, Professional, and Enterprise?
+                <span>+</span></div>
+            <div class="faq-a">There are no fixed packages. You build your own report — select Global ($20), add
+                any countries ($20 each), and optionally turn on 3-level segmentation (+$99 flat). If you select
+                10+ countries, the price auto-caps at $199 — even if individual pricing would be higher. With
+                segmentation, it caps at $299. You only pay for what you need, and the system automatically
+                gives you the best price.</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

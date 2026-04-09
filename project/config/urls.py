@@ -37,11 +37,11 @@ urlpatterns = [
     
     # Direct Routes for Separate Pages (SEO-friendly)
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
-    path('how-it-works/', TemplateView.as_view(template_name="index.html"), name='how-it-works'),
-    path('behind-the-numbers/', TemplateView.as_view(template_name="index.html"), name='behind-the-numbers'),
-    path('pricing/', TemplateView.as_view(template_name="index.html"), name='pricing'),
-    path('faq/', TemplateView.as_view(template_name="index.html"), name='faq'),
-    path('builder/', TemplateView.as_view(template_name="index.html"), name='builder'),
+    path('how-it-works/', TemplateView.as_view(template_name='how-it-works.html')),
+    path('behind-the-numbers/', TemplateView.as_view(template_name='behind-the-numbers.html')),
+    path('pricing/', TemplateView.as_view(template_name='pricing.html')),
+    path('faq/', TemplateView.as_view(template_name='faq.html')),
+    path('builder/', TemplateView.as_view(template_name='builder.html'), name='builder'),
     
     path('blog/', blog_list_page, name='blog-list'),
     path('blog/<slug:slug>/', blog_detail_page, name='blog-detail'),

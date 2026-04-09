@@ -62,7 +62,9 @@ def send_otp(request):
             html_message=html_message
         )
     except Exception as exc:
-        logger.exception("OTP email send failed for %s", email)
+        import traceback
+        error_detail = traceback.format_exc()
+        logger.error("OTP email send failed for %s. Error: %s\nDetail: %s", email, str(exc), error_detail)
         return Response({"error": f"OTP email send failed: {str(exc)}"}, status=500)
 
     return Response({

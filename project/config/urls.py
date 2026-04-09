@@ -16,26 +16,33 @@ admin.site.site_title = "Forecastly.io Admin"
 admin.site.index_title = "Welcome to Forecastly.io Dashboard"
 
 from django.http import HttpResponse
-from django.contrib.sitemaps.views import sitemap
-from .sitemaps import sitemaps
+import os
+
+def serve_static_root_file(filename, content_type):
+    file_path = os.path.join(settings.BASE_DIR, filename)
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return HttpResponse(content, content_type=content_type)
 
 def robots_txt(request):
-    host = request.get_host()
-    protocol = "https" if request.is_secure() else "http"
-    lines = [
-        "User-agent: *",
-        "Disallow: /admin/",
-        "Disallow: /api/",
-        "Allow: /",
-        f"Sitemap: {protocol}://{host}/sitemap.xml"
-    ]
-    return HttpResponse("\n".join(lines), content_type="text/plain")
+    return serve_static_root_file('robots.txt', 'text/plain')
+
+def sitemap_xml(request):
+    return serve_static_root_file('sitemap.xml', 'application/xml')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('robots.txt', robots_txt),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', sitemap_xml),
+    
+    # Direct Routes for Separate Pages (SEO-friendly)
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
+    path('how-it-works/', TemplateView.as_view(template_name="index.html"), name='how-it-works'),
+    path('behind-the-numbers/', TemplateView.as_view(template_name="index.html"), name='behind-the-numbers'),
+    path('pricing/', TemplateView.as_view(template_name="index.html"), name='pricing'),
+    path('faq/', TemplateView.as_view(template_name="index.html"), name='faq'),
+    path('builder/', TemplateView.as_view(template_name="index.html"), name='builder'),
+    
     path('blog/', blog_list_page, name='blog-list'),
     path('blog/<slug:slug>/', blog_detail_page, name='blog-detail'),
 

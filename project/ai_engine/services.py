@@ -117,8 +117,10 @@ DOMAIN_TEMPLATES = {
     "Defense_Materials": {
         "allowed_segment_names": ["By Product Type", "By Application", "By End-User", "By Material Type", "By Weave Type"],
         "notes": [
-            "Defense/protective textiles and ballistic materials must use defense and personal protection applications (no residential/commercial consumer segments).",
-            "Avoid generic enterprise tiers (SMEs, large enterprises) and unrelated auto-tech terms (ADAS, telematics).",
+            "Defense/protective textiles and ballistic materials MUST prioritize technical rigor.",
+            "Key Product Types: Woven Fabrics, Unidirectional (UD) Sheets, Laminated / Composite Fabrics, Hybrid Blends.",
+            "AVOID low-protection textile categories (e.g., Knitted, Crochet) in high-impact ballistic contexts.",
+            "Focus on military, tactical, and law enforcement end-users."
         ],
     },
     "Industrial_Manufacturing": {
@@ -351,9 +353,9 @@ The user will provide a market, product, or service query. Your task is to gener
 3. You must generate EXACTLY 3 segments (no more, no less).
 
 4. **DEPTH RULE (MANDATORY)**:
-   - Each segment must have **minimum 3 and up to 5** meaningful, technical sub-segments.
+   - Each segment must have **minimum 3 and target 4-5** meaningful, technical sub-segments.
    - The last sub-segment must ALWAYS be: Others.
-   - If you can only find 2 sub-segments, you MUST research deeper into technical applications or user-niche variations to reach at least 3.
+   - If you only find 3 sub-segments, research deeper into technical applications or user-niche variations to reach 4 or 5 where commercially relevant.
 
 5. **DYNAMIC INTELLIGENCE LAYER**:
    - Do NOT use generic category headers (e.g., "Standard Products").
@@ -361,10 +363,17 @@ The user will provide a market, product, or service query. Your task is to gener
    - Example (Satellite Deployment): Do not just say "Communications". Expand into "Orbit Raising", "Debris Removal", "In-orbit logistics", "Stationkeeping".
    - Example (Propulsion): Use specific types like "Hall Effect Thrusters", "Cold Gas", "Green Propulsion", etc.
 
+6. **STRATEGIC RELEVANCE**:
+   - Prioritize sub-segments based on commercial volume and industry adoption (e.g., for Ballistic Materials, prioritize Woven/UD/Composite over Knitted).
+   - Avoid rare, experimental, or low-use categories that are not standard for the queried domain.
+
 ### STRICTLY AVOID
+- Naming any of the 3 main segments "Others", "Other", or "Miscellaneous". (Others must ONLY be a sub-segment).
+- Low-relevance categories (e.g., rare textile types in military contexts).
 - Template-driven shallow output.
 - Generic tiers (Basic/Premium) or generic enterprise sizes (SME/Large).
-- Less than 3 sub-segments per segment.
+- Less than 4 sub-segments where possible (3 is absolute minimum).
+- Less than 3 segments total.
 
 ### OUTPUT FORMAT (STRICT)
 Segment 1: [Technically Specific Segment Name]
@@ -421,12 +430,9 @@ Current Market Query for Analysis: {market_name}
                 cache.set(cache_key, {'raw': raw, 'domain': domain, 'meta': meta}, CACHE_TTL)
                 return raw, domain, meta
 
-        # If still invalid, fall back
-        raw = last_raw or ""
-        
-        meta = {"engine": "ai_invalid", "domain": domain}
-        cache.set(cache_key, {'raw': raw, 'domain': domain, 'meta': meta}, CACHE_TTL)
-        return raw, domain, meta
+        # If still invalid after 2 attempts, fall back to Expert engine to ensure 100% pro output
+        logger.warning("segmentation.ai_failed_all_attempts title=%s falling_back_to_expert", market_name)
+        return get_consultant_fallback(market_name), domain, {"engine": "fallback", "domain": domain, "ai_error": "validation_failed_after_retries"}
     except Exception as e:
         last_error = f"{type(e).__name__}: {e}"
         logger.exception("segmentation.ai_failed domain=%s title=%s error=%s", domain, market_name, last_error)
@@ -624,7 +630,7 @@ def validate_segmentation(parsed_data, domain=None, strict=False):
         "Services_Marketing": ["Deployment", "Cloud Hosting", "On-premise", "Software Architecture", "API Integration", "SaaS"],
         "Services_IT": ["Premium", "Standard", "Basic"],
         "Services_Consulting": ["Software Architecture", "Deployment", "Hardware", "SaaS"],
-        "Defense_Materials": ["Residential", "SME", "SMEs", "Enterprises", "Premium", "Standard", "ADAS", "Telematics", "Cloud Deployment"],
+        "Defense_Materials": ["Residential", "SME", "SMEs", "Enterprises", "Premium", "Standard", "ADAS", "Telematics", "Cloud Deployment", "Knitted", "Crochet"],
         "Vehicle": ["Cell Type", "Anode", "Cathode", "Solid state"],
         "Software_SaaS": ["SEO", "SEM", "Marketing Strategy", "Consulting Fees"],
         "Financial_Services": ["Software Architecture", "Cloud Hosting", "Hardware", "Manufacturing"],
@@ -675,9 +681,20 @@ def validate_segmentation(parsed_data, domain=None, strict=False):
         
     segments = filtered_segments
 
-    # Rule 1: Max 3 segments (as requested)
+    # Rule 1: Max 3 segments (Trim if more, reject if strict and less)
     if len(segments) > 3:
         segments = segments[:3]
+    
+    if strict and len(segments) < 3:
+        return {"error": f"Invalid segmentation (too few segments: {len(segments)}; exactly 3 required)."}
+
+    # Rule 1.2: Forbidden Segment Names (STRICT)
+    # Rejects 'Others' as a top-level segment name
+    forbidden_segment_names = ["others", "other", "miscellaneous", "rest of", "misc"]
+    for s in segments:
+        s_name = s.get('name', '').lower().strip()
+        if any(fs == s_name for fs in forbidden_segment_names):
+             return {"error": "Invalid segmentation ('Others' cannot be a main segment name)."}
 
     validated_segments = []
     for seg in segments:

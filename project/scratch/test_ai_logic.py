@@ -10,7 +10,7 @@ django.setup()
 from ai_engine.services import generate_market_segmentation, classify_market_domain
 
 def test_space_domain():
-    market = "Orbital Transfer Vehicle Market"
+    market = "Para-aramid Ballistic Materials Market"
     print(f"Testing market: {market}")
     
     # 1. Test Domain Classification

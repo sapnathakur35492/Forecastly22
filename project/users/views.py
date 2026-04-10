@@ -20,14 +20,14 @@ def send_otp(request):
     request.session['otp'] = otp
     request.session['otp_email'] = email
     
-    subject = f"{otp} is your Forecastly.io verification code"
+    subject = f"{otp} is your Estimately verification code"
     
     # Premium Compact HTML Email Template
     html_message = f"""
     <div style="background-color: #F8FAFC; padding: 20px 10px; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
         <div style="max-width: 460px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
             <div style="background-color: #0A3D62; padding: 25px 20px; text-align: center; background: linear-gradient(135deg, #0A3D62 0%, #05283F 100%);">
-                <div style="font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin-bottom: 2px;">Forecastly.io</div>
+                <div style="font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin-bottom: 2px;">Estimately</div>
                 <div style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.2px;">Market Intelligence Platform</div>
             </div>
             <div style="padding: 30px 25px; text-align: center;">
@@ -46,7 +46,7 @@ def send_otp(request):
             </div>
             <div style="padding: 15px 20px; background-color: #f8fafc; border-top: 1px solid #f1f5f9; text-align: center;">
                 <p style="font-size: 11px; color: #94a3b8; margin: 0; line-height: 1.4;">
-                    <strong>Forecastly.io © 2026</strong> — Analyst-verified datasets.
+                    <strong>Estimately © 2026</strong> — Analyst-verified datasets.
                 </p>
             </div>
         </div>

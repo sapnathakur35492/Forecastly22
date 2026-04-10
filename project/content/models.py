@@ -3,7 +3,7 @@ from django.db import models
 
 class SiteSettings(models.Model):
     """Singleton model for global site settings — editable from Django Admin."""
-    site_name = models.CharField(max_length=100, default='Forecastly.io')
+    site_name = models.CharField(max_length=100, default='Estimately.io')
     tagline = models.CharField(max_length=200, default='Market Intelligence')
     hero_title = models.TextField(default='Analyst-verified <span class="accent">Excel datasheets</span> for any market — starting at $20')
     hero_subtitle = models.TextField(default='13-country breakdowns, 3-level segmentation, and 10-year forecasts — validated by our research analysts and delivered to your inbox within 60 minutes.')
@@ -14,9 +14,9 @@ class SiteSettings(models.Model):
     dark_cta_text = models.TextField(default='No RFPs. No 6-week timelines. No $5,000 invoices. Download a free demo Excel right now to see the exact report structure — no payment required.')
     dark_cta_button_text = models.CharField(max_length=100, default='Download Free Demo Excel →')
     dark_cta_note = models.CharField(max_length=300, default='FREE DEMO INSTANTLY · FROM $20/COUNTRY · AUTO-CAPS AT $199/$299 · ANALYST-VERIFIED')
-    footer_text = models.CharField(max_length=200, default='© 2026 Forecastly.io')
+    footer_text = models.CharField(max_length=200, default='© 2026 Estimately.io')
     excel_preview_title = models.CharField(max_length=200, default='Global Renewable Energy Storage Market, 2025–2033 (USD Million)')
-    support_email = models.CharField(max_length=200, default='hello@estimately.io', help_text='Support email displayed on dashboard')
+    support_email = models.CharField(max_length=200, default='hello@Estimately.io', help_text='Support email displayed on dashboard')
     support_phone = models.CharField(max_length=100, default='+1-970-633-3460', help_text='Support phone number')
     support_chat_hours = models.CharField(max_length=200, default='Mon–Fri, 9AM–6PM EST', help_text='Live chat availability hours')
 

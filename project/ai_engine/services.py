@@ -2,7 +2,7 @@ import os
 import re
 import hashlib
 import logging
-from openai import OpenAI
+import openai
 from django.core.cache import cache
 from dotenv import load_dotenv
 
@@ -25,6 +25,7 @@ DOMAIN_KEYS = [
     "Defense_Materials",
     "Industrial_Manufacturing",
     "Food_Beverage",
+    "Space_Aerospace",
     "Generic",
 ]
 
@@ -132,11 +133,88 @@ DOMAIN_TEMPLATES = {
             "General energy domain; if title is solar-specific, domain must be Solar_Energy instead.",
         ],
     },
+    "Space_Aerospace": {
+        "allowed_segment_names": ["By End-User", "By Application", "By Technology", "By Mission Type", "By Component", "By Propulsion Type", "By Orbit"],
+        "notes": [
+            "Space & Aerospace domain: Focus on orbital, satellite, and launch services.",
+            "Avoid automotive or generic consumer tiers.",
+        ],
+    },
     "Generic": {
         "allowed_segment_names": ["By Product Type", "By Application", "By End-User", "By Distribution Channel"],
     },
 }
 
+
+
+# --- Title Professionalization Logic ---
+
+def is_garbage_input(text: str) -> bool:
+    """
+    Detects if the input is random, garbage, or lacks industry context.
+    Rules: No industry keywords, high entropy/random strings, pure numbers, or common junk.
+    """
+    t = text.lower().strip()
+    if not t: return True
+    if len(t) < 3: return True
+    
+    # Check for purely numeric or symbol inputs
+    if not any(c.isalpha() for c in t): return True
+    
+    # Check for lack of vowels in longer strings (likely random typing)
+    vowels = "aeiouy"
+    if len(t) > 5 and not any(v in t for v in vowels):
+        return True
+        
+    # Common random typing patterns or very short junk names
+    garbage_patterns = ["asdf", "hjkl", "qwerty", "123", "abc", "test", "demo"]
+    if any(gp == t for gp in garbage_patterns): return True
+    
+    # Specific invalid examples from user
+    if t in ["santosh", "xsfs", "ssdfg"]: return True
+        
+    return False
+
+def professionalize_market_title(market_name: str, domain: str) -> str:
+    """
+    Case 1: Valid input -> Generate domain-specific professional title.
+    Case 2: Invalid/Random -> Return "Global Market Trends and Growth Outlook".
+    """
+    # 1. Immediate garbage check
+    if is_garbage_input(market_name):
+        return "Global Market Trends and Growth Outlook"
+        
+    # 2. Heuristic check for 'Generic' domain with no industry nouns
+    market_nouns = ["market", "industry", "sector", "technology", "service", "product", "platform", "system", "analytics", "software", "solutions"]
+    m_lower = market_name.lower()
+    
+    # If it's very short and Generic, and lacks an industry noun, fallback
+    if (domain == "Generic" or domain == "Generic_Services"):
+        has_noun = any(n in m_lower for n in market_nouns)
+        if not has_noun and len(m_lower.split()) < 2:
+            return "Global Market Trends and Growth Outlook"
+
+    # 3. professionalize formatting
+    # Expand known acronyms
+    clean_name = market_name.strip()
+    acronyms = {
+        r'\bOTV\b': 'Orbital Transfer Vehicle',
+        r'\bEV\b': 'Electric Vehicle',
+        r'\bSaaS\b': 'Software-as-a-Service',
+        r'\bAI\b': 'Artificial Intelligence',
+    }
+    for pattern, replacement in acronyms.items():
+        clean_name = re.sub(pattern, replacement, clean_name, flags=re.IGNORECASE)
+        
+    # Clean up "Market" suffix duplication
+    clean_name = clean_name.title()
+    if clean_name.lower().endswith(" market"):
+        clean_name = clean_name[:-7].strip()
+        
+    # Final professional formatting
+    return f"{clean_name} Market: Trends and Forecast"
+
+# --- End Title Logic ---
 
 def heuristic_classify_domain(market_name):
     """
@@ -172,6 +250,7 @@ def heuristic_classify_domain(market_name):
     if "service" in m: return "Generic_Services"
 
     # Tier 3: Broad Domains
+    if any(k in m for k in ["orbital", "satellite", "space", "otv", "in-orbit", "launch vehicle", "aerospace"]): return "Space_Aerospace"
     if any(k in m for k in ["vehicle", "auto", "car ", "truck"]): return "Vehicle"
     if any(k in m for k in ["software", "saas", "platform", "app "]): return "Software_SaaS"
     if any(k in m for k in ["ecg", "mri", "ct", "ultrasound", "diagnostic", "clinical", "medical device", "medical", "healthcare", "hospital"]): return "Healthcare"
@@ -192,16 +271,16 @@ def classify_market_domain(market_name):
     """
     # Always get heuristic as a baseline
     h_domain = heuristic_classify_domain(market_name)
-    
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     classification_prompt = f"""Identify the industry domain for: "{market_name}".
-    Categories: Healthcare, Battery, Solar_Energy, Energy, Services_Marketing, Services_IT, Services_Consulting, Software_SaaS, Defense_Materials, Industrial_Manufacturing, Food_Beverage, Generic.
+    Categories: Healthcare, Battery, Solar_Energy, Energy, Space_Aerospace, Services_Marketing, Services_IT, Services_Consulting, Software_SaaS, Defense_Materials, Industrial_Manufacturing, Food_Beverage, Generic.
     Respond with ONLY the category name.
     """
     
     try:
         response = client.chat.completions.create(
             model="gpt-4o-mini",
+            max_tokens=20,
             messages=[
                 {"role": "system", "content": "You are an industry classification expert."},
                 {"role": "user", "content": classification_prompt}
@@ -251,41 +330,60 @@ def generate_market_segmentation(market_name):
         return cached['raw'], cached['domain'], cached.get('meta', {"engine": "cache"})
 
     domain = classify_market_domain(market_name)
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    prompt = f"""You are a professional market research analyst specializing in accurate, industry-specific market segmentation.
+    prompt = f"""You are a professional market research analyst specializing in technical and industrial reports.
+The user will provide a market, product, or service query. Your task is to generate a deep-dive, professional market segmentation.
 
-When a user provides a market, product, or service title, follow this process strictly:
+### STRICT INSTRUCTIONS (MUST FOLLOW)
+1. Identify the industry domain for: "{market_name}".
+   - If keywords like "orbital", "satellite", "space", "OTV", "in-orbit" appear → domain = SPACE & AEROSPACE.
 
-Step 1: Identify and classify the market into the correct domain category (e.g., Battery, Vehicle, Software, Healthcare, Energy, etc.).
+2. Generate ONLY relevant segmentation based on that domain.
+   - Do NOT generate automotive or unrelated segments unless required.
 
-Step 2: Based on the identified domain, dynamically apply the correct segmentation logic:
-* Battery markets → use segmentation such as Battery Type, Chemistry, Cell Type, Capacity, Application
-* Vehicle markets → use Propulsion, Vehicle Type, Application
-* Software/SaaS markets → use Deployment, End-user, Functionality
-* Healthcare/Medical → use Product Type, Application, End-user
-* If no exact match, use a relevant generic structure (Type, Application, End-user)
+3. You must generate EXACTLY 3 segments (no more, no less).
 
-Step 3: Generate a structured segmentation with:
-* Maximum 4 segments (minimum 2 if fewer are relevant)
-* Each segment must contain only relevant sub-segments (2 to 5 items + "Others")
-* Do not force segments or sub-segments
+4. **DEPTH RULE (MANDATORY)**:
+   - Each segment must have **minimum 3 and up to 5** meaningful, technical sub-segments.
+   - The last sub-segment must ALWAYS be: Others.
+   - If you can only find 2 sub-segments, you MUST research deeper into technical applications or user-niche variations to reach at least 3.
 
-Strict Rules:
-* Do NOT mix different industry logics (e.g., do not include vehicle features in battery markets)
-* Do NOT include unrelated technologies or categories
-* Segmentation must be fully aligned with the given market title
+5. **DYNAMIC INTELLIGENCE LAYER**:
+   - Do NOT use generic category headers (e.g., "Standard Products").
+   - Expand based on real-world use cases and technical specificity.
+   - Example (Satellite Deployment): Do not just say "Communications". Expand into "Orbit Raising", "Debris Removal", "In-orbit logistics", "Stationkeeping".
+   - Example (Propulsion): Use specific types like "Hall Effect Thrusters", "Cold Gas", "Green Propulsion", etc.
 
-Output format:
-Segment 1: [Segment Name]
-- ...
+### STRICTLY AVOID
+- Template-driven shallow output.
+- Generic tiers (Basic/Premium) or generic enterprise sizes (SME/Large).
+- Less than 3 sub-segments per segment.
+
+### OUTPUT FORMAT (STRICT)
+Segment 1: [Technically Specific Segment Name]
+- [Real-world Sub-segment 1]
+- [Real-world Sub-segment 2]
+- [Real-world Sub-segment 3]
 - Others
 
-Segment 2: [Segment Name]
-- ...
+Segment 2: [Technically Specific Segment Name]
+- [Sub-segment 1]
+- [Sub-segment 2]
+- [Sub-segment 3]
+- [Sub-segment 4]
+- Others
+
+Segment 3: [Technically Specific Segment Name]
+- [Sub-segment 1]
+- [Sub-segment 2]
+- [Sub-segment 3]
 - Others
 
 Current Market Query for Analysis: {market_name}
+
+### DOMAIN CONSTRAINTS (MANDATORY)
+{_build_domain_template_text(domain)}
 """
 
     try:
@@ -296,6 +394,7 @@ Current Market Query for Analysis: {market_name}
             logger.info("segmentation.ai_call attempt=%s domain=%s title=%s", attempt + 1, domain, market_name)
             response = client.chat.completions.create(
                 model="gpt-4o",
+                max_tokens=2000,
                 messages=[
                     {"role": "system", "content": "You are a professional market research analyst."},
                     {"role": "user", "content": prompt}
@@ -342,6 +441,15 @@ def get_consultant_fallback(market_name):
 
     # Sector Knowledge Base (HIERARCHICAL PRIORITY: Specific -> Broad)
     sectors = [
+        {
+            "keywords": ["orbital", "satellite", "space", "otv", "in-orbit", "launch vehicle", "aerospace"],
+            "name": "Space & Aerospace",
+            "segments": [
+                {"name": "By Mission Type", "subsegments": ["Commercial Communications", "Earth Observation & Remote Sensing", "Space Exploration & Science", "Navigation & Positioning", "In-orbit Servicing", "Others"]},
+                {"name": "By Orbit", "subsegments": ["Low Earth Orbit (LEO)", "Medium Earth Orbit (MEO)", "Geostationary Orbit (GEO)", "Highly Elliptical Orbit (HEO)", "Others"]},
+                {"name": "By Application", "subsegments": ["Intelligence & Surveillance", "Climate Monitoring", "Satellite Logistics", "Space Station Resupply", "Others"]}
+            ]
+        },
         {
             "keywords": ["battery", "cell", "lithium", "storage"],
             "name": "Battery Technologies",
@@ -415,7 +523,7 @@ def get_consultant_fallback(market_name):
                 {"name": "By Application", "subsegments": ["Residential Consumption", "Commercial Operations", "Industrial Infrastructure", "Utility-scale Power", "Others"]},
                 {"name": "By Technology", "subsegments": ["Energy Storage Solutions", "Smart Grid Integration", "Power Conversion Systems", "Others"]}
             ]
-        }
+        },
     ]
 
     # Find matching sector
@@ -442,7 +550,7 @@ def get_consultant_fallback(market_name):
         "segments": fallback_segments,
         "is_fallback": True,
         "mode": "Consultant Heuristic",
-        "note": "AI engine throttled. Using Forecastly.io Expert Sector Lenses."
+        "note": "AI engine throttled. Using Estimately.io Expert Sector Lenses."
     }
 
 
@@ -483,7 +591,7 @@ def parse_segmentation_response(text):
                     current_segment["subsegments"].append(sub)
 
     if not segments:
-        return {"error": "AI failed to generate segments. Please check your OpenAI API Key in .env (Error 401)."}
+        return {"error": "AI failed to generate segments. Please check your Anthropic API Key in .env (Error 401)."}
 
     return {"segments": segments}
 
@@ -552,6 +660,13 @@ def validate_segmentation(parsed_data, domain=None, strict=False):
             continue
         filtered_segments.append(s)
 
+    # Rule 0.2: Shallow/Generic Output Detector
+    shallow_keywords = ["product category", "service type", "application 1", "segment a", "others 1", "standard products", "basic services"]
+    for s in segments:
+        s_name = s.get('name', '').lower()
+        if any(sk in s_name for sk in shallow_keywords):
+             return {"error": "Invalid segmentation (output appears template-driven or shallow)."}
+        
     segments = filtered_segments
 
     # Rule 1: Max 3 segments (as requested)
@@ -568,15 +683,15 @@ def validate_segmentation(parsed_data, domain=None, strict=False):
             tmpl = DOMAIN_TEMPLATES.get(domain)
             allowed = (tmpl or {}).get("allowed_segment_names") if tmpl else None
             if allowed:
-                name_l = str(name).strip().lower()
                 ok = False
                 for a in allowed:
-                    a_l = str(a).strip().lower()
-                    if name_l == a_l or name_l.startswith(a_l):
+                    a_l = str(a).strip().lower().replace("by ", "")
+                    name_l = str(name).strip().lower().replace("by ", "")
+                    if name_l == a_l or name_l.startswith(a_l) or a_l.startswith(name_l):
                         ok = True
                         break
                 if not ok:
-                    return {"error": "Invalid segmentation (segment naming does not match domain template)."}
+                    return {"error": f"Invalid segmentation (segment naming '{name}' does not match domain template)."}
 
         # Filter domain-forbidden subsegments
         clean_subs = []
@@ -598,9 +713,9 @@ def validate_segmentation(parsed_data, domain=None, strict=False):
                 continue
             clean_subs.append(str(sub).strip())
 
-        # Require 2–5 subsegments before Others (strict requirement)
-        if strict and (len(clean_subs) < 2):
-            return {"error": "Invalid segmentation (too few relevant sub-segments)."}
+        # Require 3–5 subsegments before Others (STRICT DEPTH RULE)
+        if strict and (len(clean_subs) < 3):
+            return {"error": "Invalid segmentation (too few relevant sub-segments; minimum 3 required)."}
 
         # Rule 2: Max 5 non-Others subsegments (total 6)
         if len(clean_subs) > 5:

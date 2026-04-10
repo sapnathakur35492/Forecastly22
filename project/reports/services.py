@@ -29,7 +29,7 @@ def generate_excel_report(report_id, market_name, segments_data, plan_type="basi
     curr_label = curr_map.get(currency, "USD Million")
     vol_label = "Units/Tons"
 
-    SOURCE_TEXT = "Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research"
+    SOURCE_TEXT = "Source: Primary Interviews, Secondary Research, Internal Databases and Estimately.io Research"
 
     # Normalize metric
     metric_lower = str(metric).lower()
@@ -296,11 +296,11 @@ def generate_excel_report(report_id, market_name, segments_data, plan_type="basi
     # ═══════════════════════════════════════════════
     def build_home_sheet():
         rows = []
-        rows.append('<Row>%s</Row>' % make_cell('Forecastly.io', 'homeBrand'))
+        rows.append('<Row>%s</Row>' % make_cell('Estimately.io', 'homeBrand'))
         rows.append('<Row>%s</Row>' % make_cell(market_name, 'homeTitle'))
 
         report_type = "Demo Report" if is_demo else "Full Report"
-        rows.append('<Row>%s</Row>' % make_cell("Forecastly.io " + report_type, 'homeInfo'))
+        rows.append('<Row>%s</Row>' % make_cell("Estimately.io " + report_type, 'homeInfo'))
 
         plan_labels = {"basic": "Basic", "professional": "Professional", "enterprise": "Enterprise"}
         c_count = len(selected_c_names)

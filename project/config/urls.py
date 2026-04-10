@@ -11,9 +11,9 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
-admin.site.site_header = "Forecastly.io Admin"
-admin.site.site_title = "Forecastly.io Admin"
-admin.site.index_title = "Welcome to Forecastly.io Dashboard"
+admin.site.site_header = "Estimately.io Admin"
+admin.site.site_title = "Estimately.io Admin"
+admin.site.index_title = "Welcome to Estimately.io Dashboard"
 
 from django.http import HttpResponse
 import os
@@ -42,6 +42,9 @@ urlpatterns = [
     path('pricing/', TemplateView.as_view(template_name='pricing.html')),
     path('faq/', TemplateView.as_view(template_name='faq.html')),
     path('builder/', TemplateView.as_view(template_name='builder.html'), name='builder'),
+    path('privacy/', TemplateView.as_view(template_name='privacy.html'), name='privacy'),
+    path('terms/', TemplateView.as_view(template_name='terms.html'), name='terms'),
+    path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
     
     path('blog/', blog_list_page, name='blog-list'),
     path('blog/<slug:slug>/', blog_detail_page, name='blog-detail'),

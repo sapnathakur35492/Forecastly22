@@ -90,7 +90,7 @@ class Migration(migrations.Migration):
             name='SiteSettings',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('site_name', models.CharField(default='Forecastly.io', max_length=100)),
+                ('site_name', models.CharField(default='Estimately.io', max_length=100)),
                 ('tagline', models.CharField(default='Market Intelligence', max_length=200)),
                 ('hero_title', models.TextField(default='Analyst-verified <span class="accent">Excel datasheets</span> for any market — starting at $20')),
                 ('hero_subtitle', models.TextField(default='13-country breakdowns, 3-level segmentation, and 10-year forecasts — validated by our research analysts and delivered to your inbox within 60 minutes.')),
@@ -101,7 +101,7 @@ class Migration(migrations.Migration):
                 ('dark_cta_text', models.TextField(default='No RFPs. No 6-week timelines. No $5,000 invoices. Download a free demo Excel right now to see the exact report structure — no payment required.')),
                 ('dark_cta_button_text', models.CharField(default='Download Free Demo Excel →', max_length=100)),
                 ('dark_cta_note', models.CharField(default='FREE DEMO INSTANTLY · FROM $20/COUNTRY · AUTO-CAPS AT $199/$299 · ANALYST-VERIFIED', max_length=300)),
-                ('footer_text', models.CharField(default='© 2026 Forecastly.io', max_length=200)),
+                ('footer_text', models.CharField(default='© 2026 Estimately.io', max_length=200)),
                 ('excel_preview_title', models.CharField(default='Global Renewable Energy Storage Market, 2025–2033 (USD Million)', max_length=200)),
             ],
             options={

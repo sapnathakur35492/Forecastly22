@@ -13,13 +13,13 @@ def generate_segmentation(request):
     if not market_name:
         return Response({"error": "Market name is required"}, status=400)
 
-    # Ensure format: "User Input Market" with professional title casing
-    market_name = market_name.title()
-    if not market_name.lower().endswith(" market"):
-        market_name = f"{market_name} Market"
-    else:
-        base = market_name[:-7].strip()
-        market_name = f"{base} Market"
+    from .services import professionalize_market_title, classify_market_domain
+    
+    # Identify domain first for accurate title professionalization
+    domain = classify_market_domain(market_name)
+    
+    # Case 1 & 2 handling: Generate Professional Title or Fallback
+    market_name = professionalize_market_title(market_name, domain)
 
     raw_text, domain, meta = generate_market_segmentation(market_name)
     parsed_json = parse_segmentation_response(raw_text)

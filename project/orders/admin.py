@@ -35,8 +35,8 @@ class OrderAdmin(admin.ModelAdmin):
             try:
                 send_mail(
                     subject=f'Your Report is Ready — {order.order_id}',
-                    message=f'Hello,\n\nYour market report "{order.report.market_name}" (Order: {order.order_id}) is ready.\n\nPlease log in to your Forecastly.io dashboard to download it.\n\nBest,\nForecastly.io Team',
-                    from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@forecastly.io'),
+                    message=f'Hello,\n\nYour market report "{order.report.market_name}" (Order: {order.order_id}) is ready.\n\nPlease log in to your Estimately.io dashboard to download it.\n\nBest,\nEstimately.io Team',
+                    from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@Estimately.io'),
                     recipient_list=[order.user.email],
                     fail_silently=True,
                 )

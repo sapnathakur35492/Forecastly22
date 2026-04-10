@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Forecastly.io - Market Intelligence Insights</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0A3D62;
-            --accent: #42A5F5;
-            --gray-50: #F8FAFC;
-            --gray-100: #F1F5F9;
-            --gray-200: #E2E8F0;
-            --gray-600: #475569;
-            --gray-800: #1E293B;
-            --white: #FFFFFF;
-        }
+{% extends "base.html" %}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FAFBFC; color: var(--gray-800); line-height: 1.6; }
-        
-        .nav { background: #fff; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 100; }
-        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
-        .brand { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .back-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: .2s; }
-        .back-link:hover { color: var(--primary); }
+{% block title %}Blog | Estimately.io - Market Intelligence Insights{% endblock %}
 
+{% block extra_css %}
         .hero { background: white; border-bottom: 1px solid var(--gray-200); padding: 4rem 2rem; text-align: center; }
         .hero-inner { max-width: 800px; margin: 0 auto; }
         .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; }
@@ -56,16 +33,9 @@
             .hero h1 { font-size: 2.2rem; }
             .blog-grid { grid-template-columns: 1fr; }
         }
-    </style>
-</head>
-<body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="/" class="brand">Forecastly.io</a>
-            <a href="/" class="back-link">Back to Home →</a>
-        </div>
-    </nav>
+{% endblock %}
 
+{% block content %}
     <header class="hero">
         <div class="hero-inner">
             <h1>Market Intelligence Blog</h1>
@@ -101,5 +71,4 @@
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -13,7 +13,7 @@ def seed_content(apps, schema_editor):
     faqs = [
         ("Can I see the report structure before paying?", "Absolutely — and you do not need to pay anything. You can download a free demo Excel instantly for any market and any package configuration. The demo contains the exact same structure, formatting, sheets, and segmentation as the paid version — just with placeholder 'xx.xx' values instead of real data. Review everything first, and purchase only when you are satisfied with the structure."),
         ("What will I receive after purchase?", "Within 60 minutes of payment, you will receive a professionally structured .xls Excel file delivered to your registered email. Before delivery, our in-house analysts review the segmentation and validate the market numbers to ensure accuracy. The file includes multiple sheets — Home, Global, Regional, and Country-level tabs with full market sizing data and segment breakdowns. Note: You can also download a free demo Excel instantly before purchasing to preview the exact structure and layout."),
-        ("Why does delivery take 60 minutes?", "Unlike auto-generated reports, every Forecastly.io report goes through a human review layer. Our in-house research analysts reconfirm the segmentation structure, cross-check data sources, and validate the market numbers before the file reaches you. This ensures you get reliable, boardroom-ready data — not just raw outputs."),
+        ("Why does delivery take 60 minutes?", "Unlike auto-generated reports, every Estimately.io report goes through a human review layer. Our in-house research analysts reconfirm the segmentation structure, cross-check data sources, and validate the market numbers before the file reaches you. This ensures you get reliable, boardroom-ready data — not just raw outputs."),
         ("Which countries are included in the base price?", "Every report includes 13 countries across 5 regions: US, Canada (North America), Germany, UK, France (Europe), China, Japan, India, South Korea (Asia-Pacific), Saudi Arabia, South Africa (MEA), Brazil, Mexico (Latin America) — plus 'Rest of' aggregates for each region. Need more countries? Add them at $10/country (Professional) or $20/country (Enterprise)."),
         ("What payment methods do you accept?", "We accept payments through Stripe (all major credit and debit cards, Apple Pay, Google Pay) and PayPal. All transactions are secure and encrypted. You will receive a payment confirmation and your unique report ID immediately after checkout. The report delivery begins right after payment is confirmed."),
         ("What if I have questions about the data after purchase?", "We stand behind every report. If you have questions about any numbers, methodology, or data points in your delivered report, simply email us at support with your report ID. Our research team will review your query and respond with clarifications, additional context, or corrections if needed — at no extra cost."),
@@ -25,7 +25,7 @@ def seed_content(apps, schema_editor):
         FAQ.objects.create(question=q, answer=a, is_active=True)
 
     site = SiteSettings.objects.get_or_create()[0]
-    site.footer_text = '© 2026 Forecastly.io · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a>'
+    site.footer_text = '© 2026 Estimately.io · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a>'
     site.save()
 
 class Migration(migrations.Migration):

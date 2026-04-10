@@ -154,7 +154,7 @@ def create_paypal_order(request):
                 },
             }],
             "application_context": {
-                "brand_name": "Forecastly.io",
+                "brand_name": "Estimately.io",
                 "landing_page": "LOGIN",
                 "user_action": "PAY_NOW",
             }
@@ -346,14 +346,14 @@ def _send_payment_success_email(order):
         f"Your payment of ${order.amount} for '{order.report.market_name}' was successful.\n"
         f"Order ID: {order.order_id}\n"
         f"Estimated Delivery: Within 60 minutes\n\n"
-        f"Best,\nForecastly.io Team"
+        f"Best,\nEstimately.io Team"
     )
 
     html_msg = f"""
     <div style="background-color:#F8FAFC;padding:20px 10px;font-family:'Inter',system-ui,sans-serif;">
         <div style="max-width:500px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);">
             <div style="background:linear-gradient(135deg,#0A3D62,#05283F);padding:25px 20px;text-align:center;">
-                <div style="font-size:22px;font-weight:800;color:#fff;">Forecastly.io</div>
+                <div style="font-size:22px;font-weight:800;color:#fff;">Estimately.io</div>
                 <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.2px;">Market Intelligence Platform</div>
             </div>
             <div style="padding:30px 25px;text-align:center;">
@@ -370,7 +370,7 @@ def _send_payment_success_email(order):
                 <p style="font-size:13px;color:#64748B;margin-top:16px;">Our analysts will review and verify the data before delivering your report.</p>
             </div>
             <div style="padding:15px 20px;background:#f8fafc;border-top:1px solid #f1f5f9;text-align:center;">
-                <p style="font-size:11px;color:#94a3b8;margin:0;"><strong>Forecastly.io © 2026</strong></p>
+                <p style="font-size:11px;color:#94a3b8;margin:0;"><strong>Estimately.io © 2026</strong></p>
             </div>
         </div>
     </div>
@@ -379,7 +379,7 @@ def _send_payment_success_email(order):
     try:
         msg = EmailMultiAlternatives(
             subject, plain_msg,
-            getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@forecastly.io'),
+            getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@Estimately.io'),
             [order.user.email]
         )
         msg.attach_alternative(html_msg, "text/html")
@@ -393,15 +393,15 @@ def _send_delivery_email(order):
     subject = f"Your Report is Ready — {order.order_id}"
     plain_msg = (
         f"Hello,\n\nYour report '{order.report.market_name}' (Order: {order.order_id}) is ready.\n"
-        f"Please log in to your Forecastly.io dashboard to download it.\n\n"
-        f"Best,\nForecastly.io Team"
+        f"Please log in to your Estimately.io dashboard to download it.\n\n"
+        f"Best,\nEstimately.io Team"
     )
 
     html_msg = f"""
     <div style="background-color:#F8FAFC;padding:20px 10px;font-family:'Inter',system-ui,sans-serif;">
         <div style="max-width:500px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);">
             <div style="background:linear-gradient(135deg,#0A3D62,#05283F);padding:25px 20px;text-align:center;">
-                <div style="font-size:22px;font-weight:800;color:#fff;">Forecastly.io</div>
+                <div style="font-size:22px;font-weight:800;color:#fff;">Estimately.io</div>
                 <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.2px;">Market Intelligence Platform</div>
             </div>
             <div style="padding:30px 25px;text-align:center;">
@@ -419,7 +419,7 @@ def _send_delivery_email(order):
                 <p style="font-size:13px;color:#64748B;">Log in to your dashboard to download your Excel report.</p>
             </div>
             <div style="padding:15px 20px;background:#f8fafc;border-top:1px solid #f1f5f9;text-align:center;">
-                <p style="font-size:11px;color:#94a3b8;margin:0;"><strong>Forecastly.io © 2026</strong></p>
+                <p style="font-size:11px;color:#94a3b8;margin:0;"><strong>Estimately.io © 2026</strong></p>
             </div>
         </div>
     </div>
@@ -428,7 +428,7 @@ def _send_delivery_email(order):
     try:
         msg = EmailMultiAlternatives(
             subject, plain_msg,
-            getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@forecastly.io'),
+            getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@Estimately.io'),
             [order.user.email]
         )
         msg.attach_alternative(html_msg, "text/html")
@@ -457,7 +457,7 @@ def _send_admin_notification(order):
                 f"Segmentation: {'Yes' if order.has_segmentation else 'No'}\n"
                 f"Global: {'Yes' if order.has_global else 'No'}\n"
             ),
-            from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@forecastly.io'),
+            from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@Estimately.io'),
             recipient_list=[admin_email],
             fail_silently=True,
         )

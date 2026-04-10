@@ -249,7 +249,7 @@ function resetGate() {
 
 var XX = "xx.xx",
     XXP = "x.x%",
-    SRC = "Source: Primary Interviews, Secondary Research, Internal Databases and Forecastly.io Research";
+    SRC = "Source: Primary Interviews, Secondary Research, Internal Databases and Estimately.io Research";
 var regionData = [];
 var PP = {
     per_country: 20,

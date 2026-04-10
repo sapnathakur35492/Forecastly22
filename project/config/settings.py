@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,7 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'forecastly-cache',
+        'LOCATION': 'estimately-cache',
         'TIMEOUT': 86400,  # 24 hours
     }
 }
@@ -162,11 +162,12 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # Admin email for notifications
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'hello@estimately.io')
 
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+# Email Configuration
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend' if DEBUG else 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
 EMAIL_USE_TLS = str(os.environ.get('EMAIL_USE_TLS', 'true')).strip().lower() in ('1', 'true', 'yes')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'hello@estimately.io')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Estimately <hello@estimately.io>')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'estimately <hello@estimately.io>')
 

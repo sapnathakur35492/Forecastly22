@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" id="meta-description" content="{% block meta_description %}Analyst-verified Excel datasheets for any market. 13-country breakdowns, 3-level segmentation, 10-year forecasts. Starting at $20. Delivered in 60 minutes.{% endblock %}">
-    <link rel="canonical" href="https://forecastly.io{{ request.path }}" />
+    <link rel="canonical" href="https://estimately.io{{ request.path }}" />
     <meta name="csrf-token" content="{{ csrf_token }}">
-    <title id="site-title">{% block title %}Forecastly.io | Market Size Estimates & Forecasts in Excel{% endblock %}</title>
+    <title id="site-title">{% block title %}estimately | Market Size Estimates & Forecasts in Excel{% endblock %}</title>
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Forecastly.io",
-      "url": "https://forecastly.io",
-      "logo": "https://forecastly.io/static/img/logo.png",
+      "name": "estimately",
+      "url": "https://estimately.io",
+      "logo": "https://estimately.io/static/img/logo.png",
       "description": "Premium market intelligence in Excel, delivered by analysts in 60 minutes.",
       "sameAs": [
-        "https://www.linkedin.com/company/forecastly-io"
+        "https://www.linkedin.com/company/estimately"
       ]
     }
     </script>
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* ORIGINAL STYLES RESTORED */
+        /* ORIGINAL STYLES RESTORED FROM DESIGN FILE */
         * { margin: 0; padding: 0; box-sizing: border-box }
         :root {
             --primary: #0A3D62; --primary-dark: #0A3D62; --accent: #42A5F5; --accent-hover: #1E88E5;
@@ -46,33 +46,33 @@
         .nav-brand { display: flex; align-items: center; gap: .75rem; cursor: pointer; text-decoration: none; }
         .nav-name { font-size: 1.25rem; font-weight: 700; color: var(--primary); letter-spacing: -.3px }
         .nav-name span { font-weight: 400; color: var(--gray-600); font-size: .8rem; margin-left: 4px }
-        .nav-menu { display: flex; align-items: center; gap: .3rem }
-        .nav-menu a { text-decoration: none; font-size: .88rem; font-weight: 500; color: var(--gray-600); padding: .5rem .8rem; border-radius: 40px; transition: .2s; cursor: pointer }
+        .nav-menu { display: flex; align-items: center; gap: .5rem }
+        .nav-menu a { text-decoration: none; font-size: .9rem; font-weight: 500; color: var(--gray-600); padding: .5rem 1rem; border-radius: 40px; transition: .2s; cursor: pointer }
         .nav-menu a:hover { background: var(--gray-100); color: var(--primary) }
-        .nav-menu .nav-cta { background: var(--primary); color: #fff; padding: .5rem 1.4rem; font-weight: 600 }
+        .nav-menu .nav-cta { background: var(--primary); color: #fff !important; padding: .5rem 1.4rem; font-weight: 600 }
         
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 310 }
         .hamburger span { width: 24px; height: 2.5px; background: var(--primary); border-radius: 2px; transition: .3s }
         .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: white; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, .1); z-index: 299; flex-direction: column; gap: .5rem; border-bottom: 2px solid var(--gray-200) }
         .mobile-menu.open { display: flex }
         .mobile-menu a { text-decoration: none; font-size: 1rem; font-weight: 600; color: var(--gray-700); padding: .8rem 1rem; border-radius: 12px; transition: .2s }
-        .mobile-menu .nav-cta { background: var(--primary); color: white; text-align: center; border-radius: 60px; font-weight: 700; padding: .8rem }
+        .mobile-menu .nav-cta { background: var(--primary); color: white !important; text-align: center; border-radius: 60px; font-weight: 700; padding: .8rem }
 
         /* Footer */
-        .footer { padding: 2.5rem 2rem; text-align: center; border-top: 1px solid var(--gray-200); font-size: .75rem; color: var(--gray-600); background: white }
+        .footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--gray-200); font-size: .75rem; color: var(--gray-600); background: white }
         .footer a { color: #42A5F5; text-decoration: none; transition: .2s }
         .footer a:hover { color: var(--primary) }
 
         {% block extra_css %}{% endblock %}
     </style>
 </head>
-
+ 
 <body>
     <nav class="nav">
         <div class="nav-inner">
             <a href="/" class="nav-brand">
-                <img src="{% static 'img/logo.png' %}" alt="Logo" style="height: 32px;">
-                <div class="nav-name">Estimately<span>| Market Intelligence</span></div>
+                <img src="{% static 'img/logo.png' %}" alt="Estimately.io" style="height: 42px;">
+                <span style="font-weight: 400; color: var(--gray-600); font-size: .85rem; margin-left: 10px; border-left: 1px solid var(--gray-200); padding-left: 10px; display: inline-flex; align-items: center; height: 32px;">Market Intelligence</span>
             </a>
             <div class="nav-menu">
                 <a href="/how-it-works/">How It Works</a>
@@ -87,7 +87,7 @@
             </div>
         </div>
     </nav>
-
+ 
     <div class="mobile-menu" id="mobileMenu">
         <a href="/how-it-works/" onclick="closeMobileMenu()">How It Works</a>
         <a href="/behind-the-numbers/" onclick="closeMobileMenu()">Behind the Numbers</a>
@@ -96,14 +96,15 @@
         <a href="/blog/" onclick="closeMobileMenu()">Blog</a>
         <a href="/builder/" class="nav-cta" onclick="closeMobileMenu()">Build Report</a>
     </div>
-
+ 
     <main>
         {% block content %}{% endblock %}
     </main>
-
+ 
     <footer class="footer">
-        © 2026 Estimately.io · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Support</a> · <a href="mailto:hello@estimately.io">hello@estimately.io</a>
+        © 2026 Estimately.io · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Support</a> · <a href="mailto:hello@Estimately.io">hello@Estimately.io</a>
     </footer>
+oter>
 
     {% csrf_token %}
 

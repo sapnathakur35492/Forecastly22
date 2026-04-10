@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Support - Estimately.io{% endblock %}
+
+{% block meta_description %}Contact Estimately.io support for help with your market intelligence reports.{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem;">
+    <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem;">Contact Support</h1>
+    <p style="font-size: 1.1rem; color: var(--gray-600); margin-bottom: 3rem;">We're here to help you with any questions
+        about your reports or our services.</p>
+
+    <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem;">Email</h3>
+            <p style="color: var(--gray-600);">hello@Estimately.io</p>
+        </div>
+
+        <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem;">Support
+                Hours</h3>
+            <p style="color: var(--gray-600);">Mon - Fri: 9AM - 6PM IST</p>
+        </div>
+
+        <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md);">
+            <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem;">Response
+                Time</h3>
+            <p style="color: var(--gray-600);">Within 24 hours</p>
+        </div>
+    </div>
+
+    <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md);">
+        <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--gray-800); margin-bottom: 1rem;">Common Topics</h2>
+        <ul style="list-style: none; padding: 0; color: var(--gray-600);">
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">• Report delivery status</li>
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">• Payment and billing inquiries
+            </li>
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">• Custom report requests</li>
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">• Technical issues with the builder
+            </li>
+            <li style="padding: 0.5rem 0;">• Partnership opportunities</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

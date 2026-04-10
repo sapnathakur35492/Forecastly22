@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='sitesettings',
             name='support_email',
-            field=models.CharField(default='support@forecastly.io', help_text='Support email displayed on dashboard', max_length=200),
+            field=models.CharField(default='support@Estimately.io', help_text='Support email displayed on dashboard', max_length=200),
         ),
         migrations.AddField(
             model_name='sitesettings',

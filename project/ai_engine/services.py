@@ -159,8 +159,14 @@ def is_garbage_input(text: str) -> bool:
     if len(t) < 3: return True
     
     # Check for purely numeric or symbol inputs
-    if not any(c.isalpha() for c in t): return True
+    clean_text = re.sub(r'[^a-zA-Z0-9]', '', t)
+    if not any(c.isalpha() for c in clean_text): return True
     
+    # Check for numeric-heavy junk (e.g., "12345 market")
+    # If the non-market part is mostly numbers
+    core_text = t.replace("market", "").strip()
+    if core_text and not any(c.isalpha() for c in core_text): return True
+
     # Check for lack of vowels in longer strings (likely random typing)
     vowels = "aeiouy"
     if len(t) > 5 and not any(v in t for v in vowels):
